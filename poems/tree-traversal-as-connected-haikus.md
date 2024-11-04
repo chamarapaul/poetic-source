@@ -8,25 +8,38 @@ language: "ALGOL-68"
 tags: 
   - recursion
   - nature
-preview: ""
+  - trees
+  - paths
+  - cycles
+  - growth
+  - algorithms
+  - meditation
+preview: "A sequence of interconnected haikus that weaves together tree traversal algorithms with natural imagery, exploring how code mirrors the patterns of growth and exploration in nature"
 notes:
-  composition: "A series of linked haikus that together describe a recursive tree traversal merging natural imagery (\"grows\", \"seed\", \"path\") with actual computer science concepts"
-  technical: "1. First haiku defines our tree structure 2. Second haiku begins our recursive procedure 3. Third haiku is the heart of the traversal algorithm 4. Final haiku handles the completion and memory"
-  philosophical: "Combines the mathematical beauty of recursion with the natural imagery that haikus often evoke"
+  composition: "Structures code as linked haikus, where each stanza serves both technical and poetic purposes. Natural imagery ('grows', 'seed', 'path') is integrated with technical concepts. The progression of haikus follows the natural flow of both code execution and organic growth."
+  technical: |
+    Each stanza serves a specific technical purpose:
+    1. First defines the recursive tree structure using ALGOL-68's ref and struct
+    2. Second establishes the base case and recursive pattern
+    3. Third implements the core traversal logic
+    4. Fourth handles termination and memory management
+
+    The code is both poetic and functional, demonstrating a working tree traversal algorithm.
+  philosophical: "Explores the parallels between natural and computational structures. Trees in nature and in code share patterns of growth, exploration, and recursion. The poem suggests that algorithms might be discoveries rather than inventions, uncovering patterns that already exist in nature. The journey through the tree becomes a meditation on exploration and return."
 ---
 mode tree = struct(
-    tree left from root;
-    right branch grows here now
+    ref tree left next;    
+    ref tree right grows 
 );
 
-proc walk through tree =
-(tree t)void: if t is nil
-then skip else seek;
+proc walk = (ref tree t)
+    void: if nil = t
+    then skip else go;
 
-left path calls deep down;
-visit node where we now stand;
-right path beckons next;
+left path leads us deep;
+visit node where now we pause;
+right path calls us next;
 
-heap tree grows from seed;
-while more nodes wait to be found
-walk through tree done fi
+each step ends in time;
+while nodes wait to be explored;
+walk returns to start

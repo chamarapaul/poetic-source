@@ -1,6 +1,7 @@
 import React from 'react';
 import { Calendar, BookOpen, Tags } from 'lucide-react';
 import { Poem } from '../lib/types';
+import CodeBlock from './CodeBlock';
 
 interface PoemDisplayProps {
   poem: Poem;
@@ -36,9 +37,11 @@ export default function PoemDisplay({ poem }: PoemDisplayProps) {
 
       {/* Poem Content */}
       <div className="p-6">
-        <pre className="bg-gray-50 p-6 rounded-lg overflow-x-auto font-mono text-sm whitespace-pre">
-          {poem.content}
-        </pre>
+        <CodeBlock 
+          code={poem.content}
+          language={poem.language}
+          showLineNumbers={true}
+        />
       </div>
 
       {/* Notes Sections */}
@@ -53,7 +56,7 @@ export default function PoemDisplay({ poem }: PoemDisplayProps) {
           {poem.notes.technical && (
             <div className="mb-6">
               <h3 className="text-lg font-semibold mb-2">Technical Notes</h3>
-              <p className="text-gray-700">{poem.notes.technical}</p>
+              <p className="text-gray-700 whitespace-pre-wrap">{poem.notes.technical}</p>
             </div>
           )}
           {poem.notes.philosophical && (

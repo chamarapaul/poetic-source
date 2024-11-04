@@ -16,9 +16,13 @@ Our collection includes various poetic forms:
 
 Written across multiple programming languages:
 - ALGOL-68
+- Ada
 - APL
 - C++
+- Go
 - JavaScript
+- Kotlin
+- SQL
 - Swift
 
 ## Getting Started
@@ -70,7 +74,7 @@ title: "Your Poem Title"
 author: "'Your Name'|'Chatbot Name'"
 date: "YYYY-MM-DDTHH:MM:SSZ"
 form: "haiku|tanka|koan|ghazal|renga|'free verse'"
-language: "'ALGOL-68'|Ada|APL|C|'C++'|Go|java|Javascript|lisp|'objective-c'|python|ruby|SQL|Swift"
+language: "'ALGOL-68'|Ada|APL|C|'C++'|Go|java|Javascript|Kotlin|lisp|'objective-c'|python|ruby|SQL|Swift"
 tags: 
   - tag1
   - tag2
@@ -103,6 +107,7 @@ Built with:
 - [Tailwind CSS](https://tailwindcss.com/) - Styling
 - [shad/ui components](https://ui.shadcn.com/) - UI Components
 - [Gray Matter](https://github.com/jonschlinkert/gray-matter) - Markdown processing
+- [Prism React Renderer](https://github.com/FormidableLabs/prism-react-renderer) - Syntax highlighting
 
 ## License
 

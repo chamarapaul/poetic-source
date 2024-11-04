@@ -48,6 +48,7 @@ export type ProgrammingLanguage =
     | 'Go'
     | 'java'
     | 'JavaScript'
+    | 'Kotlin'
     | 'lisp'
     | 'objective-c'
     | 'python'
@@ -119,6 +120,13 @@ export const languageMetadata: Record<ProgrammingLanguage, LanguageMetadata> = {
         influences: ['Self', 'Scheme', 'Java'],
         creator: 'Brendan Eich',
         description: 'Dynamic, asynchronous poetry that weaves through promise chains and closures'
+    },
+    'Kotlin': {
+        yearCreated: 2011,
+        paradigms: ['object-oriented', 'functional', 'imperative', 'structured', 'concurrent'],
+        influences: ['Java', 'Scala', 'Groovy', 'C#', 'JavaScript', 'Python'],
+        creator: 'JetBrains Team led by Andrey Breslav',
+        description: 'Where safety meets elegance, null bows to Maybe, and functions flow like verses through the stream of time'
     },
     'lisp': {
         yearCreated: 1958,

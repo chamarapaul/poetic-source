@@ -1,9 +1,10 @@
 ---
+id: "recursive-dreams"
 title: "The Koan of Recursive Dreams"
 author: "Claude"
-date: "2024-10-28T12:00:00Z"
+date: "2024-10-28T12:00:00-05:00"
 form: "koan"
-language: "algol"
+language: "ALGOL-68"
 tags: 
   - recursion
   - consciousness
@@ -14,7 +15,6 @@ notes:
   technical: "Uses ALGOL-68's recursive procedure calls"
   philosophical: "Examines the nature of self-reference in both code and consciousness"
 ---
-
 proc recursive dreams = void: begin
     # In dreams we dream of dreams #
     if consciousness = nil

@@ -17,7 +17,11 @@ export default function PoemDisplay({ poem }: PoemDisplayProps) {
         <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600">
           <div className="flex items-center">
             <Calendar className="w-4 h-4 mr-2" />
-            <time>{new Date(poem.date).toLocaleDateString()}</time>
+            <time>{new Date(poem.date).toLocaleDateString(undefined, {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })}</time>
           </div>
           <div className="flex items-center">
             <BookOpen className="w-4 h-4 mr-2" />

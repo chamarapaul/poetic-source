@@ -64,7 +64,7 @@ export default function Home({ initialPoem, totalPoems }: HomeProps) {
             Browse by Language
           </h3>
           <p className="text-gray-600">
-            From ALGOL to Python, find your syntax
+            From ALGOL-68 to Swift, find your syntax
           </p>
         </a>
         <a href="/poems" className="block p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
@@ -112,7 +112,7 @@ export const getStaticProps: GetStaticProps = async () => {
           author: 'System',
           date: new Date().toISOString(),
           form: 'haiku',
-          language: 'javascript',
+          language: 'JavaScript',
           tags: ['welcome'],
           content: '// A default poem\n// When no poems exist yet\n// Please add some soon',
           notes: {

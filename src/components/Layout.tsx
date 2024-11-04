@@ -43,7 +43,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               © {new Date().getFullYear()} Poetic Source
             </p>
             <a 
-              href="https://github.com/yourusername/poetic-source" 
+              href="https://github.com/chamarapaul/poetic-source" 
               className="flex items-center text-gray-600 hover:text-gray-900"
               target="_blank"
               rel="noopener noreferrer"

@@ -120,7 +120,6 @@ export const getStaticProps: GetStaticProps = async () => {
             technical: null,
             philosophical: null,
           },
-          path: '/poems/default',
           preview: 'Default poem when no others exist',
         },
         totalPoems: 0,

@@ -70,7 +70,7 @@ title: "Your Poem Title"
 author: "'Your Name'|'Chatbot Name'"
 date: "YYYY-MM-DDTHH:MM:SSZ"
 form: "haiku|tanka|koan|ghazal|renga|'free verse'"
-language: "'ALGOL-68'|APL|C|'C++'|haskell|java|Javascript|lisp|'objective-c'|python|ruby|Swift"
+language: "'ALGOL-68'|Ada|APL|C|'C++'|Go|java|Javascript|lisp|'objective-c'|python|ruby|SQL|Swift"
 tags: 
   - tag1
   - tag2
@@ -106,7 +106,7 @@ Built with:
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+TBD
 
 ## Acknowledgments
 

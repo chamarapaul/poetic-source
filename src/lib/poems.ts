@@ -3,12 +3,12 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { 
+  PoemForm,
+  formDescriptions, 
   Poem, 
-  PoemForm, 
   ProgrammingLanguage, 
   CategorySummary,
-  formDescriptions,
-  languageDescriptions
+  getLanguageDescriptions
 } from './types';
 
 const poemsDirectory = path.join(process.cwd(), 'poems');
@@ -66,7 +66,6 @@ export function getPoemBySlug(slug: string): Poem | null {
           technical: data.notes?.technical || null,
           philosophical: data.notes?.philosophical || null,
         },
-        path: `/poems/${realSlug}`,
         preview: data.preview || '',
       };
     } catch (error) {
@@ -101,7 +100,6 @@ export function getRandomPoem(): Poem {
       tags: ['welcome'],
       content: '// A default poem\n// When no poems exist yet\n// Please add some soon',
       notes: {},
-      path: '/poems/default',
       preview: 'Default poem when no others exist',
     };
   
@@ -157,13 +155,14 @@ export function getPoemsByLanguage(language: string): Poem[] {
 export function getLanguageCategories(): CategorySummary[] {
   const allPoems = getAllPoems();
   const languages = new Set(allPoems.map(poem => poem.language));
+  const descriptions = getLanguageDescriptions();
   
   return Array.from(languages).map(language => {
     const poemsInLanguage = allPoems.filter(poem => poem.language === language);
     return {
       name: language,
       count: poemsInLanguage.length,
-      description: languageDescriptions[language as ProgrammingLanguage],
+      description: descriptions[language as ProgrammingLanguage],
       poems: poemsInLanguage
     };
   });

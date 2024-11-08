@@ -1,6 +1,8 @@
+// components/PoemDisplay.tsx
 import React from 'react';
-import { Calendar, BookOpen, Tags } from 'lucide-react';
-import { Poem } from '../lib/types';
+import { Calendar, ScrollText, Code, Tags } from 'lucide-react';
+import Link from 'next/link';
+import { Poem, getFormDisplayName, getLanguageDisplayName } from '../lib/types';
 import CodeBlock from './CodeBlock';
 
 interface PoemDisplayProps {
@@ -16,17 +18,31 @@ export default function PoemDisplay({ poem }: PoemDisplayProps) {
           {poem.title}
         </h2>
         <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600">
-          <div className="flex items-center">
+          {/* <div className="flex items-center">
             <Calendar className="w-4 h-4 mr-2" />
             <time>{new Date(poem.date).toLocaleDateString(undefined, {
               year: 'numeric',
               month: 'long',
               day: 'numeric'
             })}</time>
+          </div> */}
+          <div className="flex items-center group">
+            <ScrollText className="w-4 h-4 mr-2" />
+            <Link 
+              href={`/forms/${poem.form}`}
+              className="hover:text-blue-600 transition-colors"
+            >
+              {getFormDisplayName(poem.form)}
+            </Link>
           </div>
-          <div className="flex items-center">
-            <BookOpen className="w-4 h-4 mr-2" />
-            <span>{poem.language}</span>
+          <div className="flex items-center group">
+            <Code className="w-4 h-4 mr-2" />
+            <Link
+              href={`/languages/${poem.language}`}
+              className="hover:text-blue-600 transition-colors"
+            >
+              {getLanguageDisplayName(poem.language)}
+            </Link>
           </div>
           <div className="flex items-center">
             <Tags className="w-4 h-4 mr-2" />

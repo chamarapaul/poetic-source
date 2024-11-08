@@ -1,45 +1,43 @@
 // pages/poems/index.tsx
 import React from 'react';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
-import { Code, ScrollText } from 'lucide-react';
 import Link from 'next/link';
 import { getAllPoems } from '../../lib/poems';
-import type { Poem } from '../../lib/types';
+import { Poem, getFormDisplayName, getLanguageDisplayName } from '../../lib/types';
 import Layout from '../../components/Layout';
 
 interface BrowsePageProps {
-  recentPoems: Poem[];
+  poems: Poem[];
 }
 
-const BrowsePage = ({ recentPoems }: BrowsePageProps) => {
+const BrowsePage = ({ poems }: BrowsePageProps) => {
   return (
     <Layout>
       <div className="container mx-auto px-4 py-8">
         <div className="mb-12">
-          <h1 className="text-3xl font-bold mb-2">Latest Additions</h1>
-          <p className="text-gray-600">Recently added poems</p>
+          <h1 className="text-3xl font-bold mb-4">Latest Additions</h1>
+          <p className="text-gray-600 max-w-3xl">
+            Explore recently added poems.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {recentPoems.map((poem) => (
-            <Card key={poem.id} className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle>{poem.title}</CardTitle>
-                <CardDescription className="flex items-center gap-4">
-                  <span className="flex items-center">
-                    <ScrollText className="w-4 h-4 mr-1" />
-                    {poem.form}
-                  </span>
-                  <span className="flex items-center">
-                    <Code className="w-4 h-4 mr-1" />
-                    {poem.language}
-                  </span>
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4 line-clamp-2">{poem.preview}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {poem.tags.map((tag) => (
+        <div className="space-y-4">
+          {poems.map(poem => (
+            <Link
+              key={poem.id}
+              href={`/poems/${poem.id}`}
+              className="block bg-white p-4 rounded-lg border hover:shadow-md transition-shadow"
+            >
+              <div className="flex items-start justify-between">
+                <div>
+                  <h4 className="font-medium text-gray-900 hover:text-blue-600 transition-colors">
+                    {poem.title}
+                  </h4>
+                  <p className="text-sm text-gray-500 mt-1">
+                    {getFormDisplayName(poem.form)} in {getLanguageDisplayName(poem.language)}
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-2 justify-end">
+                  {poem.tags.slice(0, 3).map(tag => (
                     <span
                       key={tag}
                       className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded"
@@ -48,14 +46,11 @@ const BrowsePage = ({ recentPoems }: BrowsePageProps) => {
                     </span>
                   ))}
                 </div>
-                <Link 
-                  href={`/poems/${poem.id}`}
-                  className="text-blue-600 hover:text-blue-800 font-medium"
-                >
-                  Read poem →
-                </Link>
-              </CardContent>
-            </Card>
+              </div>
+              <p className="text-sm text-gray-600 mt-2">
+                {poem.preview}
+              </p>
+            </Link>
           ))}
         </div>
 
@@ -84,13 +79,21 @@ const BrowsePage = ({ recentPoems }: BrowsePageProps) => {
 export async function getStaticProps() {
   try {
     const allPoems = getAllPoems();
-    const recentPoems = allPoems
-      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-      .slice(0, 6); // Show latest 6 poems
+    // Sort by date, newest first
+    const sortedPoems = allPoems.sort((a, b) => 
+      new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
 
     return {
       props: {
-        recentPoems,
+        poems: sortedPoems.map(poem => ({
+          ...poem,
+          notes: {
+            composition: poem.notes.composition || null,
+            technical: poem.notes.technical || null,
+            philosophical: poem.notes.philosophical || null
+          }
+        }))
       },
       revalidate: 3600,
     };
@@ -98,7 +101,7 @@ export async function getStaticProps() {
     console.error('Error in getStaticProps:', error);
     return {
       props: {
-        recentPoems: [],
+        poems: [],
       },
       revalidate: 3600,
     };

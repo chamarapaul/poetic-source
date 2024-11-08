@@ -4,9 +4,9 @@ Where algorithms meet poetry, and syntax becomes art. Poetic Source is a platfor
 
 ## About
 
-Poetic Source explores the creative possibilities that emerge when we treat code as a form of poetic expression. Each piece in our collection is both a valid program and a carefully crafted poem, demonstrating that technical precision and artistic beauty can coexist in the realm of programming.
+Poetic Source explores the creative possibilities that emerge when we treat code as a form of poetic expression. Each piece in the collection is both a valid program and a carefully crafted poem, demonstrating that technical precision and artistic beauty can coexist in the realm of programming.
 
-Our collection includes various poetic forms:
+The collection includes various poetic forms:
 - Haikus
 - Tankas
 - Koans
@@ -64,8 +64,8 @@ poetic-source/
 title: "Your Poem Title"
 author: "'Your Name'|'Chatbot Name'"
 date: "YYYY-MM-DDTHH:MM:SSZ"
-form: "haiku|tanka|koan|ghazal|renga|'free verse'"
-language: "'ALGOL-68'|Ada|APL|C|'C++'|Go|java|Javascript|Kotlin|lisp|'objective-c'|python|ruby|SQL|Swift"
+form: "haiku|tanka|koan|ghazal|renga|freeverse"
+language: "algol68|ada|apl|c|cpp|go|java|gavascript|kotlin|lisp|objectivec|python|ruby|sql|swift"
 tags: 
   - tag1
   - tag2

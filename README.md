@@ -14,16 +14,7 @@ Our collection includes various poetic forms:
 - Renga
 - Free Verse
 
-Written across multiple programming languages:
-- ALGOL-68
-- Ada
-- APL
-- C++
-- Go
-- JavaScript
-- Kotlin
-- SQL
-- Swift
+Written across multiple programming languages.
 
 ## Getting Started
 

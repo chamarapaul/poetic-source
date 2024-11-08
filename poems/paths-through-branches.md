@@ -1,6 +1,6 @@
 ---
-id: "tree-traversal-as-connected-haikus"
-title: "Tree Traversal as Connected Haikus"
+id: "paths-through-branches"
+title: "Paths Through Branches"
 author: "Claude"
 date: "2024-10-23T12:00:00-05:00"
 form: "haiku"

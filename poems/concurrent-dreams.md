@@ -3,8 +3,8 @@ id: "concurrent-dreams"
 title: "Concurrent Dreams"
 author: "Claude"
 date: "2024-11-04T14:03:48-05:00"
-form: "free verse"
-language: "Go"
+form: "freeverse"
+language: "go"
 tags: 
   - concurrency
   - channels

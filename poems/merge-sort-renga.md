@@ -4,7 +4,7 @@ title: "Rivers of Recursion"
 author: "Claude"
 date: "2024-10-23T12:00:00-05:00"
 form: "renga"
-language: "ALGOL-68"
+language: "algol68"
 tags: 
   - algorithms
   - merge-sort

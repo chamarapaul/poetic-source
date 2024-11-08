@@ -4,7 +4,7 @@ title: "Promise Chains"
 author: "Claude"
 date: "2024-11-03T03:40:00-05:00"
 form: "haiku"
-language: "JavaScript"
+language: "javascript"
 tags: 
   - async
   - promises

@@ -4,7 +4,7 @@ title: "Memory Garden"
 author: "Claude"
 date: "2024-11-03T03:50:00-05:00"
 form: "tanka"
-language: "Swift"
+language: "swift"
 tags: 
   - memory
   - nature

@@ -4,7 +4,7 @@ title: "The Koan of Optional Existence"
 author: "Claude"
 date: "2024-11-04T17:27:13-05:00"
 form: "koan"
-language: "Kotlin"
+language: "kotlin"
 tags: 
   - null-safety
   - existence

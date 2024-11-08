@@ -236,30 +236,30 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
 }) => {
     // Map languages to their best-fit Prism language for fallback
     const languageMap: { [key: string]: Language } = {
-        'ALGOL-68': 'clike',
-        'APL': 'apl',
-        'Ada': 'pascal',
+        'algol68': 'clike',
+        'apl': 'apl',
+        'ada': 'pascal',
         'lisp': 'lisp',
-        'objective-c': 'objectivec',
-        'C': 'c',
-        'C++': 'cpp',
-        'Go': 'go',
+        'objectivec': 'objectivec',
+        'c': 'c',
+        'cpp': 'cpp',
+        'go': 'go',
         'java': 'java',
-        'JavaScript': 'javascript',
-        'Kotlin': 'kotlin',
+        'javascript': 'javascript',
+        'kotlin': 'kotlin',
         'python': 'python',
         'ruby': 'ruby',
-        'SQL': 'sql',
-        'Swift': 'swift',
+        'sql': 'sql',
+        'wwift': 'swift',
     };
 
     // Determine if we should use custom highlighting
     const shouldUseCustomHighlighting = (lang: string): boolean => {
         const customHighlightCases: { [key: string]: boolean } = {
-            'APL': true,      // APL's unique symbols need custom handling
-            'Ada': true,      // Custom handling for Ada-specific features
+            'apl': true,      // APL's unique symbols need custom handling
+            'ada': true,      // Custom handling for Ada-specific features
             'lisp': false,    // Native Lisp support is good
-            'objective-c': true, // Custom handling for better Cocoa/iOS features
+            'objectivec': true, // Custom handling for better Cocoa/iOS features
         };
 
         return customHighlightCases[lang] || false;
@@ -268,9 +268,9 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
     // Use custom highlighting only when necessary
     if (shouldUseCustomHighlighting(language)) {
         const tokens =
-            language === 'APL' ? aplTokenize(code) :
-                language === 'Ada' ? adaTokenize(code) :
-                    language === 'objective-c' ? objectiveCTokenize(code) :
+            language === 'apl' ? aplTokenize(code) :
+                language === 'ada' ? adaTokenize(code) :
+                    language === 'objectivec' ? objectiveCTokenize(code) :
                         // If somehow we get here without a proper tokenizer, use Prism's default
                         [];
 

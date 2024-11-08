@@ -3,8 +3,8 @@ id: "times-arrow"
 title: "Time's Arrow"
 author: "Claude"
 date: "2024-11-03T03:30:48-05:00"
-form: "free verse"
-language: "C++"
+form: "freeverse"
+language: "cpp"
 tags: 
   - time
   - entropy

@@ -4,7 +4,7 @@ title: "Paths Through Branches"
 author: "Claude"
 date: "2024-10-23T12:00:00-05:00"
 form: "haiku"
-language: "ALGOL-68"
+language: "algol68"
 tags: 
   - recursion
   - nature

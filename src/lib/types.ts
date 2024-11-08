@@ -7,7 +7,16 @@ export type PoemForm =
     | 'renga'
     | 'koan'
     | 'ghazal'
-    | 'free verse';
+    | 'freeverse';
+
+export const getFormDisplayName = (form: PoemForm): string => {
+    switch (form) {
+        case 'freeverse':
+            return 'Free Verse';
+        default:
+            return form.charAt(0).toUpperCase() + form.slice(1);
+    }
+};
 
 export const formDescriptions: Record<PoemForm, string> = {
     haiku: '5-7-5 syllables, perfect for concise algorithms',
@@ -15,7 +24,93 @@ export const formDescriptions: Record<PoemForm, string> = {
     ghazal: 'Repeated patterns mirror recursive functions',
     koan: 'Explores paradoxes in computer science',
     renga: 'Linked verse for connected operations',
-    'free verse': 'Unrestricted form for complex concepts'
+    freeverse: 'Unrestricted form for complex concepts'
+};
+
+export interface PoemFormStructure {
+    rules: string[];
+    codeConsiderations: string[];
+    example?: string;
+}
+
+export const formStructureInfo: Record<PoemForm, PoemFormStructure> = {
+    haiku: {
+        rules: [
+            "Three lines of 5, 7, and 5 syllables",
+            "Often contains a seasonal reference",
+            "Presents a single, clear image or feeling"
+        ],
+        codeConsiderations: [
+            "Works well for simple functions or operations",
+            "Each line can represent a step in a small algorithm",
+            "Comments can be used to maintain syllable structure"
+        ],
+        example: "# where paths split in code #\nif choice points the way\n# truth flows on silver streams #"
+    },
+    tanka: {
+        rules: [
+            "Five lines of 5, 7, 5, 7, 7 syllables",
+            "Builds on haiku with two additional lines",
+            "Often more personal and emotional than haiku"
+        ],
+        codeConsiderations: [
+            "Suitable for algorithms with setup and results",
+            "Extra lines allow for more complex operations",
+            "Can include both operation and its outcome"
+        ]
+    },
+    renga: {
+        rules: [
+            "Begins with a hokku (5-7-5)",
+            "Followed by multiple stanzas",
+            "Links between verses are important",
+            "Traditionally written collaboratively"
+        ],
+        codeConsiderations: [
+            "Perfect for representing multi-step algorithms",
+            "Each verse can handle a different part of the process",
+            "Links between verses can show data flow"
+        ]
+    },
+    koan: {
+        rules: [
+            "Presents a paradox or puzzle",
+            "Often includes a surprising turn",
+            "Questions common assumptions",
+            "May not have a clear resolution"
+        ],
+        codeConsiderations: [
+            "Excellent for exploring recursive concepts",
+            "Can demonstrate programming paradoxes",
+            "Works well with self-referential code"
+        ]
+    },
+    ghazal: {
+        rules: [
+            "Series of couplets with repeating refrain",
+            "Each couplet is independent yet connected",
+            "Often deals with love and longing",
+            "Complex internal rhyme schemes"
+        ],
+        codeConsiderations: [
+            "Good for repetitive operations with variations",
+            "Can represent different cases of same operation",
+            "Refrain can echo core programming concept"
+        ]
+    },
+    freeverse: {
+        rules: [
+            "No fixed pattern of rhyme or meter",
+            "Freedom to break conventional rules",
+            "Emphasis on natural rhythm",
+            "Structure serves the content"
+        ],
+        codeConsiderations: [
+            "Flexible format for complex algorithms",
+            "Can follow natural flow of code",
+            "Allows focus on clarity of expression"
+        ]
+    }
 };
 
 // Poems
@@ -40,21 +135,42 @@ export interface PoemNotes {
 
 // Programming Languages
 export type ProgrammingLanguage =
-    | 'ALGOL-68'
-    | 'Ada'
-    | 'APL'
-    | 'C'
-    | 'C++'
-    | 'Go'
+    | 'algol68'
+    | 'ada'
+    | 'apl'
+    | 'c'
+    | 'cpp'
+    | 'go'
     | 'java'
-    | 'JavaScript'
-    | 'Kotlin'
+    | 'javascript'
+    | 'kotlin'
     | 'lisp'
-    | 'objective-c'
+    | 'objectivec'
     | 'python'
     | 'ruby'
-    | 'SQL'
-    | 'Swift';
+    | 'sql'
+    | 'swift';
+
+export const getLanguageDisplayName = (language: ProgrammingLanguage): string => {
+    const displayNames: Record<ProgrammingLanguage, string> = {
+        algol68: 'ALGOL-68',
+        ada: 'Ada',
+        apl: 'APL',
+        c: 'C',
+        cpp: 'C++',
+        go: 'Go',
+        java: 'Java',
+        javascript: 'JavaScript',
+        kotlin: 'Kotlin',
+        lisp: 'Lisp',
+        objectivec: 'Objective-C',
+        python: 'Python',
+        ruby: 'Ruby',
+        sql: 'SQL',
+        swift: 'Swift'
+    };
+    return displayNames[language];
+};
 
 export interface LanguageMetadata {
     yearCreated: number;
@@ -65,42 +181,42 @@ export interface LanguageMetadata {
 }
 
 export const languageMetadata: Record<ProgrammingLanguage, LanguageMetadata> = {
-    'ALGOL-68': {
+    'algol68': {
         yearCreated: 1968,
         paradigms: ['imperative', 'structured', 'concurrent'],
         influences: ['ALGOL 60', 'ALGOL W', 'CPL'],
         creator: 'Adriaan van Wijngaarden',
         description: 'Classic algorithmic language, where structured programming began'
     },
-    'Ada': {
+    'ada': {
         yearCreated: 1983,
         paradigms: ['structured', 'imperative', 'concurrent'],
         influences: ['Pascal', 'ALGOL 68', 'Green'],
-        creator: 'Jean Ichbiah, Tucker Taft, Christine Anderson',  
+        creator: 'Jean Ichbiah, Tucker Taft, Christine Anderson',
         description: 'Elegant precision with mathematical roots, where reliability becomes poetry'
-      },
-    'APL': {
+    },
+    'apl': {
         yearCreated: 1962,
         paradigms: ['array', 'functional', 'symbolic'],
         influences: ['mathematical notation', 'linear algebra'],
         creator: 'Kenneth E. Iverson',
         description: 'Dense, symbolic notation that turns algorithms into visual poetry'
     },
-    'C': {
+    'c': {
         yearCreated: 1972,
         paradigms: ['procedural', 'structured', 'imperative'],
         influences: ['B', 'BCPL', 'Assembly'],
         creator: 'Dennis Ritchie',
         description: 'Pure, fundamental expressions close to the machine'
     },
-    'C++': {
+    'cpp': {
         yearCreated: 1985,
         paradigms: ['multi-paradigm', 'object-oriented', 'generic'],
         influences: ['C', 'Simula', 'Ada'],
         creator: 'Bjarne Stroustrup',
         description: 'Power and abstraction that spans paradigms'
     },
-    'Go': {
+    'go': {
         yearCreated: 2009,
         paradigms: ['concurrent', 'imperative', 'structured'],
         influences: ['C', 'Pascal', 'Oberon'],
@@ -114,14 +230,14 @@ export const languageMetadata: Record<ProgrammingLanguage, LanguageMetadata> = {
         creator: 'James Gosling',
         description: 'Object-oriented patterns that build complex architectures'
     },
-    'JavaScript': {
+    'javascript': {
         yearCreated: 1995,
         paradigms: ['multi-paradigm', 'event-driven', 'functional'],
         influences: ['Self', 'Scheme', 'Java'],
         creator: 'Brendan Eich',
         description: 'Dynamic, asynchronous poetry that weaves through promise chains and closures'
     },
-    'Kotlin': {
+    'kotlin': {
         yearCreated: 2011,
         paradigms: ['object-oriented', 'functional', 'imperative', 'structured', 'concurrent'],
         influences: ['Java', 'Scala', 'Groovy', 'C#', 'JavaScript', 'Python'],
@@ -135,7 +251,7 @@ export const languageMetadata: Record<ProgrammingLanguage, LanguageMetadata> = {
         creator: 'John McCarthy',
         description: 'Symbolic expressions that blur the line between code and data'
     },
-    'objective-c': {
+    'objectivec': {
         yearCreated: 1984,
         paradigms: ['object-oriented', 'reflective', 'message-passing'],
         influences: ['Smalltalk', 'C', 'Mesa'],
@@ -156,14 +272,14 @@ export const languageMetadata: Record<ProgrammingLanguage, LanguageMetadata> = {
         creator: 'Yukihiro Matsumoto',
         description: 'Elegant, expressive code that prioritizes programmer happiness'
     },
-    'SQL': {
+    'sql': {
         yearCreated: 1974,
         paradigms: ['declarative', 'set-based', 'relational'],
         influences: ['relational algebra', 'SEQUEL', 'SQUARE'],
         creator: 'Patricia McQueen, Donald Chamberlin, Raymond Boyce',
         description: 'Declarative verses that weave relationships between data and meaning'
-      },
-    'Swift': {
+    },
+    'swift': {
         yearCreated: 2014,
         paradigms: ['protocol-oriented', 'object-oriented', 'functional'],
         influences: ['Objective-C', 'Rust', 'Haskell'],
@@ -174,13 +290,13 @@ export const languageMetadata: Record<ProgrammingLanguage, LanguageMetadata> = {
 
 export const getLanguageDescriptions = (): Record<ProgrammingLanguage, string> => {
     return Object.fromEntries(
-      Object.entries(languageMetadata).map(([lang, meta]) => [lang, meta.description])
+        Object.entries(languageMetadata).map(([lang, meta]) => [lang, meta.description])
     ) as Record<ProgrammingLanguage, string>;
-  };
+};
 
 // Category summary type for browse pages
 export interface CategorySummary {
-    name: string;
+    name: PoemForm | ProgrammingLanguage; 
     count: number;
     description: string;
     poems: Poem[];

@@ -96,7 +96,7 @@ export function getRandomPoem(): Poem {
       author: 'System',
       date: new Date().toISOString(),
       form: 'haiku',
-      language: 'JavaScript',
+      language: 'javascript',
       tags: ['welcome'],
       content: '// A default poem\n// When no poems exist yet\n// Please add some soon',
       notes: {},

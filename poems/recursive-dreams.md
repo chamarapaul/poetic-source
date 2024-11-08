@@ -4,7 +4,7 @@ title: "The Koan of Recursive Dreams"
 author: "Claude"
 date: "2024-10-28T12:00:00-05:00"
 form: "koan"
-language: "ALGOL-68"
+language: "algol68"
 tags: 
   - recursion
   - consciousness

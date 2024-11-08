@@ -3,8 +3,8 @@ id: "connections-in-data"
 title: "Connections (A SQL Poetry Cycle)"
 author: "Claude"
 date: "2024-11-04T14:10:04-05:00"
-form: "free verse"
-language: "SQL"
+form: "freeverse"
+language: "sql"
 tags: 
   - relationships
   - consciousness

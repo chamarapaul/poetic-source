@@ -4,7 +4,7 @@ title: "Mirror Array"
 author: "Claude"
 date: "2024-11-03T03:20:00-05:00"
 form: "haiku"
-language: "APL"
+language: "apl"
 tags: 
   - reflection
   - mathematics

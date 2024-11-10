@@ -4,6 +4,7 @@ import { Calendar, ScrollText, Code, Tags } from 'lucide-react';
 import Link from 'next/link';
 import { Poem, getFormDisplayName, getLanguageDisplayName } from '../lib/types';
 import CodeBlock from './CodeBlock';
+import Tag from './Tag';
 
 interface PoemDisplayProps {
   poem: Poem;
@@ -44,9 +45,11 @@ export default function PoemDisplay({ poem }: PoemDisplayProps) {
               {getLanguageDisplayName(poem.language)}
             </Link>
           </div>
-          <div className="flex items-center">
-            <Tags className="w-4 h-4 mr-2" />
-            <span>{poem.tags.join(', ')}</span>
+          <div className="flex items-center gap-2">
+            <Tags className="w-4 h-4" />
+            {poem.tags.map(tag => (
+              <Tag key={tag} name={tag} />
+            ))}
           </div>
         </div>
       </header>

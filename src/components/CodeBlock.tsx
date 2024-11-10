@@ -144,6 +144,47 @@ function adaTokenize(code: string): Token[][] {
     });
 }
 
+// Add Befunge tokenizer
+function befungeTokenize(code: string): Token[][] {
+    const patterns: [RegExp, TokenType][] = [
+        [/#.*$/, 'comment'],
+        [/[<>v^]/, 'operator'],     // Directional operators
+        [/[+\-*\/%!`]/, 'operator'], // Arithmetic operators
+        [/[:\\$.]/, 'operator'],     // Stack operators
+        [/"[^"]*"/, 'string'],      // String mode
+        [/[0-9]/, 'number'],        // Numbers
+        [/@/, 'keyword'],           // Program end
+        [/[pg]/, 'function'],       // Get/put value
+        [/[&~]/, 'builtin'],        // I/O operations
+    ];
+
+    return code.split('\n').map(line => {
+        const tokens: Token[] = [];
+        let pos = 0;
+
+        while (pos < line.length) {
+            const slice = line.slice(pos);
+            const nextToken = findNextToken(slice, patterns);
+
+            if (nextToken) {
+                tokens.push({
+                    content: nextToken.match,
+                    type: nextToken.type
+                });
+                pos += nextToken.length;
+            } else {
+                tokens.push({
+                    content: line[pos],
+                    type: 'plain'
+                });
+                pos += 1;
+            }
+        }
+
+        return tokens;
+    });
+}
+
 // Custom syntax rules for Lisp
 function lispTokenize(code: string): Token[][] {
     const patterns: [RegExp, TokenType][] = [
@@ -239,6 +280,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
         'algol68': 'clike',
         'apl': 'apl',
         'ada': 'pascal',
+        'befunge': 'plaintext',
         'lisp': 'lisp',
         'objectivec': 'objectivec',
         'c': 'c',
@@ -250,7 +292,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
         'python': 'python',
         'ruby': 'ruby',
         'sql': 'sql',
-        'wwift': 'swift',
+        'swift': 'swift',
     };
 
     // Determine if we should use custom highlighting
@@ -258,6 +300,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
         const customHighlightCases: { [key: string]: boolean } = {
             'apl': true,      // APL's unique symbols need custom handling
             'ada': true,      // Custom handling for Ada-specific features
+            'befunge': true,  // Support for directional characters and operations
             'lisp': false,    // Native Lisp support is good
             'objectivec': true, // Custom handling for better Cocoa/iOS features
         };
@@ -270,9 +313,10 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
         const tokens =
             language === 'apl' ? aplTokenize(code) :
                 language === 'ada' ? adaTokenize(code) :
-                    language === 'objectivec' ? objectiveCTokenize(code) :
-                        // If somehow we get here without a proper tokenizer, use Prism's default
-                        [];
+                    language === 'befunge' ? befungeTokenize(code) :
+                        language === 'objectivec' ? objectiveCTokenize(code) :
+                            // If somehow we get here without a proper tokenizer, use Prism's default
+                            [];
 
         // Only render custom highlighting if we got tokens
         if (tokens.length > 0) {

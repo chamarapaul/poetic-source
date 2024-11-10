@@ -138,6 +138,7 @@ export type ProgrammingLanguage =
     | 'algol68'
     | 'ada'
     | 'apl'
+    | 'befunge'
     | 'c'
     | 'cpp'
     | 'go'
@@ -156,6 +157,7 @@ export const getLanguageDisplayName = (language: ProgrammingLanguage): string =>
         algol68: 'ALGOL-68',
         ada: 'Ada',
         apl: 'APL',
+        befunge: "Befunge",
         c: 'C',
         cpp: 'C++',
         go: 'Go',
@@ -201,6 +203,13 @@ export const languageMetadata: Record<ProgrammingLanguage, LanguageMetadata> = {
         influences: ['mathematical notation', 'linear algebra'],
         creator: 'Kenneth E. Iverson',
         description: 'Dense, symbolic notation that turns algorithms into visual poetry'
+    },
+    'befunge': {
+        yearCreated: 1993,
+        paradigms: ['stack-based', 'two-dimensional', 'reflective'],
+        influences: ['Forth', 'Brainfuck'],
+        creator: 'Chris Pressey',
+        description: 'A two-dimensional language where code flows in multiple directions, creating visual patterns that are both executable and aesthetically meaningful'
     },
     'c': {
         yearCreated: 1972,
@@ -296,7 +305,7 @@ export const getLanguageDescriptions = (): Record<ProgrammingLanguage, string> =
 
 // Category summary type for browse pages
 export interface CategorySummary {
-    name: PoemForm | ProgrammingLanguage; 
+    name: PoemForm | ProgrammingLanguage;
     count: number;
     description: string;
     poems: Poem[];

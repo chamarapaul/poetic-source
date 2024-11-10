@@ -1,23 +1,28 @@
 // pages/languages/[language].tsx
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { Calendar, Code, GitBranch } from 'lucide-react';
-import Link from 'next/link';
+import { Calendar, GitBranch } from 'lucide-react';
 import Layout from '../../components/Layout';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { getPoemsByLanguage } from '../../lib/poems';
 import { 
   ProgrammingLanguage, 
   languageMetadata, 
-  Poem, 
-  getFormDisplayName, 
+  Poem,
   getLanguageDisplayName 
 } from '../../lib/types';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import PoemList from '../../components/PoemList';
 
 interface LanguagePageProps {
   language: ProgrammingLanguage;
-  metadata: typeof languageMetadata[ProgrammingLanguage];
   poems: Poem[];
+  metadata: {
+    yearCreated: number;
+    paradigms: string[];
+    influences: string[];
+    creator: string;
+    description: string;
+  };
 }
 
 export default function LanguagePage({ language, metadata, poems }: LanguagePageProps) {
@@ -77,102 +82,62 @@ export default function LanguagePage({ language, metadata, poems }: LanguagePage
         </div>
 
         {/* Poems List */}
-        <div className="space-y-4">
-          {poems.map(poem => (
-            <Link
-              key={poem.id}
-              href={`/poems/${poem.id}?from=languages&context=${language}`}
-              className="block bg-white p-4 rounded-lg border hover:shadow-md transition-shadow"
-            >
-              <div className="flex items-start justify-between">
-                <div>
-                  <h4 className="font-medium text-gray-900 hover:text-blue-600 transition-colors">
-                    {poem.title}
-                  </h4>
-                  <p className="text-sm text-gray-500 mt-1">
-                    {getFormDisplayName(poem.form)}
-                  </p>
-                </div>
-                <div className="flex flex-wrap gap-2 justify-end">
-                  {poem.tags.slice(0, 3).map(tag => (
-                    <span
-                      key={tag}
-                      className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <p className="text-sm text-gray-600 mt-2 line-clamp-2">
-                {poem.preview}
-              </p>
-            </Link>
-          ))}
-        </div>
+        <PoemList 
+          poems={poems}
+          contextType="languages"
+          contextValue={language}
+        />
       </div>
     </Layout>
   );
 }
 
-// ... rest of the file (getStaticPaths and getStaticProps) remains the same ...
-
 export const getStaticPaths: GetStaticPaths = async () => {
-    // Get all language keys from the metadata
-    const languages = Object.keys(languageMetadata);
+  const languages = Object.keys(languageMetadata) as ProgrammingLanguage[];
+  
+  const paths = languages.map((language) => ({
+    params: { language }
+  }));
 
-    const paths = languages.map((language) => ({
-        params: { language: language.toLowerCase() }
-    }));
-
-    return {
-        paths,
-        fallback: false
-    };
+  return {
+    paths,
+    fallback: false
+  };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-    try {
-        // Find the correct casing from our defined language types
-        const languageParam = params?.language as string;
-        const correctLanguage = Object.keys(languageMetadata).find(
-            lang => lang.toLowerCase() === languageParam.toLowerCase()
-        ) as ProgrammingLanguage;
+  try {
+    const language = params?.language as ProgrammingLanguage;
+    const poems = getPoemsByLanguage(language);
+    const metadata = languageMetadata[language];
 
-        if (!correctLanguage) {
-            return {
-                notFound: true // This will show the 404 page
-            };
-        }
-
-        const poems = getPoemsByLanguage(correctLanguage);
-        const metadata = languageMetadata[correctLanguage];
-
-        return {
-            props: {
-                language: correctLanguage,
-                metadata: {
-                    yearCreated: metadata.yearCreated,
-                    paradigms: metadata.paradigms,
-                    influences: metadata.influences,
-                    creator: metadata.creator,
-                    description: metadata.description
-                },
-                poems: poems.map(poem => ({
-                    ...poem,
-                    notes: {
-                        composition: poem.notes.composition || null,
-                        technical: poem.notes.technical || null,
-                        philosophical: poem.notes.philosophical || null
-                    }
-                }))
-            },
-            revalidate: 3600
-        };
-    } catch (error) {
-        console.error('Error in getStaticProps:', error);
-        return {
-            notFound: true
-        };
+    if (!metadata) {
+      return { notFound: true };
     }
+
+    return {
+      props: {
+        language,
+        metadata: {
+          yearCreated: metadata.yearCreated,
+          paradigms: metadata.paradigms,
+          influences: metadata.influences,
+          creator: metadata.creator,
+          description: metadata.description
+        },
+        poems: poems.map(poem => ({
+          ...poem,
+          notes: {
+            composition: poem.notes.composition || null,
+            technical: poem.notes.technical || null,
+            philosophical: poem.notes.philosophical || null
+          }
+        }))
+      },
+      revalidate: 3600
+    };
+  } catch (error) {
+    console.error('Error in getStaticProps:', error);
+    return { notFound: true };
+  }
 };

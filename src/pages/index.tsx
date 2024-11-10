@@ -9,10 +9,9 @@ import { Poem } from '../lib/types';
 
 interface HomeProps {
   initialPoem: Poem;
-  totalPoems: number;
 }
 
-export default function Home({ initialPoem, totalPoems }: HomeProps) {
+export default function Home({ initialPoem }: HomeProps) {
   const [currentPoem, setCurrentPoem] = useState<Poem>(initialPoem);
 
   const loadNewPoem = async () => {
@@ -27,9 +26,6 @@ export default function Home({ initialPoem, totalPoems }: HomeProps) {
         </h1>
         <p className="text-xl text-gray-600">
           Where algorithms meet poetry, and syntax becomes art
-        </p>
-        <p className="text-sm text-gray-500 mt-2">
-          Exploring {totalPoems} poems across multiple languages and forms
         </p>
       </div>
 
@@ -85,9 +81,6 @@ export const getStaticProps: GetStaticProps = async () => {
     console.log('Getting random poem...');
     const initialPoem = poemUtils.getRandomPoem();
     console.log('Initial poem:', JSON.stringify(initialPoem, null, 2));
-    
-    const allPoems = poemUtils.getAllPoems();
-    console.log('Total poems found:', allPoems.length);
 
     // Verify all required fields are present
     if (!initialPoem.title || !initialPoem.author || !initialPoem.date) {
@@ -96,8 +89,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
     return {
       props: {
-        initialPoem,
-        totalPoems: allPoems.length,
+        initialPoem
       },
       revalidate: 3600,
     };
@@ -122,7 +114,6 @@ export const getStaticProps: GetStaticProps = async () => {
           },
           preview: 'Default poem when no others exist',
         },
-        totalPoems: 0,
       },
       revalidate: 3600,
     };

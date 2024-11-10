@@ -2,10 +2,10 @@
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { Hash } from 'lucide-react';
-import { getAllPoems } from '../../lib/poems';
-import { Poem } from '../../lib/types';
-import Layout from '../../components/Layout';
-import PoemList from '../../components/PoemList';
+import { getAllPoems } from '@/lib/poems';
+import { Poem } from '@/lib/types';
+import Layout from '@/components/Layout';
+import PoemList from '@/components/PoemList';
 
 interface TagPageProps {
   poems: Poem[];
@@ -18,7 +18,7 @@ const TagPage: React.FC<TagPageProps> = ({ poems, tag }) => {
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <div className="flex items-center mb-4">
-            <Hash className="h-6 w-6 text-blue-500 mr-2" />
+            {/* <Hash className="h-6 w-6 text-blue-500 mr-2" /> */}
             <h1 className="text-3xl font-bold">#{tag}</h1>
           </div>
           

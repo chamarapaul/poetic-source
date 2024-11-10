@@ -1,17 +1,18 @@
 // pages/forms/[form].tsx
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import Layout from '../../components/Layout';
+import { ListTree, Code } from 'lucide-react';
+import Layout from '@/components/Layout';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { getPoemsByForm } from '../../lib/poems';
-import { 
-  PoemForm, 
-  formDescriptions, 
+import { getPoemsByForm } from '@/lib/poems';
+import {
+  PoemForm,
+  formDescriptions,
   formStructureInfo,
-  Poem, 
+  Poem,
   getFormDisplayName,
-} from '../../lib/types';
-import PoemList from '../../components/PoemList';
+} from '@/lib/types';
+import PoemList from '@/components/PoemList';
 
 interface FormPageProps {
   poems: Poem[];
@@ -22,7 +23,7 @@ export default function FormPage({ poems, form }: FormPageProps) {
   const formInfo = formStructureInfo[form];
   const displayName = getFormDisplayName(form);
   const description = formDescriptions[form];
-  
+
   return (
     <Layout>
       <div className="container mx-auto px-4 py-8">
@@ -43,7 +44,10 @@ export default function FormPage({ poems, form }: FormPageProps) {
           <div className="grid md:grid-cols-2 gap-6 mb-12">
             <Card>
               <CardHeader>
-                <CardTitle>Structure</CardTitle>
+                <CardTitle className="flex items-center">
+                  <ListTree className="w-5 h-5 mr-2" />
+                  Structure
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2">
@@ -59,7 +63,10 @@ export default function FormPage({ poems, form }: FormPageProps) {
 
             <Card>
               <CardHeader>
-                <CardTitle>Code Considerations</CardTitle>
+                <CardTitle className="flex items-center">
+                  <Code className="w-5 h-5 mr-2" />
+                  Code Considerations
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2">
@@ -96,9 +103,9 @@ export default function FormPage({ poems, form }: FormPageProps) {
           <h2 className="text-2xl font-semibold mb-6">
             {displayName} Poems
           </h2>
-          
-          <PoemList 
-            poems={poems} 
+
+          <PoemList
+            poems={poems}
             contextType="forms"
             contextValue={form}
           />
@@ -110,7 +117,7 @@ export default function FormPage({ poems, form }: FormPageProps) {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const forms: PoemForm[] = ['haiku', 'tanka', 'renga', 'koan', 'ghazal', 'freeverse'];
-  
+
   const paths = forms.map((form) => ({
     params: { form }
   }));

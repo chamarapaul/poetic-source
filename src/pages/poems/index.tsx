@@ -1,10 +1,10 @@
 // pages/poems/index.tsx
 import React from 'react';
 import Link from 'next/link';
-import { getAllPoems } from '../../lib/poems';
-import { Poem } from '../../lib/types';
-import Layout from '../../components/Layout';
-import PoemList from '../../components/PoemList';
+import { getAllPoems } from '@/lib/poems';
+import { Poem } from '@/lib/types';
+import Layout from '@/components/Layout';
+import PoemList from '@/components/PoemList';
 
 interface BrowsePageProps {
   poems: Poem[];

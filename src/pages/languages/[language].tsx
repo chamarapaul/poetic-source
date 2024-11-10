@@ -1,17 +1,17 @@
 // pages/languages/[language].tsx
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { Calendar, GitBranch } from 'lucide-react';
-import Layout from '../../components/Layout';
+import { FileClock, Box } from 'lucide-react';
+import Layout from '@/components/Layout';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { getPoemsByLanguage } from '../../lib/poems';
+import { getPoemsByLanguage } from '@/lib/poems';
 import { 
   ProgrammingLanguage, 
   languageMetadata, 
   Poem,
   getLanguageDisplayName 
-} from '../../lib/types';
-import PoemList from '../../components/PoemList';
+} from '@/lib/types';
+import PoemList from '@/components/PoemList';
 
 interface LanguagePageProps {
   language: ProgrammingLanguage;
@@ -46,7 +46,7 @@ export default function LanguagePage({ language, metadata, poems }: LanguagePage
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center">
-                <Calendar className="w-5 h-5 mr-2" />
+                <FileClock className="w-5 h-5 mr-2" />
                 History
               </CardTitle>
             </CardHeader>
@@ -62,7 +62,7 @@ export default function LanguagePage({ language, metadata, poems }: LanguagePage
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center">
-                <GitBranch className="w-5 h-5 mr-2" />
+                <Box className="w-5 h-5 mr-2" />
                 Paradigms
               </CardTitle>
             </CardHeader>

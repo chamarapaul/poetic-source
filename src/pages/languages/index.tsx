@@ -3,10 +3,10 @@ import React from 'react';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { getLanguageCategories } from '../../lib/poems';
-import type { CategorySummary, ProgrammingLanguage } from '../../lib/types';
-import { getLanguageDisplayName } from '../../lib/types';
-import Layout from '../../components/Layout';
+import { getLanguageCategories } from '@/lib/poems';
+import type { CategorySummary, ProgrammingLanguage } from '@/lib/types';
+import { getLanguageDisplayName } from '@/lib/types';
+import Layout from '@/components/Layout';
 
 interface LanguagesPageProps {
     languageCategories: CategorySummary[];

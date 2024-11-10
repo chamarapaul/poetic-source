@@ -3,10 +3,10 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import Layout from '../../components/Layout';
-import PoemDisplay from '../../components/PoemDisplay';
-import { getAllPoems, getPoemBySlug } from '../../lib/poems';
-import { Poem, getFormDisplayName, getLanguageDisplayName } from '../../lib/types';
+import Layout from '@/components/Layout';
+import PoemDisplay from '@/components/PoemDisplay';
+import { getAllPoems, getPoemBySlug } from '@/lib/poems';
+import { Poem, getFormDisplayName, getLanguageDisplayName } from '@/lib/types';
 
 interface PoemPageProps {
   poem: Poem;

@@ -3,10 +3,10 @@ import React from 'react';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { getFormCategories } from '../../lib/poems';
-import type { CategorySummary, PoemForm } from '../../lib/types';
-import { getFormDisplayName } from '../../lib/types';
-import Layout from '../../components/Layout';
+import { getFormCategories } from '@/lib/poems';
+import type { CategorySummary, PoemForm } from '@/lib/types';
+import { getFormDisplayName } from '@/lib/types';
+import Layout from '@/components/Layout';
 
 interface FormsPageProps {
     formCategories: CategorySummary[];

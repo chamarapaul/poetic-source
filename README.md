@@ -99,6 +99,8 @@ Built with:
 - [shad/ui components](https://ui.shadcn.com/) - UI Components
 - [Gray Matter](https://github.com/jonschlinkert/gray-matter) - Markdown processing
 - [Prism React Renderer](https://github.com/FormidableLabs/prism-react-renderer) - Syntax highlighting
+- [Claude AI](https://www.anthropic.com) - AI Assistance in code poem generation and site development
+
 
 ## License
 

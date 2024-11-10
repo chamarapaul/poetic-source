@@ -174,6 +174,68 @@ export const getLanguageDisplayName = (language: ProgrammingLanguage): string =>
     return displayNames[language];
 };
 
+export type PoeticGroup = 
+  | 'Visual Expression'
+  | 'Natural Flow'
+  | 'Structured Elegance'
+  | 'Symbolic Patterns'
+  | 'Modern Synthesis'
+  | 'System Dialogues';
+
+export interface PoeticCharacteristic {
+  group: PoeticGroup;
+  color: string;
+}
+
+export const poeticGroupMetadata: Record<PoeticGroup, {
+  description: string;
+  features: string[];
+}> = {
+  'Visual Expression': {
+    description: 'Languages where spatial arrangement and visual patterns form part of the poetic expression',
+    features: ['Unique symbols', 'Spatial layouts', 'Visual patterns']
+  },
+  'Natural Flow': {
+    description: 'Languages designed for readability that naturally lend themselves to poetic expression',
+    features: ['Readable syntax', 'Expressive structures', 'Fluid composition']
+  },
+  'Structured Elegance': {
+    description: 'Languages where formal structure and strong typing create poetic constraints',
+    features: ['Formal patterns', 'Type-based metaphors', 'Structured composition']
+  },
+  'Symbolic Patterns': {
+    description: 'Languages that excel at pattern manipulation and symbolic transformation',
+    features: ['Pattern matching', 'Symbolic processing', 'Declarative expression']
+  },
+  'Modern Synthesis': {
+    description: 'Contemporary languages that blend multiple paradigms for flexible poetic expression',
+    features: ['Mixed paradigms', 'Modern syntax', 'Flexible structures']
+  },
+  'System Dialogues': {
+    description: 'Languages that create poetry through direct interaction with system concepts',
+    features: ['Memory metaphors', 'Hardware poetry', 'System interactions']
+  }
+};
+
+export const poeticCharacteristics: Record<ProgrammingLanguage, PoeticCharacteristic> = {
+    'ada': { group: 'Structured Elegance', color: 'bg-emerald-50 text-emerald-700' },
+    'algol68': { group: 'Structured Elegance', color: 'bg-emerald-50 text-emerald-700' },
+    'apl': { group: 'Visual Expression', color: 'bg-purple-50 text-purple-700' },
+    'befunge': { group: 'Visual Expression', color: 'bg-purple-50 text-purple-700' },
+    'c': { group: 'System Dialogues', color: 'bg-red-50 text-red-700' },
+    'cpp': { group: 'System Dialogues', color: 'bg-red-50 text-red-700' },
+    'go': { group: 'Modern Synthesis', color: 'bg-indigo-50 text-indigo-700' },
+    'java': { group: 'Structured Elegance', color: 'bg-emerald-50 text-emerald-700' },
+    'javascript': { group: 'Modern Synthesis', color: 'bg-indigo-50 text-indigo-700' },
+    'kotlin': { group: 'Natural Flow', color: 'bg-blue-50 text-blue-700' },
+    'lisp': { group: 'Symbolic Patterns', color: 'bg-amber-50 text-amber-700' },
+    'objectivec': { group: 'System Dialogues', color: 'bg-red-50 text-red-700' },
+    'python': { group: 'Natural Flow', color: 'bg-blue-50 text-blue-700' },
+    'ruby': { group: 'Natural Flow', color: 'bg-blue-50 text-blue-700' },
+    'sql': { group: 'Symbolic Patterns', color: 'bg-amber-50 text-amber-700' },
+    'swift': { group: 'Modern Synthesis', color: 'bg-indigo-50 text-indigo-700' },
+};
+
 export interface LanguageMetadata {
     yearCreated: number;
     paradigms: string[];

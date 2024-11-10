@@ -1,6 +1,6 @@
 // pages/about.tsx
 import React from 'react';
-import { ScrollText, Code, GitBranch, BookOpen } from 'lucide-react';
+import { ScrollText, Code, BookOpen, Cpu } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import Layout from '../components/Layout';
 
@@ -80,7 +80,7 @@ export default function AboutPage() {
                         <Card>
                             <CardHeader>
                                 <CardTitle className="flex items-center">
-                                    <GitBranch className="w-5 h-5 mr-2" />
+                                    <Cpu className="w-5 h-5 mr-2" />
                                     AI Collaboration
                                 </CardTitle>
                             </CardHeader>

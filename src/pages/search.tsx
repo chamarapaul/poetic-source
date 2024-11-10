@@ -4,8 +4,9 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { getAllPoems } from '../lib/poems';
 import { searchPoems } from '../lib/search';
-import { Poem, getFormDisplayName, getLanguageDisplayName } from '../lib/types';
+import { Poem } from '../lib/types';
 import Layout from '../components/Layout';
+import PoemList from '../components/PoemList';
 
 interface SearchPageProps {
   poems: Poem[];
@@ -21,7 +22,7 @@ const SearchPage: React.FC<SearchPageProps> = ({ poems }) => {
   return (
     <Layout>
       <div className="container mx-auto px-4 py-8">
-        <div className="mb-12">
+        <div className="mb-8">
           <h1 className="text-3xl font-bold mb-4">Search Results</h1>
           <p className="text-gray-600">
             {searchResults.length} {searchResults.length === 1 ? 'poem' : 'poems'} found
@@ -42,39 +43,11 @@ const SearchPage: React.FC<SearchPageProps> = ({ poems }) => {
             </Link>
           </div>
         ) : (
-          <div className="space-y-4">
-            {searchResults.map(poem => (
-              <Link
-                key={poem.id}
-                href={`/poems/${poem.id}`}
-                className="block bg-white p-4 rounded-lg border hover:shadow-md transition-shadow"
-              >
-                <div className="flex items-start justify-between">
-                  <div>
-                    <h4 className="font-medium text-gray-900 hover:text-blue-600 transition-colors">
-                      {poem.title}
-                    </h4>
-                    <p className="text-sm text-gray-500 mt-1">
-                      {getFormDisplayName(poem.form)} in {getLanguageDisplayName(poem.language)}
-                    </p>
-                  </div>
-                  <div className="flex flex-wrap gap-2 justify-end">
-                    {poem.tags.map(tag => (
-                      <span
-                        key={tag}
-                        className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <p className="text-sm text-gray-600 mt-2">
-                  {poem.preview}
-                </p>
-              </Link>
-            ))}
-          </div>
+          <PoemList 
+            poems={searchResults}
+            contextType="search"
+            contextValue={searchTerm}
+          />
         )}
       </div>
     </Layout>

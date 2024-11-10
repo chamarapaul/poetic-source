@@ -6,7 +6,7 @@ import Tag from './Tag';
 
 interface PoemListProps {
   poems: Poem[];
-  contextType?: 'forms' | 'languages' | 'tags';
+  contextType?: 'forms' | 'languages' | 'tags' | 'search';
   contextValue?: string;
 }
 

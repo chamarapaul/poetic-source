@@ -12,7 +12,7 @@ interface HomeProps {
 }
 
 export default function Home({ initialPoem }: HomeProps) {
-  const [currentPoem, setCurrentPoem] = useState<Poem>(initialPoem);
+  const [currentPoem] = useState<Poem>(initialPoem);
 
   const loadNewPoem = async () => {
     window.location.reload();

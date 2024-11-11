@@ -1,7 +1,8 @@
 // components/PoemList.tsx
 import React from 'react';
 import Link from 'next/link';
-import { Poem, getFormDisplayName, getLanguageDisplayName } from '../lib/types';
+import { Poem } from '../lib/types';
+import { getFormDisplayName, getLanguageDisplayName } from '../lib/cache';
 import Tag from './Tag';
 
 interface PoemListProps {

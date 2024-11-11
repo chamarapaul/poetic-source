@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { getLanguageCategories } from '@/lib/poems';
 import type { CategorySummary, ProgrammingLanguage } from '@/lib/types';
-import { getLanguageDisplayName } from '@/lib/types';
+import { getLanguageDisplayName } from '@/lib/cache';
 import Layout from '@/components/Layout';
 
 interface LanguagesPageProps {

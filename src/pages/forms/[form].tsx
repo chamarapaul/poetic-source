@@ -9,9 +9,9 @@ import {
   PoemForm,
   formDescriptions,
   formStructureInfo,
-  Poem,
-  getFormDisplayName,
+  Poem
 } from '@/lib/types';
+import { getFormDisplayName } from '@/lib/cache';
 import PoemList from '@/components/PoemList';
 
 interface FormPageProps {

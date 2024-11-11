@@ -7,9 +7,9 @@ import {
   formDescriptions, 
   Poem, 
   ProgrammingLanguage, 
-  CategorySummary,
-  getLanguageDescriptions
+  CategorySummary
 } from './types';
+import { getLanguageDescriptions } from './cache';
 
 const poemsDirectory = path.join(process.cwd(), 'poems');
 

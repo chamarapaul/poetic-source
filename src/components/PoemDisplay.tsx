@@ -2,7 +2,8 @@
 import React from 'react';
 import { Calendar, ScrollText, Code, Tags } from 'lucide-react';
 import Link from 'next/link';
-import { Poem, getFormDisplayName, getLanguageDisplayName } from '../lib/types';
+import { Poem } from '../lib/types';
+import { getFormDisplayName, getLanguageDisplayName } from '../lib/cache';
 import CodeBlock from './CodeBlock';
 import Tag from './Tag';
 
@@ -69,7 +70,7 @@ export default function PoemDisplay({ poem }: PoemDisplayProps) {
           {poem.notes.composition && (
             <div className="mb-6">
               <h3 className="text-lg font-semibold mb-2">Composition Notes</h3>
-              <p className="text-gray-700">{poem.notes.composition}</p>
+              <p className="text-gray-700 whitespace-pre-wrap">{poem.notes.composition}</p>
             </div>
           )}
           {poem.notes.technical && (
@@ -81,7 +82,7 @@ export default function PoemDisplay({ poem }: PoemDisplayProps) {
           {poem.notes.philosophical && (
             <div>
               <h3 className="text-lg font-semibold mb-2">Philosophical Notes</h3>
-              <p className="text-gray-700">{poem.notes.philosophical}</p>
+              <p className="text-gray-700 whitespace-pre-wrap">{poem.notes.philosophical}</p>
             </div>
           )}
         </div>

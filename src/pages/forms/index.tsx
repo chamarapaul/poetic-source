@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { getFormCategories } from '@/lib/poems';
 import type { CategorySummary, PoemForm } from '@/lib/types';
-import { getFormDisplayName } from '@/lib/types';
+import { getFormDisplayName } from '@/lib/cache';
 import Layout from '@/components/Layout';
 
 interface FormsPageProps {

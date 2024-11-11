@@ -27,14 +27,14 @@ const BrowsePage = ({ poems, totalPoems }: BrowsePageProps) => {
         <div className="mt-12 text-center">
           <p className="text-gray-600 mb-6">Looking for something specific?</p>
           <div className="flex justify-center gap-4">
-            <Link 
-              href="/forms" 
+            <Link
+              href="/forms"
               className="inline-block bg-white text-gray-800 px-6 py-3 rounded-lg border hover:bg-gray-50 transition-colors"
             >
               Browse by Form
             </Link>
-            <Link 
-              href="/languages" 
+            <Link
+              href="/languages"
               className="inline-block bg-white text-gray-800 px-6 py-3 rounded-lg border hover:bg-gray-50 transition-colors"
             >
               Browse by Language
@@ -49,9 +49,9 @@ const BrowsePage = ({ poems, totalPoems }: BrowsePageProps) => {
 export async function getStaticProps() {
   try {
     const allPoems = getAllPoems();
-    
+
     // Sort by date, newest first
-    const sortedPoems = allPoems.sort((a, b) => 
+    const sortedPoems = allPoems.sort((a, b) =>
       new Date(b.date).getTime() - new Date(a.date).getTime()
     );
 

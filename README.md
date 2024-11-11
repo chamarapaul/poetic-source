@@ -6,15 +6,29 @@ Where algorithms meet poetry, and syntax becomes art. Poetic Source is a platfor
 
 Poetic Source explores the creative possibilities that emerge when we treat code as a form of poetic expression. Each piece in the collection is both a valid program and a carefully crafted poem, demonstrating that technical precision and artistic beauty can coexist in the realm of programming.
 
-The collection includes various poetic forms:
-- Haikus
-- Tankas
-- Koans
-- Ghazals
-- Renga
-- Free Verse
+## Features
 
-Written across multiple programming languages.
+The collection includes various poetic forms:
+  - Haikus (5-7-5 syllables)
+  - Tankas (5-7-5-7-7 syllables)
+  - Koans (paradoxical puzzles)
+  - Ghazals (repeated patterns)
+  - Renga (linked verse)
+  - Free Verse
+
+Written across multiple programming languages:
+  - Modern Synthesis: Swift, Go, JavaScript
+  - Natural Flow: Python, Ruby, Kotlin
+  - Structured Elegance: ALGOL-68, Ada, Java
+  - Visual Expression: APL, Befunge
+  - System Dialogues: C, C++, Objective-C
+  - Symbolic Patterns: Lisp, SQL
+
+Each poem includes:
+  - Composition notes
+  - Technical explanations
+  - Philosophical insights
+  - Language-specific context
 
 ## Getting Started
 
@@ -56,11 +70,23 @@ poetic-source/
 └── public/          # Static assets
 ```
 
+## Contributing
+
+We welcome contributions! If you'd like to add your own code poetry:
+
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/new-poem`)
+3. Add your poem as a markdown file in the `poems` directory
+4. Commit your changes (`git commit -am 'Add new poem'`)
+5. Push to the branch (`git push origin feature/new-poem`)
+6. Create a Pull Request
+
 ## Adding a New Poem
 
 1. Create a new markdown file in the `poems` directory:
 ```markdown
 ---
+id: "uniquePoemId"
 title: "Your Poem Title"
 author: "'Your Name'|'Chatbot Name'"
 date: "YYYY-MM-DDTHH:MM:SSZ"
@@ -80,35 +106,33 @@ Your code poem here...
 
 2. The poem will automatically appear in the collection and be available for viewing.
 
-## Contributing
+## Running Tests
 
-We welcome contributions! If you'd like to add your own code poetry:
-
-1. Fork the repository
-2. Create a new branch (`git checkout -b feature/new-poem`)
-3. Add your poem as a markdown file in the `poems` directory
-4. Commit your changes (`git commit -am 'Add new poem'`)
-5. Push to the branch (`git push origin feature/new-poem`)
-6. Create a Pull Request
+```bash
+npm test           # Run all tests
+npm test:watch    # Run tests in watch mode
+```
 
 ## Technical Details
 
 Built with:
 - [Next.js](https://nextjs.org/) - React framework
+- [Typescript](https://www.typescriptlang.org/) - Type safety
 - [Tailwind CSS](https://tailwindcss.com/) - Styling
 - [shad/ui components](https://ui.shadcn.com/) - UI Components
 - [Gray Matter](https://github.com/jonschlinkert/gray-matter) - Markdown processing
 - [Prism React Renderer](https://github.com/FormidableLabs/prism-react-renderer) - Syntax highlighting
-- [Claude AI](https://www.anthropic.com) - AI Assistance in code poem generation and site development
-
+- [Jest](https://jestjs.io/) - Testing
 
 ## License
 
 TBD
 
+
 ## Acknowledgments
 
 - Inspired by the intersection of code and poetry
+- Built with assistance from [Claude AI](https://www.anthropic.com) - AI Assistance in code poem generation and site development
 
 ---
 

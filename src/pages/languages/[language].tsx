@@ -56,28 +56,28 @@ export default function LanguagePage({ language, metadata, poems }: LanguagePage
             </Card>
   
             <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center">
-                  <Box className="w-5 h-5 mr-2" />
-                  Paradigms
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2">
-                  {metadata.paradigms.map((paradigm) => (
-                    <li 
-                      key={paradigm}
-                      className="flex items-center py-1.5"
-                    >
-                      <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-3" />
-                      <span className="capitalize text-gray-700">
-                        {paradigm.split('-').join(' ')}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
+            <CardHeader>
+              <CardTitle className="flex items-center">
+                <Box className="w-5 h-5 mr-2" />
+                Paradigms
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2">
+                {metadata.paradigms.map((paradigm, index) => (
+                  <li 
+                    key={index} 
+                    className="flex items-start"
+                  >
+                    <span className="font-medium mr-2">•</span>
+                    <span className="capitalize">
+                      {paradigm.split('-').join(' ')}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
           </div>
   
           {/* Poems List */}

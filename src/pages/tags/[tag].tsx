@@ -5,7 +5,7 @@ import { Hash } from 'lucide-react';
 import { getAllPoems } from '@/lib/poems';
 import { Poem } from '@/lib/types';
 import Layout from '@/components/Layout';
-import PoemList from '@/components/PoemList';
+import PaginatedPoemList from '@/components/PaginatedPoemList';
 
 interface TagPageProps {
   poems: Poem[];
@@ -27,7 +27,7 @@ const TagPage: React.FC<TagPageProps> = ({ poems, tag }) => {
           </p>
         </div>
 
-        <PoemList 
+        <PaginatedPoemList 
           poems={poems}
           contextType="tags"
           contextValue={tag}

@@ -83,41 +83,48 @@ export default function PoemPage({ poem }: PoemPageProps) {
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const poems = getAllPoems();
-
-    const paths = poems.map((poem) => ({
-        params: { id: poem.id }
-    }));
-
+    
     return {
-        paths,
-        fallback: false
+      paths: poems.map((poem) => ({
+        params: { id: poem.id }
+      })),
+      fallback: false
     };
-};
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+  };
+  
+  export const getStaticProps: GetStaticProps = async ({ params }) => {
     try {
-        const id = params?.id as string;
-        const poem = getPoemBySlug(id);
-
-        if (!poem) {
-            return { notFound: true };
-        }
-
-        return {
-            props: {
-                poem: {
-                    ...poem,
-                    notes: {
-                        composition: poem.notes.composition || null,
-                        technical: poem.notes.technical || null,
-                        philosophical: poem.notes.philosophical || null
-                    }
-                }
-            },
-            revalidate: 3600
-        };
-    } catch (error) {
-        console.error('Error in getStaticProps:', error);
+      // First get all poems to find the language
+      const allPoems = getAllPoems();
+      const poemInfo = allPoems.find(p => p.id === params?.id);
+  
+      if (!poemInfo) {
+        console.log(`No poem found with id: ${params?.id}`);
         return { notFound: true };
+      }
+  
+      // Now we can get the full poem with its language
+      const poem = getPoemBySlug(params?.id as string, poemInfo.language);
+  
+      if (!poem) {
+        return { notFound: true };
+      }
+  
+      return {
+        props: {
+          poem: {
+            ...poem,
+            notes: {
+              composition: poem.notes.composition || null,
+              technical: poem.notes.technical || null,
+              philosophical: poem.notes.philosophical || null
+            }
+          }
+        },
+        revalidate: 3600
+      };
+    } catch (error) {
+      console.error('Error in getStaticProps:', error);
+      return { notFound: true };
     }
-};
+  };

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { getAllPoems } from '@/lib/poems';
 import { Poem } from '@/lib/types';
 import Layout from '@/components/Layout';
-import PoemList from '@/components/PoemList';
+import PaginatedPoemList from '@/components/PaginatedPoemList';
 
 interface BrowsePageProps {
   poems: Poem[];
@@ -22,7 +22,7 @@ const BrowsePage = ({ poems, totalPoems }: BrowsePageProps) => {
           </p>
         </div>
 
-        <PoemList poems={poems} />
+        <PaginatedPoemList poems={poems} />
 
         <div className="mt-12 text-center">
           <p className="text-gray-600 mb-6">Looking for something specific?</p>

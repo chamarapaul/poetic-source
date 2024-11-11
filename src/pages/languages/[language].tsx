@@ -7,7 +7,7 @@ import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { getPoemsByLanguage } from '@/lib/poems';
 import { ProgrammingLanguage, languageMetadata, Poem } from '@/lib/types';
 import { getLanguageDisplayName } from '@/lib/cache';
-import PoemList from '@/components/PoemList';
+import PaginatedPoemList from '@/components/PaginatedPoemList';
 
 interface LanguagePageProps {
   language: ProgrammingLanguage;
@@ -81,7 +81,7 @@ export default function LanguagePage({ language, metadata, poems }: LanguagePage
           </div>
   
           {/* Poems List */}
-          <PoemList 
+          <PaginatedPoemList 
             poems={poems}
             contextType="languages"
             contextValue={language}

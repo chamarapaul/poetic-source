@@ -6,7 +6,7 @@ import { getAllPoems } from '../lib/poems';
 import { searchPoems } from '../lib/search';
 import { Poem } from '../lib/types';
 import Layout from '../components/Layout';
-import PoemList from '../components/PoemList';
+import PaginatedPoemList from '../components/PaginatedPoemList';
 
 interface SearchPageProps {
   poems: Poem[];
@@ -43,7 +43,7 @@ const SearchPage: React.FC<SearchPageProps> = ({ poems }) => {
             </Link>
           </div>
         ) : (
-          <PoemList 
+          <PaginatedPoemList 
             poems={searchResults}
             contextType="search"
             contextValue={searchTerm}

@@ -12,7 +12,7 @@ import {
   Poem
 } from '@/lib/types';
 import { getFormDisplayName } from '@/lib/cache';
-import PoemList from '@/components/PoemList';
+import PaginatedPoemList from '@/components/PaginatedPoemList';
 
 interface FormPageProps {
   poems: Poem[];
@@ -104,7 +104,7 @@ export default function FormPage({ poems, form }: FormPageProps) {
             {displayName} Poems
           </h2>
 
-          <PoemList
+          <PaginatedPoemList
             poems={poems}
             contextType="forms"
             contextValue={form}

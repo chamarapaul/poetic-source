@@ -2,7 +2,7 @@
 import React from 'react';
 import { ScrollText, Code, BookOpen, Cpu } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import Layout from '../components/Layout';
+import Layout from '@/components/Layout';
 
 export default function AboutPage() {
     return (

@@ -2,11 +2,11 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { getAllPoems } from '../lib/poems';
-import { searchPoems } from '../lib/search';
-import { Poem } from '../lib/types';
-import Layout from '../components/Layout';
-import PaginatedPoemList from '../components/PaginatedPoemList';
+import { getAllPoems } from '@/lib/poems';
+import { searchPoems } from '@/lib/search';
+import { Poem } from '@/lib/types';
+import Layout from '@/components/Layout';
+import PaginatedPoemList from '@/components/PaginatedPoemList';
 
 interface SearchPageProps {
   poems: Poem[];

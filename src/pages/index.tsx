@@ -1,121 +1,161 @@
 // pages/index.tsx
 import { GetStaticProps } from 'next';
-import { useState } from 'react';
-import { Shuffle } from 'lucide-react';
-import Layout from '../components/Layout';
-import PoemDisplay from '../components/PoemDisplay';
-import * as poemUtils from '../lib/poems';
-import { Poem } from '../lib/types';
+import Link from 'next/link';
+import { ScrollText, Code, Calendar, Tags, ArrowRight } from 'lucide-react';
+import Layout from '@/components/Layout';
+import Tag from '@/components/Tag';
+import { getCurrentFeaturedPoem } from '@/lib/curation';
+import { getPoemBySlug, getAllPoems } from '@/lib/poems';
+import { getFormDisplayName, getLanguageDisplayName } from '@/lib/cache';
+import { Poem } from '@/lib/types';
+import PoemDisplay from '@/components/PoemDisplay';
 
-interface HomeProps {
-  initialPoem: Poem;
+interface HomePageProps {
+  featuredPoem: Poem;
+  recentPoems: Poem[];
 }
 
-export default function Home({ initialPoem }: HomeProps) {
-  const [currentPoem] = useState<Poem>(initialPoem);
-
-  const loadNewPoem = async () => {
-    window.location.reload();
-  };
-
+export default function Home({ featuredPoem, recentPoems }: HomePageProps) {
   return (
     <Layout>
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          Poetic Source
-        </h1>
-        <p className="text-xl text-gray-600">
-          Where algorithms meet poetry, and syntax becomes art
-        </p>
-      </div>
+      {/* Hero Section - removed extra text */}
+      <section className="py-8 px-4 text-center">
+        <div className="max-w-2xl mx-auto">
+          <h1 className="text-5xl font-bold text-gray-900 mb-4">
+            Poetic Source
+          </h1>
+          <p className="text-xl text-gray-600 mb-6">
+            Where algorithms meet artistic expression
+          </p>
+          <Link 
+            href="/about"
+            className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            Learn More About Code Poetry
+            <ArrowRight className="w-4 h-4 ml-2" />
+          </Link>
+        </div>
+      </section>
 
-      <div className="mb-12">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900">
+      {/* Rest of the sections remain the same */}
+      <section className="pt-4 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">
             Featured Poem
           </h2>
-          <button 
-            onClick={loadNewPoem}
-            className="flex items-center text-blue-600 hover:text-blue-700"
-          >
-            <Shuffle className="w-5 h-5 mr-2" />
-            Discover Another
-          </button>
+          <PoemDisplay poem={featuredPoem} variant="featured" />
         </div>
+      </section>
 
-        <PoemDisplay poem={currentPoem} />
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <a href="/forms" className="block p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">
-            Browse by Form
-          </h3>
-          <p className="text-gray-600">
-            Explore haikus, tankas, koans, and more
-          </p>
-        </a>
-        <a href="/languages" className="block p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">
-            Browse by Language
-          </h3>
-          <p className="text-gray-600">
-            From ALGOL-68 to Swift, find your syntax
-          </p>
-        </a>
-        <a href="/poems" className="block p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">
-            Latest Additions
-          </h3>
-          <p className="text-gray-600">
-            Discover newly compiled verses
-          </p>
-        </a>
-      </div>
+      {/* Latest Additions */}
+      <section className="py-8 px-4 bg-gray-50">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex justify-between items-center mb-6">
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-2">
+                Latest Additions
+              </h2>
+              <p className="text-gray-600">
+                Recently compiled verses in our collection
+              </p>
+            </div>
+            <Link 
+              href="/poems"
+              className="text-blue-600 hover:text-blue-700 flex items-center"
+            >
+              View all poems
+              <ArrowRight className="w-4 h-4 ml-1" />
+            </Link>
+          </div>
+          
+          <div className="space-y-4">
+            {recentPoems.map((poem) => (
+              <article key={poem.id} className="bg-white rounded-lg border hover:shadow-md transition-shadow">
+                <div className="p-4">
+                  <div className="flex items-start justify-between gap-4 mb-2">
+                    <div className="min-w-0 flex-1">
+                      <Link href={`/poems/${poem.id}`} className="block no-underline">
+                        <span className="block font-medium text-gray-900 hover:text-blue-600 transition-colors">
+                          {poem.title}
+                        </span>
+                        <span className="block text-sm text-gray-500 mt-1">
+                          {getFormDisplayName(poem.form)} in {getLanguageDisplayName(poem.language)}
+                        </span>
+                      </Link>
+                    </div>
+                    <div className="flex flex-wrap gap-2 justify-end shrink-0">
+                      {poem.tags.map((tag) => (
+                        <Tag key={tag} name={tag} />
+                      ))}
+                    </div>
+                  </div>
+                  <Link href={`/poems/${poem.id}`} className="block no-underline">
+                    <span className="block text-sm text-gray-600">
+                      {poem.preview}
+                    </span>
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
     </Layout>
   );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    console.log('Getting random poem...');
-    const initialPoem = poemUtils.getRandomPoem();
-    console.log('Initial poem:', JSON.stringify(initialPoem, null, 2));
+    // Get featured poem
+    const featuredPoemInfo = getCurrentFeaturedPoem();
+    const featuredPoem = featuredPoemInfo 
+      ? getPoemBySlug(featuredPoemInfo.id, featuredPoemInfo.language)
+      : null;
 
-    // Verify all required fields are present
-    if (!initialPoem.title || !initialPoem.author || !initialPoem.date) {
-      throw new Error('Missing required fields in poem');
-    }
+    // Get all poems
+    const allPoems = getAllPoems();
+    
+    // Get recent poems, excluding featured if it exists
+    const recentPoems = allPoems
+      .filter(poem => !featuredPoem || poem.id !== featuredPoem.id)
+      .slice(0, 3);
+
+    // Ensure all properties are serializable
+    const serializedFeaturedPoem = featuredPoem ? {
+      ...featuredPoem,
+      notes: {
+        composition: featuredPoem.notes.composition || null,
+        technical: featuredPoem.notes.technical || null,
+        philosophical: featuredPoem.notes.philosophical || null
+      }
+    } : null;
+
+    const serializedRecentPoems = recentPoems.map(poem => ({
+      ...poem,
+      notes: {
+        composition: poem.notes.composition || null,
+        technical: poem.notes.technical || null,
+        philosophical: poem.notes.philosophical || null
+      }
+    }));
 
     return {
       props: {
-        initialPoem
+        featuredPoem: serializedFeaturedPoem || serializedRecentPoems[0],
+        recentPoems: serializedFeaturedPoem 
+          ? serializedRecentPoems 
+          : serializedRecentPoems.slice(1)
       },
-      revalidate: 3600,
+      revalidate: 3600
     };
   } catch (error) {
     console.error('Error in getStaticProps:', error);
-    // Return default props with null checks
     return {
       props: {
-        initialPoem: {
-          id: 'default',
-          title: 'Welcome to Poetic Source',
-          author: 'System',
-          date: new Date().toISOString(),
-          form: 'haiku',
-          language: 'javascript',
-          tags: ['welcome'],
-          content: '// A default poem\n// When no poems exist yet\n// Please add some soon',
-          notes: {
-            composition: null,
-            technical: null,
-            philosophical: null,
-          },
-          preview: 'Default poem when no others exist',
-        },
+        featuredPoem: null,
+        recentPoems: []
       },
-      revalidate: 3600,
+      revalidate: 3600
     };
   }
 };

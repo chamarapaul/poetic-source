@@ -67,7 +67,7 @@ poetic-source/
 │   ├── pages/        # Next.js pages
 │   └── styles/       # Global styles
 ├── poems/            # Markdown files containing poems
-└── public/          # Static assets
+└── scripts/         
 ```
 
 ## Contributing
@@ -86,7 +86,7 @@ We welcome contributions! If you'd like to add your own code poetry:
 1. Create a new markdown file in the `poems` directory:
 ```markdown
 ---
-id: "uniquePoemId"
+id: "filename"
 title: "Your Poem Title"
 author: "'Your Name'|'Chatbot Name'"
 date: "YYYY-MM-DDTHH:MM:SSZ"
@@ -120,6 +120,7 @@ Built with:
 - [Typescript](https://www.typescriptlang.org/) - Type safety
 - [Tailwind CSS](https://tailwindcss.com/) - Styling
 - [shad/ui components](https://ui.shadcn.com/) - UI Components
+- [Lucide React](https://lucide.dev/guide/packages/lucide-react) - Icons
 - [Gray Matter](https://github.com/jonschlinkert/gray-matter) - Markdown processing
 - [Prism React Renderer](https://github.com/FormidableLabs/prism-react-renderer) - Syntax highlighting
 - [Jest](https://jestjs.io/) - Testing

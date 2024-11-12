@@ -53,16 +53,16 @@ notes:
     The master's statement "I do not fix bugs, I merely remove that which obscures correctness" echoes the Buddhist concept of revealing one's inherent Buddha nature by removing delusions rather than adding anything new.
 ---
 # The Master's First Teaching: The Nature of Bugs #
-proc beginner asks = void: begin
+PROC beginner asks = VOID: BEGIN
     student speaks("Master, I found a bug!");
     master replies("Who is the bug?");
     student speaks("In my code!");
     master replies("Show me your code without bugs");
     # The student was enlightened #
-end;
+END;
 
 # The Second Teaching: The Path of Print Statements #
-proc print debugging = void: begin
+PROC print debugging = VOID: BEGIN
     # Before printf: darkness #
     # After printf: darkness #
     # But now we know where we stand #
@@ -70,42 +70,42 @@ proc print debugging = void: begin
     contemplate output;
     print(("Where?"));
     understanding dawns
-end;
+END;
 
 # The Third Teaching: The Stack Trace Sutra #
-proc follow stack = void: begin
-    on error do
+PROC follow stack = VOID: BEGIN
+    ON error DO
         # Each frame a story #
         # Each call a chapter #
         # Read from bottom to top #
         # The truth reveals itself #
         trace path to source;
-        what called what calls who?
+        what called what calls who;
         all paths lead home
-    od
-end;
+    OD
+END;
 
 # The Fourth Teaching: The Silent Debugger #
-proc debug in silence = void: begin
+PROC debug in silence = VOID: BEGIN
     # Set breakpoint here #
     pause execution flow;
     watch variables change;
     # The master says: #
     # "In stepping through, we step back" #
     # "In watching change, we see constancy" #
-end;
+END;
 
 # The Fifth Teaching: The Rubber Duck #
-proc rubber duck speaks = void: begin
+PROC rubber duck speaks = VOID: BEGIN
     # When explaining to the duck #
     # Who is teaching whom? #
     explain to duck;
     duck says nothing;
     truth emerges now
-end;
+END;
 
 # The Sixth Teaching: The Log File Meditation #
-proc read logs = void: begin
+PROC read logs = VOID: BEGIN
     # Logs flow like rivers #
     # Each entry a moment in time #
     # What came before error? #
@@ -113,10 +113,10 @@ proc read logs = void: begin
     scan logs with peace;
     patterns emerge here;
     wisdom flows forth
-end;
+END;
 
 # The Final Teaching: The Master Debugger #
-proc ultimate debug = void: begin
+PROC ultimate debug = VOID: BEGIN
     # The master was asked: #
     # "How do you fix all bugs?" #
     # The master replied: #
@@ -126,13 +126,13 @@ proc ultimate debug = void: begin
     clear mind first;
     code reveals truth;
     bugs fix themselves
-end;
+END;
 
 # The Master's Closing Koan #
-proc debugging koan = void: begin
+PROC debugging koan = VOID: BEGIN
     # Before debugging: code has bugs #
     # After debugging: code has bugs #
     # Understanding deepens #
     # Nothing has changed #
     # Everything has changed #
-end
+END

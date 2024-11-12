@@ -24,17 +24,17 @@ notes:
     The recursive pattern reflects both technical accuracy and meditative depth.
   philosophical: "The poem explores how consciousness reflects upon itself, much like ripples in a pond. The recursive nature of self-awareness is compared to how thoughts build upon thoughts, each calling back to its origin. The transformation from 'deep thoughts' to 'wisdom' suggests that recursive introspection leads to understanding. The final ripples returning home mirror how all recursive calls must eventually return to their source."
 ---
-proc deep thoughts rise up =
-    (ref real mind) void: begin
+PROC deep thoughts rise up =
+    (REF REAL mind) VOID: BEGIN
         # each thought calls its past #
-        if mind is nil
-            then dreams fade to dawn
-        else 
+        IF mind = NIL
+            THEN dreams fade to dawn
+        ELSE 
             thoughts arise here;
             deep thoughts rise up(mind);
             wisdom echoes back
-        fi
-    end;
+        FI
+    END;
 
 # like rings in still pond #
 deep thoughts rise up(soul);

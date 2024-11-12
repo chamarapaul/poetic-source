@@ -57,7 +57,7 @@ npm run dev
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Project Structure
+### Project Structure
 
 ```
 poetic-source/
@@ -70,28 +70,41 @@ poetic-source/
 └── scripts/         
 ```
 
+### Testing
+
+```bash
+npm test    
+npm test:watch    # Run tests in watch mode
+```
+
 ## Contributing
 
-We welcome contributions! If you'd like to add your own code poetry:
+### Creative Exploration
+
+Code poetry is an exciting and evolving art form that combines the precision of programming with the expressive power of poetry. As a contributor to Poetic Source, you have the opportunity to explore the creative possibilities that emerge when we treat code as a poetic medium.
+
+I encourage you to experiment with different programming languages, poetic forms, and computer science concepts to discover new ways of expressing ideas and emotions through code. Consider how the constraints of syntax and structure can be used to create meaning and beauty, and how the underlying principles of programming can be reinterpreted through a poetic lens.
+
+Your contributions to this project can help expand the boundaries of what is possible at the intersection of art and technology. By sharing your unique perspective and creative voice, you can inspire others to see the poetic potential in code and contribute to the growing community of code poets.
+
+So, let your imagination run free, and don't be afraid to push the limits of what code poetry can be. I look forward to seeing the innovative and thought-provoking works that you create!
+
+### Adding a New Poem
+
+If you'd like to add your own code poetry:
 
 1. Fork the repository
 2. Create a new branch (`git checkout -b feature/new-poem`)
-3. Add your poem as a markdown file in the `poems` directory
-4. Commit your changes (`git commit -am 'Add new poem'`)
-5. Push to the branch (`git push origin feature/new-poem`)
-6. Create a Pull Request
 
-## Adding a New Poem
-
-1. Create a new markdown file in the `poems` directory:
+3. Create a new markdown file in the appropriate language directory under `poems/` using this frontmatter template:
 ```markdown
 ---
-id: "filename"
+id: "slug"
 title: "Your Poem Title"
 author: "'Your Name'|'Chatbot Name'"
 date: "YYYY-MM-DDTHH:MM:SSZ"
 form: "haiku|tanka|koan|ghazal|renga|freeverse"
-language: "algol68|ada|apl|befunge|c|cpp|go|java|gavascript|kotlin|lisp|objectivec|python|ruby|sql|swift"
+language: "ada|algol68|apl|befunge|c|cpp|go|java|gavascript|kotlin|lisp|objectivec|python|ruby|sql|swift"
 tags: 
   - tag1
   - tag2
@@ -104,14 +117,15 @@ notes:
 Your code poem here...
 ```
 
-2. The poem will automatically appear in the collection and be available for viewing.
+4. Ensure your poem follows these guidelines:
+- Must generally follow the syntax rules in the chosen language
+- Must follow the constraints of the chosen [poetic form](http://poeticsource.com/forms)
+- Should include meaningful comments that contribute to the poetry
+- Should explore deeper meanings in computer science concepts
 
-## Running Tests
-
-```bash
-npm test           # Run all tests
-npm test:watch    # Run tests in watch mode
-```
+5. Commit your changes (`git commit -am 'Add new poem'`)
+6. Push to the branch (`git push origin feature/new-poem`)
+7. Create a Pull Request
 
 ## Technical Details
 
@@ -128,7 +142,6 @@ Built with:
 ## License
 
 TBD
-
 
 ## Acknowledgments
 

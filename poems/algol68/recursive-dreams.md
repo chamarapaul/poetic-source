@@ -19,10 +19,10 @@ notes:
   technical: "Employs ALGOL-68's procedure recursion, void return type, and nil checking to create an infinite contemplation. The lack of a base case is intentional, reflecting the endless nature of consciousness."
   philosophical: "Explores the Buddhist concept of no-self through recursive dreaming. Questions whether consciousness is recursive in nature, and if so, where does the recursion end? The nil check represents the boundary between consciousness and void, while the final question challenges the existence of a discrete dreamer."
 ---
-proc recursive dreams = void: begin
+PROC recursive dreams = VOID: BEGIN
     # In dreams we dream of dreams #
-    if consciousness = nil
-        then recursive dreams
-        else who dreams?
-    fi
-end
+    IF consciousness = NIL
+        THEN recursive dreams
+        ELSE who dreams?
+    FI
+END

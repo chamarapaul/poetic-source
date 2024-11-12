@@ -34,45 +34,45 @@ notes:
     The collection suggests that type checking, like Zen practice, is a path to understanding the nature of identity, transformation, and knowledge itself.
 ---
 # The Koan of Type Identity #
-mode what is type = struct(
-    ref what is type self points to self;
+MODE what is type = STRUCT(
+    REF what is type self points to self;
     # If type contains itself, what contains the type? #
 );
 
 # The Koan of Null Enlightenment #
-proc empty mind = void: begin
-    real void is form = nil;
-    form is void = nil;
+PROC empty mind = VOID: BEGIN
+    REAL void is form := NIL;
+    form is void := NIL;
     # When null points to null, where does it point? #
-end;
+END;
 
 # The Koan of Type Conversion #
-mode water = real;
-mode ice = real;
-mode steam = real;
-proc state changes = void: begin
+MODE water = REAL;
+MODE ice = REAL;
+MODE steam = REAL;
+PROC state changes = VOID: BEGIN
     # Three forms, one essence #
     # When water becomes ice, what remains? #
     water flows to ice;
     ice rises to steam;
     steam returns to source
-end;
+END;
 
 # The Koan of Generic Enlightenment #
-mode enlightened mind = [] ref [] ref [] void;
-proc contemplate types = void: begin
+MODE enlightened mind = [] REF [] REF [] VOID;
+PROC contemplate types = VOID: BEGIN
     # Before generics, mind was bound #
     # After generics, mind was bound #
     # What changed? #
     enlightened mind holds all;
     all holds nothing;
     nothing holds truth
-end;
+END;
 
 # The Koan of Recursive Wisdom #
-proc student asks = void: begin
-    if understanding = nil
-        then student asks
-        else who asks?
-    fi
-end
+PROC student asks = VOID: BEGIN
+    IF understanding = NIL
+        THEN student asks
+        ELSE who asks?
+    FI
+END

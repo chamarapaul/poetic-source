@@ -56,7 +56,7 @@ export default function Home({ featuredPoem, recentPoems }: HomePageProps) {
                 Latest Additions
               </h2>
               <p className="text-gray-600">
-                Recently compiled verses in our collection
+                Recently compiled poems
               </p>
             </div>
             <Link 

@@ -27,14 +27,14 @@ notes:
     The code is both poetic and functional, demonstrating a working tree traversal algorithm.
   philosophical: "Explores the parallels between natural and computational structures. Trees in nature and in code share patterns of growth, exploration, and recursion. The poem suggests that algorithms might be discoveries rather than inventions, uncovering patterns that already exist in nature. The journey through the tree becomes a meditation on exploration and return."
 ---
-mode tree = struct(
-    ref tree left next;    
-    ref tree right grows 
+MODE tree = STRUCT(
+    REF tree left next;    
+    REF tree right grows 
 );
 
-proc walk = (ref tree t)
-    void: if nil = t
-    then skip else go;
+PROC walk = (REF tree t)
+    VOID: IF NIL = t
+    THEN SKIP ELSE go;
 
 left path leads us deep;
 visit node where now we pause;

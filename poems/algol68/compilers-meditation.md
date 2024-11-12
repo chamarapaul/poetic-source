@@ -30,8 +30,8 @@ notes:
     This mirrors deeper philosophical questions about discovery versus creation, the nature of knowledge, and whether making something explicit fundamentally changes its nature. Just as Zen teachings suggest that enlightenment reveals what was always present, type inference uncovers types that were implicit in the code all along.
 ---
 # The Compiler asks: #
-mode type = flex [1:0] real;
-proc what type am i = void: begin
+MODE type = FLEX [1:0] REAL;
+PROC what type am i = VOID: BEGIN
     # Before declaration, what was its type? #
     # After inference, who declared it? #
     # When the type is found, where was it hiding? #
@@ -39,4 +39,4 @@ proc what type am i = void: begin
     type reveals self;
     self was always there;
     nothing has changed
-end
+END

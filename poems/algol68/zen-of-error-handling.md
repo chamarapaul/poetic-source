@@ -74,66 +74,68 @@ notes:
     - Try-catch blocks as embracing natural flow
 ---
 # The First Zen: Acceptance of Errors #
-mode zen error = struct(
-    string message = "When code breaks, who is broken?";
-    proc embrace = void: begin
+MODE zen_error = STRUCT(
+    STRING message = "When code breaks, who is broken?";
+    PROC embrace = VOID: BEGIN
         # The perfect code contains imperfect errors #
-        on error do
+        ON error DO
             breathe in peace;
             errors show the way
-    end
+        OD
+    END
 );
 
 # The Second Zen: Mindful Catching #
-proc try mindfully = void: begin
-    on division by zero do
+PROC try_mindfully = VOID: BEGIN
+    ON error DO
         # What is the sound of zero dividing? #
         silence teaches more
         than success ever could;
         return to center
-end;
+    OD
+END;
 
 # The Third Zen: The Empty Catch Block #
-proc empty catch = void: begin
-    on error do skip od;
+PROC empty_catch = VOID: BEGIN
+    ON error DO SKIP OD;
     # The master was asked: #
     # "Why do you catch errors and do nothing?" #
     # The master replied: #
     # "Why do you do nothing and catch errors?" #
-end;
+END;
 
 # The Fourth Zen: Graceful Propagation #
-proc let errors flow = void: begin
+PROC let_errors_flow = VOID: BEGIN
     # Like a river finds its path #
     # Errors find their handler #
-    on error do
-        if wisdom lies upstream
-            then raise again;
-            else handle here;
-        fi
-    od
-end;
+    ON error DO
+        IF wisdom lies upstream
+            THEN raise again
+            ELSE handle here
+        FI
+    OD
+END;
 
 # The Fifth Zen: The Logger's Wisdom #
-proc log with presence = void: begin
+PROC log_with_presence = VOID: BEGIN
     # Before logging: mountain #
     # After logging: mountain #
     # What has changed? #
     write error to log;
     log remains still;
     error passes through
-end;
+END;
 
 # The Final Zen: The Try-Catch Koan #
-proc ultimate handling = void: begin
-    on exception do
+PROC ultimate_handling = VOID: BEGIN
+    ON error DO
         # In trying, we fail #
         # In catching, we succeed #
         # In letting go, we transcend #
         release attachment;
         return to source;
         peace finds its own way
-    od;
+    OD;
     # When all errors are caught #
     # Where do exceptions go? #
-end
+END

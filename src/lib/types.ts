@@ -135,8 +135,8 @@ export interface PoemNotes {
 
 // Programming Languages
 export type ProgrammingLanguage =
-    | 'algol68'
     | 'ada'
+    | 'algol68'
     | 'apl'
     | 'befunge'
     | 'c'
@@ -154,8 +154,8 @@ export type ProgrammingLanguage =
 
 export const getLanguageDisplayName = (language: ProgrammingLanguage): string => {
     const displayNames: Record<ProgrammingLanguage, string> = {
-        algol68: 'ALGOL-68',
         ada: 'Ada',
+        algol68: 'ALGOL-68',
         apl: 'APL',
         befunge: "Befunge",
         c: 'C',

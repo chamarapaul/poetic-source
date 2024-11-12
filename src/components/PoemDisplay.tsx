@@ -1,6 +1,6 @@
 // components/PoemDisplay.tsx
 import React from 'react';
-import { ScrollText, Code, Tags, ArrowRight } from 'lucide-react';
+import { ScrollText, Code, Tags, ArrowRight, Info } from 'lucide-react';
 import Link from 'next/link';
 import { Poem } from '@/lib/types';
 import { getFormDisplayName, getLanguageDisplayName } from '@/lib/cache';
@@ -40,7 +40,7 @@ export default function PoemDisplay({ poem, variant = 'full' }: PoemDisplayProps
         <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600">
           <div className="flex items-center group">
             <ScrollText className="w-4 h-4 mr-2" />
-            <Link 
+            <Link
               href={`/forms/${poem.form}`}
               className="hover:text-blue-600 transition-colors"
             >
@@ -66,12 +66,21 @@ export default function PoemDisplay({ poem, variant = 'full' }: PoemDisplayProps
       </header>
 
       <div className="p-6">
-        <CodeBlock 
+        <CodeBlock
           code={poem.content}
           language={poem.language}
           showLineNumbers={true}
         />
       </div>
+
+      {!isFeatured && (
+        <div className="px-6 pt-2 pb-4 flex justify-end">
+          <div className="flex items-center text-sm text-gray-600">
+            <Info className="w-4 h-4 mr-2" />
+            <span>Created by {poem.author}</span>
+          </div>
+        </div>
+      )}
 
       {/* Notes section only for full variant */}
       {!isFeatured && (poem.notes.composition || poem.notes.technical || poem.notes.philosophical) && (
@@ -100,7 +109,7 @@ export default function PoemDisplay({ poem, variant = 'full' }: PoemDisplayProps
       {/* View full poem link only for featured variant */}
       {isFeatured && (
         <div className="px-6 pb-6">
-          <Link 
+          <Link
             href={`/poems/${poem.id}`}
             className="text-blue-600 hover:text-blue-700 inline-flex items-center"
           >

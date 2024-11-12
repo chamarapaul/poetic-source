@@ -97,18 +97,18 @@ export default function AboutPage() {
                         <h2 className="text-2xl font-semibold text-gray-900 mb-4">Origins</h2>
                         <div className="space-y-4 text-gray-700">
                             <p>
-                                This project emerged from a desire to challenge conventional boundaries between 
-                                technical and poetic ways of understanding reality. I became fascinated by how 
-                                fundamental patterns in computer science seem to mirror the natural world: garbage 
-                                collection algorithms reflect Earth's closed metabolic systems, object-oriented 
-                                concepts parallel biological evolution, and recursive functions echo the fractal 
+                                This project emerged from a desire to challenge conventional boundaries between
+                                technical and poetic ways of understanding reality. I became fascinated by how
+                                fundamental patterns in computer science seem to mirror the natural world: garbage
+                                collection algorithms reflect Earth's closed metabolic systems, object-oriented
+                                concepts parallel biological evolution, and recursive functions echo the fractal
                                 patterns found in ferns and river networks.
                             </p>
                             <p>
-                                These parallels suggest something profound: perhaps our programming paradigms aren't 
-                                just human inventions, but discoveries of patterns inherent in reality itself. Through 
-                                code poetry, I'm exploring this intersection where computational thinking meets natural 
-                                wisdom, developing a framework that embraces both the mathematical precision of 
+                                These parallels suggest something profound: perhaps our programming paradigms aren't
+                                just human inventions, but discoveries of patterns inherent in reality itself. Through
+                                code poetry, I'm exploring this intersection where computational thinking meets natural
+                                wisdom, developing a framework that embraces both the mathematical precision of
                                 computer science and the intuitive truth of poetic expression.
                             </p>
                         </div>
@@ -120,7 +120,7 @@ export default function AboutPage() {
                         <p className="text-gray-700 mb-4">
                             Inspired to create your own code poetry? I'd love to see what you create! Your poem should:
                         </p>
-                        <ul className="space-y-3 text-gray-700">
+                        <ul className="space-y-3 text-gray-700 mb-6">
                             <li className="flex items-start">
                                 <span className="font-medium mr-2">•</span>
                                 Follow the syntax rules of your chosen programming language
@@ -138,6 +138,16 @@ export default function AboutPage() {
                                 Explore deeper meanings in computer science concepts
                             </li>
                         </ul>
+                        <p className="text-gray-700 mb-4">
+                            To contribute your poem, please visit the <a
+                                href="https://github.com/chamarapaul/poetic-source#contributing"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-600 hover:text-blue-700"
+                            >
+                                GitHub repo
+                            </a> and follow the guidelines in the README.
+                        </p>
                     </div>
 
                     {/* Call to Action */}

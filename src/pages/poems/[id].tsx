@@ -97,27 +97,27 @@ export const getStaticPaths: GetStaticPaths = async () => {
       // First get all poems to find the language
       const allPoems = getAllPoems();
       const poemInfo = allPoems.find(p => p.id === params?.id);
-  
+    
       if (!poemInfo) {
         console.log(`No poem found with id: ${params?.id}`);
         return { notFound: true };
       }
-  
+    
       // Now we can get the full poem with its language
-      const poem = getPoemBySlug(params?.id as string, poemInfo.language);
-  
-      if (!poem) {
+      const result = getPoemBySlug(params?.id as string, poemInfo.language);
+    
+      if (!result.poem) {
         return { notFound: true };
       }
   
       return {
         props: {
           poem: {
-            ...poem,
+            ...result.poem,
             notes: {
-              composition: poem.notes.composition || null,
-              technical: poem.notes.technical || null,
-              philosophical: poem.notes.philosophical || null
+              composition: result.poem.notes.composition || null,
+              technical: result.poem.notes.technical || null,
+              philosophical: result.poem.notes.philosophical || null
             }
           }
         },

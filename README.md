@@ -132,11 +132,12 @@ Your code poem here...
 Built with:
 - [Next.js](https://nextjs.org/) - React framework
 - [Typescript](https://www.typescriptlang.org/) - Type safety
-- [Tailwind CSS](https://tailwindcss.com/) - Styling
-- [shad/ui components](https://ui.shadcn.com/) - UI Components
-- [Lucide React](https://lucide.dev/guide/packages/lucide-react) - Icons
 - [Gray Matter](https://github.com/jonschlinkert/gray-matter) - Markdown processing
 - [Prism React Renderer](https://github.com/FormidableLabs/prism-react-renderer) - Syntax highlighting
+- [shad/ui components](https://ui.shadcn.com/) - UI Components
+- [Lucide React](https://lucide.dev/guide/packages/lucide-react) - Icons
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [Chalk](https://www.npmjs.com/package/chalk/v/4.1.0) - Terminal styling
 - [Jest](https://jestjs.io/) - Testing
 
 ## License

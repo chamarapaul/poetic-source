@@ -11,8 +11,15 @@ import {
   CategorySummary
 } from './types';
 import { getLanguageDescriptions } from './cache';
+import { validatePoemStructure, ValidationResult } from './validation/poem';
 
 const POEMS_DIR = path.join(process.cwd(), 'poems');
+
+// Interface for poem loading results
+interface PoemLoadResult {
+  poem: Poem | null;
+  validation: ValidationResult;
+}
 
 /**
  * Get all poem files from a language directory
@@ -34,85 +41,129 @@ function getPoemFilesFromLanguage(language: string): string[] {
 }
 
 /**
- * Get poem data for a single poem file
+ * Get poem data for a single poem file with validation
  */
-export function getPoemBySlug(slug: string, language?: string): Poem | null {
+export function getPoemBySlug(slug: string, language?: string): PoemLoadResult {
   try {
     let poemPath: string;
     
     if (language) {
-      // If language is provided, use it directly
       poemPath = path.join(POEMS_DIR, language, `${slug}.md`);
     } else {
-      // Otherwise, try to extract language from the slug if it contains a path
       const parts = slug.split('/');
       if (parts.length > 1) {
         poemPath = path.join(POEMS_DIR, `${slug}.md`);
       } else {
         console.error(`No language provided for poem: ${slug}`);
-        return null;
+        return {
+          poem: null,
+          validation: {
+            isValid: false,
+            errors: [{
+              field: 'language',
+              message: 'Language must be specified'
+            }]
+          }
+        };
       }
     }
 
     if (!fs.existsSync(poemPath)) {
-      console.error(`Poem file not found: ${poemPath}`);
-      return null;
+      return {
+        poem: null,
+        validation: {
+          isValid: false,
+          errors: [{
+            field: 'path',
+            message: `Poem file not found: ${poemPath}`
+          }]
+        }
+      };
     }
 
     const fileContents = fs.readFileSync(poemPath, 'utf8');
-    const { data, content } = matter(fileContents);
+    
+    // Validate the poem
+    const validation = validatePoemStructure(fileContents);
+    
+    // If validation fails, return early with errors
+    if (!validation.isValid) {
+      console.error(`Validation errors in poem ${slug}:`, validation.errors);
+      return { poem: null, validation };
+    }
 
-    // Use the filename without extension as the ID
+    // Parse the validated content
+    const { data, content } = matter(fileContents);
     const filename = path.basename(slug, '.md');
 
     return {
-      id: filename,
-      title: data.title,
-      author: data.author,
-      date: new Date(data.date).toISOString(),
-      form: data.form,
-      language: (language || data.language) as ProgrammingLanguage,
-      tags: data.tags || [],
-      content: content,
-      notes: {
-        composition: data.notes?.composition || null,
-        technical: data.notes?.technical || null,
-        philosophical: data.notes?.philosophical || null,
+      poem: {
+        id: filename,
+        title: data.title,
+        author: data.author,
+        date: new Date(data.date).toISOString(),
+        form: data.form,
+        language: (language || data.language) as ProgrammingLanguage,
+        tags: data.tags || [],
+        content: content,
+        notes: {
+          composition: data.notes?.composition || null,
+          technical: data.notes?.technical || null,
+          philosophical: data.notes?.philosophical || null,
+        },
+        preview: data.preview || '',
       },
-      preview: data.preview || '',
+      validation
     };
-  } catch (error) {
-    console.error(`Error reading poem ${slug}:`, error);
-    return null;
+  } catch (error: unknown) {
+    // Properly type the error and extract message
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+    console.error(`Error reading poem ${slug}:`, errorMessage);
+    
+    return {
+      poem: null,
+      validation: {
+        isValid: false,
+        errors: [{
+          field: 'file',
+          message: `Error reading poem: ${errorMessage}`
+        }]
+      }
+    };
   }
 }
 
 /**
- * Get all poems
+ * Get all poems with validation results
  */
 export function getAllPoems(): Poem[] {
   try {
-    // Get all language directories
     const languages = fs.readdirSync(POEMS_DIR)
       .filter(dir => fs.statSync(path.join(POEMS_DIR, dir)).isDirectory());
     
-    // Get poems from each language directory
-    const allPoemFiles = languages.flatMap(language => {
+    const validPoems: Poem[] = [];
+    const validationErrors: Record<string, ValidationResult> = {};
+    
+    languages.forEach(language => {
       const files = getPoemFilesFromLanguage(language);
-      return files.map(file => {
-        // Extract just the filename without extension
-        const filename = path.basename(file, '.md');
-        return { filename, language };
+      files.forEach(filename => {
+        const result = getPoemBySlug(filename, language);
+        
+        if (result.poem) {
+          validPoems.push(result.poem);
+        } else {
+          validationErrors[`${language}/${filename}`] = result.validation;
+        }
       });
     });
-    
-    // Parse each poem file
-    const poems = allPoemFiles
-      .map(({ filename, language }) => getPoemBySlug(filename, language))
-      .filter((poem): poem is Poem => poem !== null);
+
+    // Log validation errors if any were found
+    if (Object.keys(validationErrors).length > 0) {
+      console.error('Validation errors found in poems:', validationErrors);
+    }
     
     // Sort by date, newest first
-    return poems.sort((a, b) => 
+    return validPoems.sort((a, b) => 
       new Date(b.date).getTime() - new Date(a.date).getTime()
     );
   } catch (error) {
@@ -122,12 +173,12 @@ export function getAllPoems(): Poem[] {
 }
 
 /**
- * Get a random poem
+ * Get random poem (only from valid poems)
  */
 export function getRandomPoem(): Poem {
-  const poems = getAllPoems();
-  if (poems.length === 0) {
-    // Return a default poem if no poems exist
+  const validPoems = getAllPoems();
+  
+  if (validPoems.length === 0) {
     return {
       id: 'default',
       title: 'Welcome to Poetic Source',
@@ -136,13 +187,14 @@ export function getRandomPoem(): Poem {
       form: 'haiku',
       language: 'javascript',
       tags: ['welcome'],
-      content: '// A default poem\n// When no poems exist yet\n// Please add some soon',
+      content: '// A default poem\n// When no poems exist yet\n// Please add some today',
       notes: {},
       preview: 'Default poem when no others exist',
     };
   }
-  const randomIndex = Math.floor(Math.random() * poems.length);
-  return poems[randomIndex];
+  
+  const randomIndex = Math.floor(Math.random() * validPoems.length);
+  return validPoems[randomIndex];
 }
 
 /**
@@ -156,11 +208,11 @@ export function getPoemsByForm(form: string): Poem[] {
  * Get summary statistics for poems by form
  */
 export function getFormCategories(): CategorySummary[] {
-  const allPoems = getAllPoems();
-  const forms = new Set(allPoems.map(poem => poem.form));
+  const validPoems = getAllPoems();
+  const forms = new Set(validPoems.map(poem => poem.form));
 
   return Array.from(forms).map(form => {
-    const poemsInForm = allPoems.filter(poem => poem.form === form);
+    const poemsInForm = validPoems.filter(poem => poem.form === form);
     return {
       name: form,
       count: poemsInForm.length,
@@ -175,12 +227,17 @@ export function getFormCategories(): CategorySummary[] {
  */
 export function getPoemsByLanguage(language: ProgrammingLanguage): Poem[] {
   const poemFiles = getPoemFilesFromLanguage(language);
-  return poemFiles
+  const validPoems = poemFiles
     .map(filename => getPoemBySlug(filename, language))
-    .filter((poem): poem is Poem => poem !== null)
+    .filter((result): result is { poem: Poem; validation: ValidationResult } => 
+      result.poem !== null
+    )
+    .map(result => result.poem)
     .sort((a, b) => 
       new Date(b.date).getTime() - new Date(a.date).getTime()
     );
+
+  return validPoems;
 }
 
 /**

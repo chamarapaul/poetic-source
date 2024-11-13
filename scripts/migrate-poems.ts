@@ -1,7 +1,7 @@
 // scripts/migrate-poems.ts
-const fs = require('fs');
-const path = require('path');
-const matter = require('gray-matter');
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
 
 const OLD_POEMS_DIR: string = path.join(process.cwd(), 'poems');
 const NEW_POEMS_DIR: string = path.join(process.cwd(), 'poems-new');

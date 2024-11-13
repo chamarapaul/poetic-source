@@ -45,7 +45,7 @@ export const formStructureInfo: Record<PoemForm, PoemFormStructure> = {
             "Each line can represent a step in a small algorithm",
             "Comments can be used to maintain syllable structure"
         ],
-        example: "# where paths split in code #\nif choice points the way\n# truth flows on silver streams #"
+        example: "# morning light breaks through    # 5 syllables\nif time.flows_between_the_stars():    # 7 syllables\n# shadows dance and fade    # 5 syllables"
     },
     tanka: {
         rules: [

@@ -108,7 +108,7 @@ export const getStaticProps: GetStaticProps = async () => {
   try {
     // Get featured poem
     const featuredPoemInfo = getCurrentFeaturedPoem();
-    const featuredPoem = featuredPoemInfo 
+    const featuredPoemResult = featuredPoemInfo 
       ? getPoemBySlug(featuredPoemInfo.id, featuredPoemInfo.language)
       : null;
 
@@ -117,16 +117,16 @@ export const getStaticProps: GetStaticProps = async () => {
     
     // Get recent poems, excluding featured if it exists
     const recentPoems = allPoems
-      .filter(poem => !featuredPoem || poem.id !== featuredPoem.id)
+      .filter(poem => !featuredPoemResult?.poem || poem.id !== featuredPoemResult.poem.id)
       .slice(0, 3);
 
     // Ensure all properties are serializable
-    const serializedFeaturedPoem = featuredPoem ? {
-      ...featuredPoem,
+    const serializedFeaturedPoem = featuredPoemResult?.poem ? {
+      ...featuredPoemResult.poem,
       notes: {
-        composition: featuredPoem.notes.composition || null,
-        technical: featuredPoem.notes.technical || null,
-        philosophical: featuredPoem.notes.philosophical || null
+        composition: featuredPoemResult.poem.notes.composition || null,
+        technical: featuredPoemResult.poem.notes.technical || null,
+        philosophical: featuredPoemResult.poem.notes.philosophical || null
       }
     } : null;
 

@@ -104,7 +104,7 @@ title: "Your Poem Title"
 author: "'Your Name'|'Chatbot Name'"
 date: "YYYY-MM-DDTHH:MM:SSZ"
 form: "haiku|tanka|koan|ghazal|renga|freeverse"
-language: "ada|algol68|apl|befunge|c|cpp|go|java|gavascript|kotlin|lisp|objectivec|python|ruby|sql|swift"
+language: "ada|algol68|apl|befunge|c|cpp|go|java|javascript|kotlin|lisp|objectivec|python|ruby|sql|swift"
 tags: 
   - tag1
   - tag2

@@ -16,62 +16,62 @@ preview: "A Zen meditation on error handling, exploring how exceptions teach us 
 notes:
   composition: |
     The poem is structured as six interconnected Zen teachings:
-    1. Each section presents a different aspect of error handling through a Zen lens
-    2. Comments pose philosophical questions in traditional koan style
-    3. Code and commentary interweave to create multiple layers of meaning
-    4. The final koan brings all themes together in a question about the ultimate nature of errors
+        1. Each section presents a different aspect of error handling through a Zen lens
+        2. Comments pose philosophical questions in traditional koan style
+        3. Code and commentary interweave to create multiple layers of meaning
+        4. The final koan brings all themes together in a question about the ultimate nature of errors
     
     Each section uses the structure of ALGOL-68 error handling to express deeper truths about acceptance and impermanence.
   technical: |
     Demonstrates sophisticated error handling patterns in ALGOL-68:
-    - Custom error type definition using 'mode'
-    - Exception handling with 'on error do'
-    - Division by zero handling
-    - Error propagation patterns
-    - Empty catch blocks as valid handlers
-    - Error logging mechanisms
-    - Exception flow control
+        • Custom error type definition using 'mode'
+        • Exception handling with 'on error do'
+        • Division by zero handling
+        • Error propagation patterns
+        • Empty catch blocks as valid handlers
+        • Error logging mechanisms
+        • Exception flow control
     
     The code explores different error handling strategies:
-    1. Structured error types
-    2. Mindful exception catching
-    3. Empty catch blocks as valid responses
-    4. Upstream/downstream error propagation
-    5. Error logging patterns
-    6. Complete error handling lifecycle
+        1. Structured error types
+        2. Mindful exception catching
+        3. Empty catch blocks as valid responses
+        4. Upstream/downstream error propagation
+        5. Error logging patterns
+        6. Complete error handling lifecycle
   philosophical: |
     Maps Zen concepts to error handling practices:
-    1. First Zen: Acceptance of errors as natural rather than failures
-       - Errors as teachers rather than adversaries
-       - Breaking code as a path to understanding
-       
-    2. Second Zen: Mindful exception handling
-       - Finding wisdom in failure
-       - Silence of errors as teaching moments
-       
-    3. Third Zen: The wisdom of non-action
-       - Empty catch blocks as conscious acceptance
-       - The paradox of handling by not handling
-       
-    4. Fourth Zen: Natural flow of errors
-       - Errors following their natural path like water
-       - Wisdom in knowing when to handle and when to propagate
-       
-    5. Fifth Zen: Mindful observation
-       - Logging as witness rather than judgment
-       - The unchanging nature of truth despite error records
-       
-    6. Final Zen: Ultimate questions
-       - The cycle of try-catch as a path to transcendence
-       - The ultimate destination of handled exceptions
+        1. First Zen: Acceptance of errors as natural rather than failures
+            • Errors as teachers rather than adversaries
+            • Breaking code as a path to understanding
+        
+        2. Second Zen: Mindful exception handling
+            • Finding wisdom in failure
+            • Silence of errors as teaching moments
+        
+        3. Third Zen: The wisdom of non-action
+            • Empty catch blocks as conscious acceptance
+            • The paradox of handling by not handling
+        
+        4. Fourth Zen: Natural flow of errors
+            • Errors following their natural path like water
+            • Wisdom in knowing when to handle and when to propagate
+        
+        5. Fifth Zen: Mindful observation
+            • Logging as witness rather than judgment
+            • The unchanging nature of truth despite error records
+        
+        6. Final Zen: Ultimate questions
+            • The cycle of try-catch as a path to transcendence
+            • The ultimate destination of handled exceptions
        
     Key insights:
-    - Errors as features of existence rather than bugs
-    - Exception handling as mindful acceptance
-    - Stack traces as paths to understanding
-    - Error recovery as rebirth
-    - Logging as mindful observation
-    - Try-catch blocks as embracing natural flow
+        • Errors as features of existence rather than bugs
+        • Exception handling as mindful acceptance
+        • Stack traces as paths to understanding
+        • Error recovery as rebirth
+        • Logging as mindful observation
+        • Try-catch blocks as embracing natural flow
 ---
 # The First Zen: Acceptance of Errors #
 MODE zen_error = STRUCT(

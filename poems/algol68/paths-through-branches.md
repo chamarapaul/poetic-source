@@ -19,10 +19,10 @@ notes:
   composition: "Structures code as linked haikus, where each stanza serves both technical and poetic purposes. Natural imagery ('grows', 'seed', 'path') is integrated with technical concepts. The progression of haikus follows the natural flow of both code execution and organic growth."
   technical: |
     Each stanza serves a specific technical purpose:
-    1. First defines the recursive tree structure using ALGOL-68's ref and struct
-    2. Second establishes the base case and recursive pattern
-    3. Third implements the core traversal logic
-    4. Fourth handles termination and memory management
+      1. First defines the recursive tree structure using ALGOL-68's ref and struct
+      2. Second establishes the base case and recursive pattern
+      3. Third implements the core traversal logic
+      4. Fourth handles termination and memory management
 
     The code is both poetic and functional, demonstrating a working tree traversal algorithm.
   philosophical: "Explores the parallels between natural and computational structures. Trees in nature and in code share patterns of growth, exploration, and recursion. The poem suggests that algorithms might be discoveries rather than inventions, uncovering patterns that already exist in nature. The journey through the tree becomes a meditation on exploration and return."

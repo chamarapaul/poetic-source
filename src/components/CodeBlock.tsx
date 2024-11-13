@@ -308,14 +308,56 @@ function befungeTokenize(code: string): Token[][] {
 
 // Custom syntax rules for Lisp
 function lispTokenize(code: string): Token[][] {
+    const customClasses: CustomClassesMap = {
+        plain: 'text-[#d6deeb]',         // Default text color
+        comment: 'text-[#637777] italic', // Gray italics for comments
+        string: 'text-[#addb67]',         // Green for strings
+        'special-form': 'text-[#c792ea] font-bold',  // Purple bold for special forms
+        function: 'text-[#82aaff]',       // Blue for functions
+        'lambda-list': 'text-[#7fdbca]',  // Cyan for lambda list keywords
+        symbol: 'text-[#ff869a]',         // Pink for symbols
+        number: 'text-[#f78c6c]',         // Orange for numbers
+        punctuation: 'text-[#7c8495]',    // Gray for parentheses
+        // Rest of token types with empty strings
+        keyword: '',
+        operator: '',
+        variable: '',
+        builtin: '',
+        attribute: '',
+        preprocessor: '',
+        'method-definition': '',
+        property: '',
+        message: '',
+        block: '',
+        protocol: '',
+        framework: '',
+        type: '',
+        module: ''
+    };
+
     const patterns: [RegExp, TokenType][] = [
+        // Comments first to avoid interference
         [/;.*$/, 'comment'],
+    
+        // Special forms (core language constructs)
+        [/\b(if|cond|let|let\*|lambda|defun|defmacro|quote|eval-when|progn|prog1|prog2|block|return-from|catch|throw|unwind-protect|case|typecase|multiple-value-bind)\b/, 'special-form'],
+    
+        // Functions
+        [/\b(car|cdr|cons|consp|and|eq|not|append|reverse|member|assoc|mapcar|mapc|reduce|remove|find|length|atom|numberp|symbolp|listp|stringp|characterp|zerop|plusp|minusp|oddp|evenp|random|rem|min|max|abs|sin|cos|tan|expt|exp|log|sqrt|floor|ceiling|truncate|round|format|print|write|read|eval|apply|funcall)\b/, 'function'],
+    
+        // Lambda list keywords - special case for 't' to ensure it's standalone
+        [/\b(nil|null|&optional|&rest|&key|&allow-other-keys|&aux|&body|&environment|&whole)\b|\bt\b(?![-\w])/, 'lambda-list'],
+    
+        // Quoted symbols
+        [/'(?![A-Za-z-])[A-Za-z][A-Za-z0-9-]*\b/, 'symbol'],
+    
+        // Strings
         [/"[^"]*"/, 'string'],
-        [/\((if|cond|let|let\*|lambda|defun|defmacro|quote|eval-when|progn|prog1|prog2|block|return-from|catch|throw|unwind-protect|case|typecase|multiple-value-bind)\b/, 'special-form'],
-        [/\b(car|cdr|cons|list|append|reverse|member|assoc|mapcar|mapc|reduce|remove|find|position|length|null|atom|numberp|symbolp|listp|consp|stringp|characterp|zerop|plusp|minusp|oddp|evenp|random|rem|min|max|abs|sin|cos|tan|expt|exp|log|sqrt|floor|ceiling|truncate|round|format|print|write|read|eval|apply|funcall)\b/, 'function'],
-        [/\b(nil|t|&optional|&rest|&key|&allow-other-keys|&aux|&body|&environment|&whole)\b/, 'lambda-list'],
-        [/'[^()\s]+/, 'symbol'],
+    
+        // Numbers
         [/[+-]?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?/, 'number'],
+    
+        // Parentheses
         [/[()]/, 'punctuation']
     ];
 
@@ -330,13 +372,15 @@ function lispTokenize(code: string): Token[][] {
             if (nextToken) {
                 tokens.push({
                     content: nextToken.match,
-                    type: nextToken.type
+                    type: nextToken.type,
+                    className: customClasses[nextToken.type as keyof CustomClassesMap] || ''
                 });
                 pos += nextToken.length;
             } else {
                 tokens.push({
                     content: line[pos],
-                    type: 'plain'
+                    type: 'plain',
+                    className: customClasses.plain
                 });
                 pos += 1;
             }
@@ -402,7 +446,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
         'algol68': 'plaintext',
         'apl': 'apl',
         'befunge': 'plaintext',
-        'lisp': 'lisp',
+        'lisp': 'plaintext',
         'objectivec': 'objectivec',
         'c': 'c',
         'cpp': 'cpp',
@@ -423,7 +467,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
             'algol68': true,
             'apl': true,
             'befunge': true,
-            'lisp': false,    // Native Lisp support is good
+            'lisp': true,
             'objectivec': true,
         };
 
@@ -437,9 +481,10 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
                 language === 'algol68' ? algol68Tokenize(code) :
                     language === 'apl' ? aplTokenize(code) :
                         language === 'befunge' ? befungeTokenize(code) :
-                            language === 'objectivec' ? objectiveCTokenize(code) :
-                                // If somehow we get here without a proper tokenizer, use Prism's default
-                                [];
+                            language === 'lisp' ? lispTokenize(code) :
+                                language === 'objectivec' ? objectiveCTokenize(code) :
+                                    // If somehow we get here without a proper tokenizer, use Prism's default
+                                    [];
 
         // Only render custom highlighting if we got tokens
         if (tokens.length > 0) {
@@ -487,7 +532,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
             code={code.trim()}
             language={prismLanguage}
         >
-            {({ className, style, tokens, getLineProps, getTokenProps }) => (
+            {({ className, style, tokens, getTokenProps }) => (
                 <pre className={`${className} overflow-x-auto p-4 rounded-lg`} style={style}>
                     {tokens.map((line, i) => (
                         <div key={i} className="table-row">

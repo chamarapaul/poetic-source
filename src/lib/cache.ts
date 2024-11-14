@@ -8,7 +8,6 @@ import {
     languageMetadata,
     poeticCharacteristics,
     poeticGroupMetadata,
-    getLanguageDisplayName 
 } from './types';
 
 export interface CachedMetadata {

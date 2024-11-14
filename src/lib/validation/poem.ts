@@ -1,4 +1,6 @@
-import { Poem, PoemForm, ProgrammingLanguage } from '@/lib/types';
+// src/lib/validation/poem.ts
+import { Poem, PoemForm, ProgrammingLanguage, POEM_FORMS, PROGRAMMING_LANGUAGES } from '../types';
+import { validateGhazal } from './forms/ghazal';
 import matter from 'gray-matter';
 
 export interface ValidationError {
@@ -13,8 +15,8 @@ export interface ValidationResult {
 
 export function validatePoemStructure(fileContent: string): ValidationResult {
   const errors: ValidationError[] = [];
-  
-  // Parse frontmatter and content
+
+  // Parse frontmatter
   let parsed;
   try {
     parsed = matter(fileContent);
@@ -27,9 +29,34 @@ export function validatePoemStructure(fileContent: string): ValidationResult {
 
   const { data: frontmatter, content } = parsed;
 
+  // Validate basic structure first
+  const structureErrors = validateBasicStructure(frontmatter, content);
+  errors.push(...structureErrors);
+
+  // If basic validation fails, don't proceed with form validation
+  if (structureErrors.length > 0) {
+    return {
+      isValid: false,
+      errors
+    };
+  }
+
+  // Validate specific form requirements
+  const formErrors = validatePoemForm(content, frontmatter.form, frontmatter.language);
+  errors.push(...formErrors);
+
+  return {
+    isValid: errors.length === 0,
+    errors
+  };
+}
+
+function validateBasicStructure(frontmatter: any, content: string): ValidationError[] {
+  const errors: ValidationError[] = [];
+
   // Validate required fields
   validateRequired(frontmatter, errors);
-  
+
   // Validate field formats
   if (frontmatter.id) validateId(frontmatter.id, errors);
   if (frontmatter.date) validateDate(frontmatter.date, errors);
@@ -38,7 +65,7 @@ export function validatePoemStructure(fileContent: string): ValidationResult {
   if (frontmatter.tags) validateTags(frontmatter.tags, errors);
   if (frontmatter.preview) validatePreview(frontmatter.preview, errors);
   if (frontmatter.notes) validateNotes(frontmatter.notes, errors);
-  
+
   // Validate content
   if (!content || !content.trim()) {
     errors.push({
@@ -47,10 +74,48 @@ export function validatePoemStructure(fileContent: string): ValidationResult {
     });
   }
 
-  return {
-    isValid: errors.length === 0,
-    errors
-  };
+  return errors;
+}
+
+function validatePoemForm(content: string, form: PoemForm, language: ProgrammingLanguage): ValidationError[] {
+  const errors: ValidationError[] = [];
+
+  switch (form) {
+    case 'ghazal': {
+      const ghazalValidation = validateGhazal(content, language);
+      if (!ghazalValidation.isValid) {
+        ghazalValidation.errors.forEach(error => {
+          errors.push({
+            field: 'form',
+            message: error.message + (error.line ? ` (line ${error.line})` : '')
+          });
+        });
+      }
+      break;
+    }
+    case 'haiku':
+      // TODO: Add haiku validation
+      break;
+    case 'tanka':
+      // TODO: Add tanka validation
+      break;
+    case 'renga':
+      // TODO: Add renga validation
+      break;
+    case 'koan':
+      // Koans are more flexible in structure
+      break;
+    case 'freeverse':
+      // Free verse doesn't require specific validation
+      break;
+    default:
+      errors.push({
+        field: 'form',
+        message: `Unknown poem form: ${form}`
+      });
+  }
+
+  return errors;
 }
 
 // Individual field validators
@@ -99,48 +164,21 @@ function validateDate(date: string, errors: ValidationError[]) {
   }
 }
 
+// Get valid forms and languages from types
 function validateForm(form: string, errors: ValidationError[]) {
-  const validForms: PoemForm[] = [
-    'haiku',
-    'tanka',
-    'renga',
-    'koan',
-    'ghazal',
-    'freeverse'
-  ];
-
-  if (!validForms.includes(form as PoemForm)) {
+  if (!POEM_FORMS.includes(form as any)) {
     errors.push({
       field: 'form',
-      message: `Invalid form. Must be one of: ${validForms.join(', ')}`
+      message: `Invalid form. Must be one of: ${POEM_FORMS.join(', ')}`
     });
   }
 }
 
 function validateLanguage(language: string, errors: ValidationError[]) {
-  const validLanguages: ProgrammingLanguage[] = [
-    'ada',
-    'algol68',
-    'apl',
-    'befunge',
-    'c',
-    'cpp',
-    'go',
-    'java',
-    'javascript',
-    'kotlin',
-    'lisp',
-    'objectivec',
-    'python',
-    'ruby',
-    'sql',
-    'swift'
-  ];
-
-  if (!validLanguages.includes(language as ProgrammingLanguage)) {
+  if (!PROGRAMMING_LANGUAGES.includes(language as any)) {
     errors.push({
       field: 'language',
-      message: `Invalid language. Must be one of: ${validLanguages.join(', ')}`
+      message: `Invalid language. Must be one of: ${PROGRAMMING_LANGUAGES.join(', ')}`
     });
   }
 }
@@ -214,13 +252,13 @@ function validateNotes(notes: unknown, errors: ValidationError[]) {
 // Helper to create a validated poem object
 export function createValidatedPoem(fileContent: string): Poem | null {
   const validation = validatePoemStructure(fileContent);
-  
+
   if (!validation.isValid) {
     return null;
   }
 
   const { data, content } = matter(fileContent);
-  
+
   return {
     id: data.id,
     title: data.title,

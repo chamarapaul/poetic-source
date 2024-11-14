@@ -1,13 +1,16 @@
 // lib/types.ts
 
 // Poetic Forms
-export type PoemForm =
-    | 'haiku'
-    | 'tanka'
-    | 'renga'
-    | 'koan'
-    | 'ghazal'
-    | 'freeverse';
+export const POEM_FORMS = [
+    'haiku',
+    'tanka',
+    'renga',
+    'koan',
+    'ghazal',
+    'freeverse'
+  ] as const;
+  
+  export type PoemForm = typeof POEM_FORMS[number];
 
 export const getFormDisplayName = (form: PoemForm): string => {
     switch (form) {
@@ -34,6 +37,20 @@ export interface PoemFormStructure {
 }
 
 export const formStructureInfo: Record<PoemForm, PoemFormStructure> = {
+    ghazal: {
+        rules: [
+            "Series of couplets with repeating refrain",
+            "Each couplet is independent yet connected",
+            "Often deals with love and longing",
+            "Complex internal rhyme schemes"
+        ],
+        codeConsiderations: [
+            "Good for repetitive operations with variations",
+            "Can represent different cases of same operation",
+            "Refrain can echo core programming concept"
+        ],
+        example: "# Contains 3 linked couplets with \"-old\" rhyme/refrain\n\ndef search():\n   return truth.unfold()\nwhile stars.align():\n   paths.behold()\ntry peace.await():\n   dreams.unfold()"
+    },
     haiku: {
         rules: [
             "Three lines of 5, 7, and 5 syllables",
@@ -85,19 +102,6 @@ export const formStructureInfo: Record<PoemForm, PoemFormStructure> = {
             "Works well with self-referential code"
         ]
     },
-    ghazal: {
-        rules: [
-            "Series of couplets with repeating refrain",
-            "Each couplet is independent yet connected",
-            "Often deals with love and longing",
-            "Complex internal rhyme schemes"
-        ],
-        codeConsiderations: [
-            "Good for repetitive operations with variations",
-            "Can represent different cases of same operation",
-            "Refrain can echo core programming concept"
-        ]
-    },
     freeverse: {
         rules: [
             "No fixed pattern of rhyme or meter",
@@ -134,23 +138,26 @@ export interface PoemNotes {
 }
 
 // Programming Languages
-export type ProgrammingLanguage =
-    | 'ada'
-    | 'algol68'
-    | 'apl'
-    | 'befunge'
-    | 'c'
-    | 'cpp'
-    | 'go'
-    | 'java'
-    | 'javascript'
-    | 'kotlin'
-    | 'lisp'
-    | 'objectivec'
-    | 'python'
-    | 'ruby'
-    | 'sql'
-    | 'swift';
+export const PROGRAMMING_LANGUAGES = [
+    'ada',
+    'algol68',
+    'apl',
+    'befunge',
+    'c',
+    'cpp',
+    'go',
+    'java',
+    'javascript',
+    'kotlin',
+    'lisp',
+    'objectivec',
+    'python',
+    'ruby',
+    'sql',
+    'swift'
+  ] as const;
+  
+  export type ProgrammingLanguage = typeof PROGRAMMING_LANGUAGES[number];
 
 export const getLanguageDisplayName = (language: ProgrammingLanguage): string => {
     const displayNames: Record<ProgrammingLanguage, string> = {

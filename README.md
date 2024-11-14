@@ -99,16 +99,16 @@ If you'd like to add your own code poetry:
 3. Create a new markdown file in the appropriate language directory under `poems/` using this frontmatter template:
 ```markdown
 ---
-id: "slug"
+id: "kebab-case-unique-id"
 title: "Your Poem Title"
 author: "'Your Name'|'Chatbot Name'"
 date: "YYYY-MM-DDTHH:MM:SSZ"
 form: "haiku|tanka|koan|ghazal|renga|freeverse"
 language: "ada|algol68|apl|befunge|c|cpp|go|java|javascript|kotlin|lisp|objectivec|python|ruby|sql|swift"
 tags: 
-  - tag1
-  - tag2
-preview: "Brief description of your poem"
+  - kebab-case-tag
+  - another-tag
+preview: "Brief description of your poem (max 250 characters)"
 notes:
   composition: "Notes about the poetic composition"
   technical: "Technical explanation of the code"
@@ -118,14 +118,35 @@ Your code poem here...
 ```
 
 4. Ensure your poem follows these guidelines:
+- Must be placed in the correct language directory (`poems/[language]/`)
 - Must generally follow the syntax rules in the chosen language
 - Must follow the constraints of the chosen [poetic form](http://poeticsource.com/forms)
 - Should include meaningful comments that contribute to the poetry
 - Should explore deeper meanings in computer science concepts
 
-5. Commit your changes (`git commit -am 'Add new poem'`)
-6. Push to the branch (`git push origin feature/new-poem`)
-7. Create a Pull Request
+5. Validate your poem:
+   ```bash
+   npm run validate-poems
+   ```
+   This will check:
+   - Required frontmatter fields
+   - Valid field formats (dates, IDs, tags)
+   - Directory structure
+   - Language and form validity
+
+6. Commit your changes (`git commit -am 'Add new poem'`)
+7. Push to the branch (`git push origin feature/new-poem`)
+8. Create a Pull Request
+
+### Contribution Tips
+- Run validation before submitting to ensure your poem meets the requirements
+- For form-specific rules, check the [forms documentation](http://poeticsource.com/forms)
+- Consider using the form's constraints to enhance both the code and poetic aspects
+
+Pull requests will be checked for:
+1. Poem validation (`npm run validate-poems`)
+2. Poetic form adherence
+3. Creative and technical merit
 
 ## Technical Details
 

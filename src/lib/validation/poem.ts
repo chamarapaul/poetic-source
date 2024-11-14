@@ -1,6 +1,7 @@
 // src/lib/validation/poem.ts
 import { Poem, PoemForm, ProgrammingLanguage, POEM_FORMS, PROGRAMMING_LANGUAGES } from '../types';
 import { validateGhazal } from './forms/ghazal';
+import { validateRubai } from './forms/rubai';
 import matter from 'gray-matter';
 
 export interface ValidationError {
@@ -99,8 +100,16 @@ function validatePoemForm(content: string, form: PoemForm, language: Programming
     case 'tanka':
       // TODO: Add tanka validation
       break;
-    case 'renga':
-      // TODO: Add renga validation
+    case 'rubai':
+      const rubaiValidation = validateRubai(content, language);
+      if (!rubaiValidation.isValid) {
+        rubaiValidation.errors.forEach(error => {
+          errors.push({
+            field: 'form',
+            message: error.message + (error.line ? ` (line ${error.line})` : '')
+          });
+        });
+      }
       break;
     case 'koan':
       // Koans are more flexible in structure

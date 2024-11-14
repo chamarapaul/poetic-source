@@ -2,5 +2,5 @@
 export * from './poem';
 export * from './forms/ghazal';
 // export * from './forms/haiku';
-// export * from './forms/renga';
+export * from './forms/rubai';
 // export * from '.forms/tanka';

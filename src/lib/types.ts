@@ -2,18 +2,20 @@
 
 // Poetic Forms
 export const POEM_FORMS = [
-    'haiku',
-    'tanka',
-    'renga',
-    'koan',
     'ghazal',
+    'haiku',
+    'koan',
+    'rubai',
+    'tanka',
     'freeverse'
-  ] as const;
-  
-  export type PoemForm = typeof POEM_FORMS[number];
+] as const;
+
+export type PoemForm = typeof POEM_FORMS[number];
 
 export const getFormDisplayName = (form: PoemForm): string => {
     switch (form) {
+        case 'rubai':
+            return 'Rubaʿi';
         case 'freeverse':
             return 'Free Verse';
         default:
@@ -22,11 +24,11 @@ export const getFormDisplayName = (form: PoemForm): string => {
 };
 
 export const formDescriptions: Record<PoemForm, string> = {
-    haiku: '5-7-5 syllables, perfect for concise algorithms',
-    tanka: '5-7-5-7-7 syllables, good for multi-step algorithms',
     ghazal: 'Repeated patterns mirror recursive functions',
+    haiku: '5-7-5 syllables, perfect for concise algorithms',
     koan: 'Explores paradoxes in computer science',
-    renga: 'Linked verse for connected operations',
+    rubai: 'Four-line mathematical-mystical form bridging computation and cosmic truth',
+    tanka: '5-7-5-7-7 syllables, good for multi-step algorithms',
     freeverse: 'Unrestricted form for complex concepts'
 };
 
@@ -50,6 +52,7 @@ export const formStructureInfo: Record<PoemForm, PoemFormStructure> = {
             "Refrain can echo core programming concept"
         ],
         example: "# Contains 3 linked couplets with \"-old\" rhyme/refrain\n\ndef search():\n   return truth.unfold()\nwhile stars.align():\n   paths.behold()\ntry peace.await():\n   dreams.unfold()"
+        // example is in python
     },
     haiku: {
         rules: [
@@ -63,31 +66,7 @@ export const formStructureInfo: Record<PoemForm, PoemFormStructure> = {
             "Comments can be used to maintain syllable structure"
         ],
         example: "# morning light breaks through    # 5 syllables\nif time.flows_between_the_stars():    # 7 syllables\n# shadows dance and fade    # 5 syllables"
-    },
-    tanka: {
-        rules: [
-            "Five lines of 5, 7, 5, 7, 7 syllables",
-            "Builds on haiku with two additional lines",
-            "Often more personal and emotional than haiku"
-        ],
-        codeConsiderations: [
-            "Suitable for algorithms with setup and results",
-            "Extra lines allow for more complex operations",
-            "Can include both operation and its outcome"
-        ]
-    },
-    renga: {
-        rules: [
-            "Begins with a hokku (5-7-5)",
-            "Followed by multiple stanzas",
-            "Links between verses are important",
-            "Traditionally written collaboratively"
-        ],
-        codeConsiderations: [
-            "Perfect for representing multi-step algorithms",
-            "Each verse can handle a different part of the process",
-            "Links between verses can show data flow"
-        ]
+        // example is in python
     },
     koan: {
         rules: [
@@ -100,6 +79,37 @@ export const formStructureInfo: Record<PoemForm, PoemFormStructure> = {
             "Excellent for exploring recursive concepts",
             "Can demonstrate programming paradoxes",
             "Works well with self-referential code"
+        ]
+    },
+    rubai: {
+        rules: [
+            "Four lines (quatrain) with AABA or AAAA rhyme pattern",
+            "First, second, and fourth lines rhyme",
+            "Often structured as: statement, elaboration, pivot, conclusion",
+            "Traditionally explores philosophical or metaphysical themes"
+        ],
+        codeConsiderations: [
+            "First two lines can establish a computational concept",
+            "Third line can introduce a twist or different perspective",
+            "Final line often reveals deeper meaning or returns to initial concept",
+            "Function definitions, error handling, or async operations work well with this structure"
+        ],
+        example: `def time() -> Optional[Truth]:
+    while moments.flow_like_stream():
+        try: grasp(now.eternal_seems())
+        except: return None  # yet slips away`
+        //example is in python
+    },
+    tanka: {
+        rules: [
+            "Five lines of 5, 7, 5, 7, 7 syllables",
+            "Builds on haiku with two additional lines",
+            "Often more personal and emotional than haiku"
+        ],
+        codeConsiderations: [
+            "Suitable for algorithms with setup and results",
+            "Extra lines allow for more complex operations",
+            "Can include both operation and its outcome"
         ]
     },
     freeverse: {
@@ -155,9 +165,9 @@ export const PROGRAMMING_LANGUAGES = [
     'ruby',
     'sql',
     'swift'
-  ] as const;
-  
-  export type ProgrammingLanguage = typeof PROGRAMMING_LANGUAGES[number];
+] as const;
+
+export type ProgrammingLanguage = typeof PROGRAMMING_LANGUAGES[number];
 
 export const getLanguageDisplayName = (language: ProgrammingLanguage): string => {
     const displayNames: Record<ProgrammingLanguage, string> = {
@@ -181,47 +191,47 @@ export const getLanguageDisplayName = (language: ProgrammingLanguage): string =>
     return displayNames[language];
 };
 
-export type PoeticGroup = 
-  | 'Visual Expression'
-  | 'Natural Flow'
-  | 'Structured Elegance'
-  | 'Symbolic Patterns'
-  | 'Modern Synthesis'
-  | 'System Dialogues';
+export type PoeticGroup =
+    | 'Visual Expression'
+    | 'Natural Flow'
+    | 'Structured Elegance'
+    | 'Symbolic Patterns'
+    | 'Modern Synthesis'
+    | 'System Dialogues';
 
 export interface PoeticCharacteristic {
-  group: PoeticGroup;
-  color: string;
+    group: PoeticGroup;
+    color: string;
 }
 
 export const poeticGroupMetadata: Record<PoeticGroup, {
-  description: string;
-  features: string[];
+    description: string;
+    features: string[];
 }> = {
-  'Visual Expression': {
-    description: 'Languages where spatial arrangement and visual patterns form part of the poetic expression',
-    features: ['Unique symbols', 'Spatial layouts', 'Visual patterns']
-  },
-  'Natural Flow': {
-    description: 'Languages designed for readability that naturally lend themselves to poetic expression',
-    features: ['Readable syntax', 'Expressive structures', 'Fluid composition']
-  },
-  'Structured Elegance': {
-    description: 'Languages where formal structure and strong typing create poetic constraints',
-    features: ['Formal patterns', 'Type-based metaphors', 'Structured composition']
-  },
-  'Symbolic Patterns': {
-    description: 'Languages that excel at pattern manipulation and symbolic transformation',
-    features: ['Pattern matching', 'Symbolic processing', 'Declarative expression']
-  },
-  'Modern Synthesis': {
-    description: 'Contemporary languages that blend multiple paradigms for flexible poetic expression',
-    features: ['Mixed paradigms', 'Modern syntax', 'Flexible structures']
-  },
-  'System Dialogues': {
-    description: 'Languages that create poetry through direct interaction with system concepts',
-    features: ['Memory metaphors', 'Hardware poetry', 'System interactions']
-  }
+    'Visual Expression': {
+        description: 'Languages where spatial arrangement and visual patterns form part of the poetic expression',
+        features: ['Unique symbols', 'Spatial layouts', 'Visual patterns']
+    },
+    'Natural Flow': {
+        description: 'Languages designed for readability that naturally lend themselves to poetic expression',
+        features: ['Readable syntax', 'Expressive structures', 'Fluid composition']
+    },
+    'Structured Elegance': {
+        description: 'Languages where formal structure and strong typing create poetic constraints',
+        features: ['Formal patterns', 'Type-based metaphors', 'Structured composition']
+    },
+    'Symbolic Patterns': {
+        description: 'Languages that excel at pattern manipulation and symbolic transformation',
+        features: ['Pattern matching', 'Symbolic processing', 'Declarative expression']
+    },
+    'Modern Synthesis': {
+        description: 'Contemporary languages that blend multiple paradigms for flexible poetic expression',
+        features: ['Mixed paradigms', 'Modern syntax', 'Flexible structures']
+    },
+    'System Dialogues': {
+        description: 'Languages that create poetry through direct interaction with system concepts',
+        features: ['Memory metaphors', 'Hardware poetry', 'System interactions']
+    }
 };
 
 export const poeticCharacteristics: Record<ProgrammingLanguage, PoeticCharacteristic> = {

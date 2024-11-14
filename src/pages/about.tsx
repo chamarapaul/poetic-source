@@ -55,7 +55,7 @@ export default function AboutPage() {
                             </CardHeader>
                             <CardContent>
                                 <p className="text-gray-600">
-                                    Poetic forms such as Haiku, Tanka, Ghazal, Koans, Renga, and Free
+                                    Poetic forms such as Ghazal, Haiku, Koans, Ruba'i, Tanka, and Free
                                     Verse are explored, each bringing its own structure and rhythm to the code.
                                 </p>
                             </CardContent>

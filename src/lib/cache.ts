@@ -87,6 +87,7 @@ export function getMetadataCache(): CachedMetadata {
         formDisplayNames: Object.fromEntries(
             Object.keys(formDescriptions).map(form => [
                 form,
+                form === 'rubai' ? 'Rubaʿi' :
                 form === 'freeverse' ? 'Free Verse' : 
                 form.charAt(0).toUpperCase() + form.slice(1)
             ])

@@ -116,7 +116,7 @@ export default function FormPage({ poems, form }: FormPageProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const forms: PoemForm[] = ['haiku', 'tanka', 'renga', 'koan', 'ghazal', 'freeverse'];
+  const forms: PoemForm[] = ['ghazal', 'haiku', 'rubai', 'tanka', 'koan', 'freeverse'];
 
   const paths = forms.map((form) => ({
     params: { form }

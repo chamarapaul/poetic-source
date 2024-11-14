@@ -9,11 +9,11 @@ Poetic Source explores the creative possibilities that emerge when we treat code
 ## Features
 
 The collection includes various poetic forms:
-  - Haikus (5-7-5 syllables)
-  - Tankas (5-7-5-7-7 syllables)
-  - Koans (paradoxical puzzles)
   - Ghazals (repeated patterns)
-  - Renga (linked verse)
+  - Haikus (5-7-5 syllables)
+  - Koans (paradoxical puzzles)
+  - Rubaʿi (mathematical-mystical quatrains)
+  - Tankas (5-7-5-7-7 syllables)
   - Free Verse
 
 Written across multiple programming languages:
@@ -103,7 +103,7 @@ id: "kebab-case-unique-id"
 title: "Your Poem Title"
 author: "'Your Name'|'Chatbot Name'"
 date: "YYYY-MM-DDTHH:MM:SSZ"
-form: "haiku|tanka|koan|ghazal|renga|freeverse"
+form: "ghazal|haiku|koan|rubai|tanka|freeverse"
 language: "ada|algol68|apl|befunge|c|cpp|go|java|javascript|kotlin|lisp|objectivec|python|ruby|sql|swift"
 tags: 
   - kebab-case-tag

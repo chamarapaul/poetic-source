@@ -444,13 +444,13 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
     const languageMap: { [key: string]: Language } = {
         'ada': 'pascal',
         'algol68': 'plaintext',
+        'apl': 'apl',
         'befunge': 'plaintext',
         'lisp': 'plaintext',
         'objectivec': 'objectivec',
         'c': 'c',
         'cpp': 'cpp',
         'go': 'go',
-        'j': 'j',
         'java': 'java',
         'javascript': 'javascript',
         'kotlin': 'kotlin',
@@ -465,7 +465,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
         const customHighlightCases: { [key: string]: boolean } = {
             'ada': true,
             'algol68': true,
-            // 'apl': true,
+            'apl': true,
             'befunge': true,
             'lisp': true,
             'objectivec': true,
@@ -479,7 +479,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
         const tokens =
             language === 'ada' ? adaTokenize(code) :
                 language === 'algol68' ? algol68Tokenize(code) :
-                    // language === 'apl' ? aplTokenize(code) :
+                     language === 'apl' ? aplTokenize(code) :
                         language === 'befunge' ? befungeTokenize(code) :
                             language === 'lisp' ? lispTokenize(code) :
                                 language === 'objectivec' ? objectiveCTokenize(code) :

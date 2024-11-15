@@ -20,7 +20,7 @@ Written across multiple programming languages:
   - Modern Synthesis: Swift, Go, JavaScript
   - Natural Flow: Python, Ruby, Kotlin
   - Structured Elegance: ALGOL-68, Ada, Java
-  - Visual Expression: Befunge, J
+  - Visual Expression: APL, Befunge
   - System Dialogues: C, C++, Objective-C
   - Symbolic Patterns: Lisp, SQL
 
@@ -104,7 +104,7 @@ title: "Your Poem Title"
 author: "'Your Name'|'Chatbot Name'"
 date: "YYYY-MM-DDTHH:MM:SSZ"
 form: "ghazal|haiku|koan|rubai|tanka|freeverse"
-language: "ada|algol68|befunge|c|cpp|go|j|java|javascript|kotlin|lisp|objectivec|python|ruby|sql|swift"
+language: "ada|algol68|apl|befunge|c|cpp|go|java|javascript|kotlin|lisp|objectivec|python|ruby|sql|swift"
 tags: 
   - kebab-case-tag
   - another-tag

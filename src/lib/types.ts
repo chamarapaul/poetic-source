@@ -148,11 +148,11 @@ export interface PoemNotes {
 export const PROGRAMMING_LANGUAGES = [
     'ada',
     'algol68',
+    'apl',
     'befunge',
     'c',
     'cpp',
     'go',
-    'j',
     'java',
     'javascript',
     'kotlin',
@@ -170,11 +170,11 @@ export const getLanguageDisplayName = (language: ProgrammingLanguage): string =>
     const displayNames: Record<ProgrammingLanguage, string> = {
         ada: 'Ada',
         algol68: 'ALGOL-68',
+        apl: 'APL',
         befunge: "Befunge",
         c: 'C',
         cpp: 'C++',
         go: 'Go',
-        j: 'J',
         java: 'Java',
         javascript: 'JavaScript',
         kotlin: 'Kotlin',
@@ -234,11 +234,11 @@ export const poeticGroupMetadata: Record<PoeticGroup, {
 export const poeticCharacteristics: Record<ProgrammingLanguage, PoeticCharacteristic> = {
     'ada': { group: 'Structured Elegance', color: 'bg-emerald-50 text-emerald-700' },
     'algol68': { group: 'Structured Elegance', color: 'bg-emerald-50 text-emerald-700' },
+    'apl': { group: 'Visual Expression', color: 'bg-purple-50 text-purple-700' },
     'befunge': { group: 'Visual Expression', color: 'bg-purple-50 text-purple-700' },
     'c': { group: 'System Dialogues', color: 'bg-red-50 text-red-700' },
     'cpp': { group: 'System Dialogues', color: 'bg-red-50 text-red-700' },
     'go': { group: 'Modern Synthesis', color: 'bg-indigo-50 text-indigo-700' },
-    'j': { group: 'Visual Expression', color: 'bg-purple-50 text-purple-700' },
     'java': { group: 'Structured Elegance', color: 'bg-emerald-50 text-emerald-700' },
     'javascript': { group: 'Modern Synthesis', color: 'bg-indigo-50 text-indigo-700' },
     'kotlin': { group: 'Natural Flow', color: 'bg-blue-50 text-blue-700' },
@@ -273,13 +273,13 @@ export const languageMetadata: Record<ProgrammingLanguage, LanguageMetadata> = {
         creator: 'Jean Ichbiah, Tucker Taft, Christine Anderson',
         description: 'Elegant precision with mathematical roots, where reliability becomes poetry'
     },
-    // 'apl': {
-    //     yearCreated: 1962,
-    //     paradigms: ['array', 'functional', 'symbolic'],
-    //     influences: ['mathematical notation', 'linear algebra'],
-    //     creator: 'Kenneth E. Iverson',
-    //     description: 'Dense, symbolic notation that turns algorithms into visual poetry'
-    // },
+    'apl': {
+        yearCreated: 1962,
+        paradigms: ['array', 'functional', 'symbolic'],
+        influences: ['mathematical notation', 'linear algebra'],
+        creator: 'Kenneth E. Iverson',
+        description: 'Dense, symbolic notation that turns algorithms into visual poetry'
+    },
     'befunge': {
         yearCreated: 1993,
         paradigms: ['stack-based', 'two-dimensional', 'reflective'],
@@ -308,13 +308,6 @@ export const languageMetadata: Record<ProgrammingLanguage, LanguageMetadata> = {
         creator: 'Robert Griesemer, Rob Pike, Ken Thompson',
         description: 'Simple elegance where goroutines dance in concurrent verses'
     },
-    'j': {
-        yearCreated: 1990,
-        paradigms: ['array', 'functional', 'symbolic'],
-        influences: ['APL', 'FP'],
-        creator: 'Kenneth E. Iverson, Roger Hui',
-        description: 'A symbolic, array-oriented language that emphasizes compact, expressive notation to create visually striking code'
-      },
     'java': {
         yearCreated: 1995,
         paradigms: ['object-oriented', 'class-based', 'concurrent'],

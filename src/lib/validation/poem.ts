@@ -1,6 +1,7 @@
 // src/lib/validation/poem.ts
 import { Poem, PoemForm, ProgrammingLanguage, POEM_FORMS, PROGRAMMING_LANGUAGES } from '../types';
 import { validateGhazal } from './forms/ghazal';
+import { validateHaiku } from './forms/haiku';
 import { validateRubai } from './forms/rubai';
 import { validateTanka } from './forms/tanka';
 import matter from 'gray-matter';
@@ -96,7 +97,15 @@ function validatePoemForm(content: string, form: PoemForm, language: Programming
       break;
     }
     case 'haiku':
-      // TODO: Add haiku validation
+      const haikuValidation = validateHaiku(content, language);
+      if (!haikuValidation.isValid) {
+        haikuValidation.errors.forEach(error => {
+          errors.push({
+            field: 'form',
+            message: error.message + (error.line ? ` (line ${error.line})` : '')
+          });
+        });
+      }
       break;
     case 'tanka':
       const tankaValidation = validateTanka(content, language);

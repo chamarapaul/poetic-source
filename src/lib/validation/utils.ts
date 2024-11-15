@@ -29,10 +29,10 @@ const LANGUAGE_CONFIGS: Record<ProgrammingLanguage, LanguageConfig> = {
     },
     stringDelimiters: ['"']
   },
-//   apl: {
-//     singleLineComment: ['⍝'],
-//     stringDelimiters: ["'"]
-//   },
+  apl: {
+    singleLineComment: ['⍝'],
+    stringDelimiters: ["'"]
+  },
   befunge: {
     singleLineComment: [';'],
     stringDelimiters: ['"']
@@ -60,10 +60,6 @@ const LANGUAGE_CONFIGS: Record<ProgrammingLanguage, LanguageConfig> = {
       end: '*/'
     },
     stringDelimiters: ['"', '`']
-  },
-  j: {
-    singleLineComment: ['NB.'],
-    stringDelimiters: ['"']
   },
   java: {
     singleLineComment: ['//'],

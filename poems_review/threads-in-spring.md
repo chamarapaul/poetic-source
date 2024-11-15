@@ -13,9 +13,9 @@ tags:
   - harmony
 preview: "A parallel processing implementation expressed through haiku-structured comments, weaving together concurrent computation with natural metaphors – from independent tasks blooming like spring flowers to their final harmonious convergence"
 notes:
-  composition: "While adhering to proper ALGOL-68 syntax, the code maintains poetic rhythm through comments that preserve the original haiku structure. The technical implementation and poetic expression work in parallel, each supporting the other."
+  composition: "While adhering to proper ALGOL 68 syntax, the code maintains poetic rhythm through comments that preserve the original haiku structure. The technical implementation and poetic expression work in parallel, each supporting the other."
   technical: |
-    The code implements a parallel processing structure using ALGOL-68's par block:
+    The code implements a parallel processing structure using ALGOL 68's par block:
     
     - Defines three procedures: task one (upward search), task two (downward search), and message passing
     - Each procedure contains its own control flow

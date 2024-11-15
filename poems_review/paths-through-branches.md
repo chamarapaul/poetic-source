@@ -19,7 +19,7 @@ notes:
   composition: "Structures code as linked haikus, where each stanza serves both technical and poetic purposes. Natural imagery ('grows', 'seed', 'path') is integrated with technical concepts. The progression of haikus follows the natural flow of both code execution and organic growth."
   technical: |
     Each stanza serves a specific technical purpose:
-      1. First defines the recursive tree structure using ALGOL-68's ref and struct
+      1. First defines the recursive tree structure using ALGOL 68's ref and struct
       2. Second establishes the base case and recursive pattern
       3. Third implements the core traversal logic
       4. Fourth handles termination and memory management

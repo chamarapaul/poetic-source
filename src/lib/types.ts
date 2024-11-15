@@ -169,7 +169,7 @@ export type ProgrammingLanguage = typeof PROGRAMMING_LANGUAGES[number];
 export const getLanguageDisplayName = (language: ProgrammingLanguage): string => {
     const displayNames: Record<ProgrammingLanguage, string> = {
         ada: 'Ada',
-        algol68: 'ALGOL-68',
+        algol68: 'ALGOL 68',
         apl: 'APL',
         befunge: "Befunge",
         c: 'C',

@@ -101,11 +101,11 @@ function adaTokenize(code: string): Token[][] {
     });
 }
 
-// Custom syntax rules for ALGOL-68
+// Custom syntax rules for ALGOL 68
 /**
- * ALGOL-68 Code Poetry Tokenizer
+ * ALGOL 68 Code Poetry Tokenizer
  * 
- * Rules for tokenizing ALGOL-68 code poetry:
+ * Rules for tokenizing ALGOL 68 code poetry:
  * 
  * 1. Language Keywords (always capitalized and highlighted):
  *    - Structure: MODE, PROC, BEGIN, END, STRUCT
@@ -148,17 +148,17 @@ function algol68Tokenize(code: string): Token[][] {
         punctuation: 'text-[#7c8495]',  // Gray for punctuation
         variable: 'text-[#d6deeb]',  // Default color for variables
         symbol: 'text-[#89ddff]',  // Same as operators
-        attribute: '',  // Not used in ALGOL-68
-        preprocessor: '',  // Not used in ALGOL-68
-        'method-definition': '',  // Not used in ALGOL-68
-        property: '',  // Not used in ALGOL-68
-        message: '',  // Not used in ALGOL-68
-        block: '',  // Not used in ALGOL-68
-        protocol: '',  // Not used in ALGOL-68
-        framework: '',  // Not used in ALGOL-68
-        'special-form': '',  // Not used in ALGOL-68
-        'lambda-list': '',  // Not used in ALGOL-68
-        module: ''  // Not used in ALGOL-68
+        attribute: '',  // Not used in ALGOL 68
+        preprocessor: '',  // Not used in ALGOL 68
+        'method-definition': '',  // Not used in ALGOL 68
+        property: '',  // Not used in ALGOL 68
+        message: '',  // Not used in ALGOL 68
+        block: '',  // Not used in ALGOL 68
+        protocol: '',  // Not used in ALGOL 68
+        framework: '',  // Not used in ALGOL 68
+        'special-form': '',  // Not used in ALGOL 68
+        'lambda-list': '',  // Not used in ALGOL 68
+        module: ''  // Not used in ALGOL 68
     };
 
     const patterns: [RegExp, TokenType][] = [
@@ -166,7 +166,7 @@ function algol68Tokenize(code: string): Token[][] {
         [/#[^\n]*/, 'comment'],
         [/CO[^C]*CO/, 'comment'],
 
-        // Core ALGOL-68 keywords (case sensitive)
+        // Core ALGOL 68 keywords (case sensitive)
         [/\b(PROC|BEGIN|END|IF|THEN|ELSE|FI|DO|OD|CASE|IN|OUT|ESAC|PAR|MODE|REF|STRUCT|UNION|WHILE|FOR|FROM|TO|BY|NIL|ON|FLEX|SKIP)\b/, 'keyword'],
 
         // Types (case sensitive)
@@ -338,25 +338,25 @@ function lispTokenize(code: string): Token[][] {
     const patterns: [RegExp, TokenType][] = [
         // Comments first to avoid interference
         [/;.*$/, 'comment'],
-    
+
         // Special forms (core language constructs)
         [/\b(if|cond|let|let\*|lambda|defun|defmacro|quote|eval-when|progn|prog1|prog2|block|return-from|catch|throw|unwind-protect|case|typecase|multiple-value-bind)\b/, 'special-form'],
-    
+
         // Functions
         [/\b(car|cdr|cons|consp|and|eq|not|append|reverse|member|assoc|mapcar|mapc|reduce|remove|find|length|atom|numberp|symbolp|listp|stringp|characterp|zerop|plusp|minusp|oddp|evenp|random|rem|min|max|abs|sin|cos|tan|expt|exp|log|sqrt|floor|ceiling|truncate|round|format|print|write|read|eval|apply|funcall)\b/, 'function'],
-    
+
         // Lambda list keywords - special case for 't' to ensure it's standalone
         [/\b(nil|null|&optional|&rest|&key|&allow-other-keys|&aux|&body|&environment|&whole)\b|\bt\b(?![-\w])/, 'lambda-list'],
-    
+
         // Quoted symbols
         [/'(?![A-Za-z-])[A-Za-z][A-Za-z0-9-]*\b/, 'symbol'],
-    
+
         // Strings
         [/"[^"]*"/, 'string'],
-    
+
         // Numbers
         [/[+-]?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?/, 'number'],
-    
+
         // Parentheses
         [/[()]/, 'punctuation']
     ];
@@ -479,7 +479,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
         const tokens =
             language === 'ada' ? adaTokenize(code) :
                 language === 'algol68' ? algol68Tokenize(code) :
-                     language === 'apl' ? aplTokenize(code) :
+                    language === 'apl' ? aplTokenize(code) :
                         language === 'befunge' ? befungeTokenize(code) :
                             language === 'lisp' ? lispTokenize(code) :
                                 language === 'objectivec' ? objectiveCTokenize(code) :
@@ -542,12 +542,15 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
                                 </span>
                             )}
                             <span className="table-cell">
-                                {line.map((token, j) => (
-                                    <span
-                                        key={j}
-                                        {...getTokenProps({ token, key: j })}
-                                    />
-                                ))}
+                                {line.map((token, j) => {
+                                    const tokenProps = getTokenProps({ token });
+                                    return (
+                                        <span
+                                            key={j}
+                                            {...tokenProps}
+                                        />
+                                    );
+                                })}
                             </span>
                         </div>
                     ))}

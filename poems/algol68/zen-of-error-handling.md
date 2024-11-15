@@ -21,9 +21,9 @@ notes:
         3. Code and commentary interweave to create multiple layers of meaning
         4. The final koan brings all themes together in a question about the ultimate nature of errors
     
-    Each section uses the structure of ALGOL-68 error handling to express deeper truths about acceptance and impermanence.
+    Each section uses the structure of ALGOL 68 error handling to express deeper truths about acceptance and impermanence.
   technical: |
-    Demonstrates sophisticated error handling patterns in ALGOL-68:
+    Demonstrates sophisticated error handling patterns in ALGOL 68:
         • Custom error type definition using 'mode'
         • Exception handling with 'on error do'
         • Division by zero handling

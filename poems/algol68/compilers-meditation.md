@@ -15,7 +15,7 @@ preview: "A contemplative koan exploring type inference as a journey of discover
 notes:
   composition: "This koan uses a three-part structure common in Zen poetry: positioning (the compiler's questioning), exploration (the paradox of pre-existing types), and resolution (the realization that discovery changes nothing). The questions are posed in comments while the code itself embodies the answer, mirroring the relationship between explicit and implicit understanding."
   technical: |
-    Employs ALGOL-68's sophisticated type system features:
+    Employs ALGOL 68's sophisticated type system features:
       • Uses 'mode' to declare a flexible array type (flex [1:0] real)
       • Demonstrates type inference through implicit declaration
       • The empty array bounds (1:0) symbolize the void before type realization

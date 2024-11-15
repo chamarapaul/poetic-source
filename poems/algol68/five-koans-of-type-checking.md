@@ -13,16 +13,16 @@ tags:
   - paradox
 preview: "A sequence of five programming koans exploring the mysteries of type checking: self-reference, null states, type conversion, generic bounds, and recursive comprehension"
 notes:
-  composition: "Each koan is structured as a programming paradox that reveals deeper truths about type systems. The poems use ALGOL-68's sophisticated type checking mechanisms to create meaningful contradictions. Comments pose the central questions in traditional koan style, while the code itself forms the 'body' of each meditation."
+  composition: "Each koan is structured as a programming paradox that reveals deeper truths about type systems. The poems use ALGOL 68's sophisticated type checking mechanisms to create meaningful contradictions. Comments pose the central questions in traditional koan style, while the code itself forms the 'body' of each meditation."
   technical: |
-    Demonstrates five fundamental aspects of type checking in ALGOL-68:
+    Demonstrates five fundamental aspects of type checking in ALGOL 68:
         1. Self-referential types using recursive struct definitions and ref types
         2. Null value semantics and void type handling
         3. Type conversion through equivalent but distinct type definitions
         4. Generic types with multi-level array references
         5. Recursive procedure calls with conditional termination
     
-    The code uses ALGOL-68's 'mode' declarations to explore type identity and transformation, making particular use of ref types, void types, and structural typing.
+    The code uses ALGOL 68's 'mode' declarations to explore type identity and transformation, making particular use of ref types, void types, and structural typing.
   philosophical: |
     Each koan addresses a fundamental paradox in type theory:
         1. Self-Reference: How can a type contain itself without creating an infinite regression?

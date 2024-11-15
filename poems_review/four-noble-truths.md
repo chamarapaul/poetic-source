@@ -24,7 +24,7 @@ notes:
     
     Comments are used as contemplative questions and teachings, while code embodies the practical implementation of these principles.
   technical: |
-    Demonstrates sophisticated memory management concepts in ALGOL-68:
+    Demonstrates sophisticated memory management concepts in ALGOL 68:
     - Struct definition for memory fragmentation and leaks
     - Reference handling and cycle detection
     - Memory deallocation and garbage collection
@@ -33,7 +33,7 @@ notes:
     - Memory defragmentation
     - Resource lifecycle management
     
-    Each section uses ALGOL-68's type system and memory management features to express both technical operations and their deeper significance.
+    Each section uses ALGOL 68's type system and memory management features to express both technical operations and their deeper significance.
   philosophical: |
     Maps fundamental Buddhist concepts to memory management:
     1. First Noble Truth: Memory leaks and fragmentation as inherent sources of computational suffering

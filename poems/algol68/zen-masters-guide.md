@@ -15,7 +15,7 @@ tags:
 preview: "A series of eight interconnected koans exploring the spiritual dimensions of debugging, from the first encounter with bugs to the ultimate realization that debugging is not about fixing, but about seeing clearly."
 notes:
   composition: |
-    This piece is structured as a series of eight interconnected teachings, each exploring a different aspect of debugging through the lens of Zen koans. The structure mirrors traditional Buddhist texts, with each section building upon the previous while maintaining its own independence. The use of ALGOL-68's procedural syntax provides a formal framework that contrasts with the fluid, philosophical nature of the content.
+    This piece is structured as a series of eight interconnected teachings, each exploring a different aspect of debugging through the lens of Zen koans. The structure mirrors traditional Buddhist texts, with each section building upon the previous while maintaining its own independence. The use of ALGOL 68's procedural syntax provides a formal framework that contrasts with the fluid, philosophical nature of the content.
 
     The poem employs several traditional koan techniques:
         • Direct dialogue between master and student
@@ -25,7 +25,7 @@ notes:
     
     Each teaching is framed as a procedure, creating a marriage between technical structure and spiritual insight.
   technical: |
-    The poem leverages several ALGOL-68 features to create its narrative:
+    The poem leverages several ALGOL 68 features to create its narrative:
         • Procedures (proc) are used to encapsulate each teaching
         • Comments (#) serve both as traditional code comments and to deliver philosophical insights
         • The void return type emphasizes that these teachings are about the process, not the result

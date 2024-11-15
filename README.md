@@ -19,7 +19,7 @@ The collection includes various poetic forms:
 Written across multiple programming languages:
   - Modern Synthesis: Swift, Go, JavaScript
   - Natural Flow: Python, Ruby, Kotlin
-  - Structured Elegance: ALGOL-68, Ada, Java
+  - Structured Elegance: ALGOL s68, Ada, Java
   - Visual Expression: APL, Befunge
   - System Dialogues: C, C++, Objective-C
   - Symbolic Patterns: Lisp, SQL

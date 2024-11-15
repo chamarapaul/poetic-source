@@ -16,7 +16,7 @@ import {
   
     describe('getLanguageDisplayName', () => {
       it('returns correct display names for languages', () => {
-        expect(getLanguageDisplayName('algol68')).toBe('ALGOL-68');
+        expect(getLanguageDisplayName('algol68')).toBe('ALGOL 68');
         expect(getLanguageDisplayName('python')).toBe('Python');
         expect(getLanguageDisplayName('cpp')).toBe('C++');
       });

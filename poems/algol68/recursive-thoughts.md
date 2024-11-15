@@ -11,11 +11,11 @@ tags:
   - consciousness
   - reflection
   - zen
-preview: "A recursive meditation written in ALGOL-68, where a procedure's self-reflection becomes a Zen koan about consciousness and the nature of thought"
+preview: "A recursive meditation written in ALGOL 68, where a procedure's self-reflection becomes a Zen koan about consciousness and the nature of thought"
 notes:
   composition: "This poem takes the form of a koan, using a recursive procedure as a meditation on consciousness. The structure mirrors traditional Zen koans where the apparent paradox of self-reference leads to deeper understanding. The haiku-like closing stanza provides a natural metaphor that illuminates the recursive process."
   technical: |
-    Written in ALGOL-68, the poem implements a recursive procedure that:
+    Written in ALGOL 68, the poem implements a recursive procedure that:
       1. Takes a reference to a 'mind' parameter
       2. Uses a base case where consciousness fades to dawn
       3. Implements recursive self-calls that build up and then unwind

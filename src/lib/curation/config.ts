@@ -4,9 +4,9 @@ import { CurationConfig } from './types';
 export const curationConfig: CurationConfig = {
   featuredPoems: [
     {
-      id: "promise-chains",
-      language: "javascript",
-      startDate: "2024-11-12",
+      id: "cycles-of-release",
+      language: "befunge",
+      startDate: "2024-11-14",
       // Current feature - no endDate
     },
     {

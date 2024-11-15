@@ -1,6 +1,6 @@
 // src/lib/validation/forms/ghazal.ts
 import { ProgrammingLanguage } from '../../types';
-import { extractPoeticLines, PoeticLine } from '../utils';
+import { PoeticLine, extractPoeticLines, rhymesWith, getEndWord } from '../utils';
 
 interface GhazalValidationError {
   message: string;
@@ -50,13 +50,13 @@ export function validateGhazal(
 
   // Check for rhyme/refrain pattern
   if (couplets.length > 0) {
-    const firstRefrain = getLastWord(couplets[0].second.content);
+    const firstRefrain = getEndWord(couplets[0].second.content);
     
     couplets.slice(1).forEach((couplet, index) => {
-      const currentRefrain = getLastWord(couplet.second.content);
-      if (!isRefrainMatch(firstRefrain, currentRefrain)) {
+      const currentRefrain = getEndWord(couplet.second.content);
+      if (!rhymesWith(firstRefrain, currentRefrain)) {
         errors.push({
-          message: `Couplet ${index + 2} doesn't maintain the rhyme/refrain pattern`,
+          message: `Couplet ${index + 2} doesn't maintain the rhyme pattern`,
           line: couplet.second.lineNumber,
           severity: 'warning'
         });
@@ -69,35 +69,4 @@ export function validateGhazal(
     errors,
     couplets
   };
-}
-
-/**
- * Helper to get the last meaningful word of a line
- */
-function getLastWord(line: string): string {
-  // Remove common code endings (semicolons, parentheses, etc.)
-  const cleaned = line.trim()
-    .replace(/[;{}()\[\]]+$/, '')
-    .trim();
-  
-  // Get the last word
-  const words = cleaned.split(/\s+/);
-  return words[words.length - 1] || '';
-}
-
-/**
- * Check if two refrains match or rhyme
- */
-function isRefrainMatch(refrain1: string, refrain2: string): boolean {
-  // Exact match
-  if (refrain1 === refrain2) return true;
-
-  // Remove quotes if present
-  const clean1 = refrain1.replace(/["'`]/g, '');
-  const clean2 = refrain2.replace(/["'`]/g, '');
-  if (clean1 === clean2) return true;
-
-  // TODO: Could add basic rhyme checking here if desired
-  
-  return false;
 }

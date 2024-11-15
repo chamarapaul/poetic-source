@@ -254,3 +254,58 @@ export function cleanLine(line: string): string {
     .replace(/[{}();,\[\]]+$/, '') // Remove trailing punctuation
     .trim();
 }
+
+/**
+ * Check if two words rhyme by comparing sounds from last vowel onwards
+ */
+export function rhymesWith(word1: string, word2: string): boolean {
+    // Convert words to lowercase for comparison
+    word1 = word1.toLowerCase();
+    word2 = word2.toLowerCase();
+
+    // Check for exact match
+    if (word1 === word2) return true;
+
+    // Find the last vowel position in each word
+    const vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
+    const getLastVowelIndex = (word: string) => {
+        for (let i = word.length - 1; i >= 0; i--) {
+            if (vowels.includes(word[i])) return i;
+        }
+        return -1;
+    };
+
+    const lastVowel1 = getLastVowelIndex(word1);
+    const lastVowel2 = getLastVowelIndex(word2);
+
+    if (lastVowel1 === -1 || lastVowel2 === -1) return false;
+
+    // Compare the ending from the last vowel onwards
+    const ending1 = word1.slice(lastVowel1);
+    const ending2 = word2.slice(lastVowel2);
+    
+    return ending1 === ending2;
+}
+
+/**
+ * Get the last meaningful word from a line of code, handling
+ * comments, strings, and code syntax
+ */
+export function getEndWord(line: string): string {
+    // Clean the line
+    const cleaned = line
+        .replace(/\/\/.*$/, '')         // Remove single-line comments
+        .replace(/\/\*.*\*\//, '')      // Remove inline comments
+        .replace(/\([^)]*\)/g, '')      // Remove function parameters
+        .replace(/[{};(),\[\]]/g, '')   // Remove punctuation
+        .replace(/->/g, ' ')            // Replace arrow operator with space
+        .trim();
+
+    // Get the last meaningful word/token and split on underscores
+    const words = cleaned.split(/\s+/).filter(word => word.length > 0);
+    const lastWord = words[words.length - 1] || '';
+    
+    // Split the last word on underscore and take the last part
+    const parts = lastWord.split('_');
+    return parts[parts.length - 1];
+}

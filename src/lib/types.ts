@@ -94,10 +94,10 @@ export const formStructureInfo: Record<PoemForm, PoemFormStructure> = {
             "Final line often reveals deeper meaning or returns to initial concept",
             "Function definitions, error handling, or async operations work well with this structure"
         ],
-        example: `def time() -> Optional[Truth]:
-    while moments.flow_like_stream():
-        try: grasp(now.eternal_seems())
-        except: return None  # yet slips away`
+        example: `def call() -> Sign:             # A
+    let morning_stars.align():    # A
+        while time.flies_away()    # B
+        return light.design()    # A`
         //example is in python
     },
     tanka: {

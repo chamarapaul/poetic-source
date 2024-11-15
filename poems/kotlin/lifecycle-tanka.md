@@ -22,5 +22,5 @@ fun autumn() = Leaf(100)
         leaf.also {    // chlorophyll fades slowly now
             it.green -= 50   // autumn takes its toll
         }.apply { green = 0  // golden turns to brown at last
-        }.also { null }      // returns to earth's embrace }
+        }.also { null }      // returns to the earth's embrace 
     }

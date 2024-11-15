@@ -2,6 +2,7 @@
 import { Poem, PoemForm, ProgrammingLanguage, POEM_FORMS, PROGRAMMING_LANGUAGES } from '../types';
 import { validateGhazal } from './forms/ghazal';
 import { validateRubai } from './forms/rubai';
+import { validateTanka } from './forms/tanka';
 import matter from 'gray-matter';
 
 export interface ValidationError {
@@ -98,7 +99,15 @@ function validatePoemForm(content: string, form: PoemForm, language: Programming
       // TODO: Add haiku validation
       break;
     case 'tanka':
-      // TODO: Add tanka validation
+      const tankaValidation = validateTanka(content, language);
+      if (!tankaValidation.isValid) {
+        tankaValidation.errors.forEach(error => {
+          errors.push({
+            field: 'form',
+            message: error.message + (error.line ? ` (line ${error.line})` : '')
+          });
+        });
+      }
       break;
     case 'rubai':
       const rubaiValidation = validateRubai(content, language);

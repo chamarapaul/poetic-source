@@ -17,26 +17,6 @@ interface LanguageConfig {
 }
 
 const LANGUAGE_CONFIGS: Record<ProgrammingLanguage, LanguageConfig> = {
-  python: {
-    singleLineComment: ['#'],
-    stringDelimiters: ['"', "'", '"""', "'''"]
-  },
-  javascript: {
-    singleLineComment: ['//'],
-    multiLineComment: {
-      start: '/*',
-      end: '*/'
-    },
-    stringDelimiters: ['"', "'", '`']
-  },
-  ruby: {
-    singleLineComment: ['#'],
-    multiLineComment: {
-      start: '=begin',
-      end: '=end'
-    },
-    stringDelimiters: ['"', "'"]
-  },
   ada: {
     singleLineComment: ['--'],
     stringDelimiters: ['"']
@@ -49,10 +29,10 @@ const LANGUAGE_CONFIGS: Record<ProgrammingLanguage, LanguageConfig> = {
     },
     stringDelimiters: ['"']
   },
-  apl: {
-    singleLineComment: ['⍝'],
-    stringDelimiters: ["'"]
-  },
+//   apl: {
+//     singleLineComment: ['⍝'],
+//     stringDelimiters: ["'"]
+//   },
   befunge: {
     singleLineComment: [';'],
     stringDelimiters: ['"']
@@ -81,6 +61,10 @@ const LANGUAGE_CONFIGS: Record<ProgrammingLanguage, LanguageConfig> = {
     },
     stringDelimiters: ['"', '`']
   },
+  j: {
+    singleLineComment: ['NB.'],
+    stringDelimiters: ['"']
+  },
   java: {
     singleLineComment: ['//'],
     multiLineComment: {
@@ -88,6 +72,14 @@ const LANGUAGE_CONFIGS: Record<ProgrammingLanguage, LanguageConfig> = {
       end: '*/'
     },
     stringDelimiters: ['"']
+  },
+  javascript: {
+    singleLineComment: ['//'],
+    multiLineComment: {
+      start: '/*',
+      end: '*/'
+    },
+    stringDelimiters: ['"', "'", '`']
   },
   kotlin: {
     singleLineComment: ['//'],
@@ -112,6 +104,18 @@ const LANGUAGE_CONFIGS: Record<ProgrammingLanguage, LanguageConfig> = {
       end: '*/'
     },
     stringDelimiters: ['"', '@"']
+  },
+  python: {
+    singleLineComment: ['#'],
+    stringDelimiters: ['"', "'", '"""', "'''"]
+  },
+  ruby: {
+    singleLineComment: ['#'],
+    multiLineComment: {
+      start: '=begin',
+      end: '=end'
+    },
+    stringDelimiters: ['"', "'"]
   },
   sql: {
     singleLineComment: ['--'],

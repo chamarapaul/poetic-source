@@ -1,5 +1,5 @@
 // src/lib/validation/forms/rubai.ts
-import { ProgrammingLanguage } from '@/lib/types';
+import { ProgrammingLanguage } from '../../types';
 import { PoeticLine, extractPoeticLines, getEndWord, rhymesWith } from '../utils';
 
 interface RubaiValidationError {
@@ -72,32 +72,32 @@ function findRhymePattern(lines: PoeticLine[]): RhymePatternResult {
     // Get end words/tokens for each line
     const endWords = lines.map(line => getEndWord(line.content));
     
-    console.log("\nChecking quatrain end words:", endWords);
+    //console.log("\nChecking quatrain end words:", endWords);
 
     // Check for AABA pattern
-    console.log("\nChecking AABA pattern:");
+    //console.log("\nChecking AABA pattern:");
     const firstPairRhymes = rhymesWith(endWords[0], endWords[1]);
-    console.log(`First pair rhymes? ${firstPairRhymes}`);
+    //console.log(`First pair rhymes? ${firstPairRhymes}`);
     
     const bookendRhymes = rhymesWith(endWords[1], endWords[3]);
-    console.log(`Bookend rhymes? ${bookendRhymes}`);
+    //console.log(`Bookend rhymes? ${bookendRhymes}`);
     
     const middleLineUnique = !rhymesWith(endWords[2], endWords[0]);
-    console.log(`Middle line unique? ${middleLineUnique}`);
+    //console.log(`Middle line unique? ${middleLineUnique}`);
 
     const isAABA = firstPairRhymes && bookendRhymes && middleLineUnique;
 
     // Check for AAAA pattern
-    console.log("\nChecking AAAA pattern:");
+    //console.log("\nChecking AAAA pattern:");
     const isAAAA = endWords.every((word, i) => {
         if (i === 0) return true;
         const rhymes = rhymesWith(word, endWords[0]);
-        console.log(`Line ${i + 1} rhymes with first line? ${rhymes}`);
+        //console.log(`Line ${i + 1} rhymes with first line? ${rhymes}`);
         return rhymes;
     });
 
-    console.log(`\nAABA check: ${isAABA}`);
-    console.log(`AAAA check: ${isAAAA}`);
+    //console.log(`\nAABA check: ${isAABA}`);
+    //console.log(`AAAA check: ${isAAAA}`);
 
     return {
         isValid: isAABA || isAAAA,

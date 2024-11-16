@@ -60,9 +60,9 @@ const SearchForm: React.FC<SearchFormProps> = ({
   return (
     <form onSubmit={onSubmit} className={`relative ${className}`}>
       <div className="relative flex items-center">
-        <Search 
+        <Search
           className={`absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 
-            ${isSearchFocused ? 'text-blue-500' : 'text-gray-400'}`} 
+            ${isSearchFocused ? 'text-blue-500' : 'text-gray-400'}`}
         />
         <input
           ref={searchInputRef}
@@ -108,10 +108,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
       <nav className="bg-white shadow-sm">
-        <div className="max-w-6xl mx-auto px-4 py-4">
+        <div className="max-w-5xl mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
-            <Link href="/" className="text-xl font-bold text-gray-900">
-              Poetic Source
+            <Link href="/" className="flex items-center text-xl font-bold text-gray-900">
+              <span>Poetic</span>
+              <span className="text-blue-600 mx-1">/</span>
+              <span>Source</span>
             </Link>
 
             {/* Desktop Navigation */}
@@ -168,8 +170,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <p className="text-sm text-gray-600">
               © {new Date().getFullYear()} Poetic Source
             </p>
-            <a 
-              href="https://github.com/chamarapaul/poetic-source" 
+            <a
+              href="https://github.com/chamarapaul/poetic-source"
               className="flex items-center text-gray-600 hover:text-gray-900"
               target="_blank"
               rel="noopener noreferrer"

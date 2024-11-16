@@ -1,6 +1,6 @@
 // pages/about.tsx
 import React from 'react';
-import { ScrollText, Code, BookOpen, Cpu } from 'lucide-react';
+import { ScrollText, Code, BookOpen, Cpu, ArrowRight } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import Layout from '@/components/Layout';
 
@@ -93,7 +93,8 @@ export default function AboutPage() {
                         </Card>
                     </div>
 
-                    <div className="bg-white p-6 rounded-lg shadow-sm mb-12">
+                    {/* Origins */}
+                    <div className="bg-white rounded-lg shadow-sm p-6">
                         <h2 className="text-2xl font-semibold text-gray-900 mb-4">Origins</h2>
                         <div className="space-y-4 text-gray-700">
                             <p>
@@ -115,31 +116,10 @@ export default function AboutPage() {
                     </div>
 
                     {/* Share Your Poetry */}
-                    <div className="bg-white p-6 rounded-lg shadow-sm">
+                    <div className="bg-white rounded-lg shadow-sm p-6">
                         <h2 className="text-2xl font-semibold text-gray-900 mb-4">Share Your Poetry</h2>
                         <p className="text-gray-700 mb-4">
-                            Inspired to create your own code poetry? I'd love to see what you create! Your poem should:
-                        </p>
-                        <ul className="space-y-3 text-gray-700 mb-6">
-                            <li className="flex items-start">
-                                <span className="font-medium mr-2">•</span>
-                                Follow the syntax rules of your chosen programming language
-                            </li>
-                            <li className="flex items-start">
-                                <span className="font-medium mr-2">•</span>
-                                Embrace the constraints of your selected poetic form
-                            </li>
-                            <li className="flex items-start">
-                                <span className="font-medium mr-2">•</span>
-                                Include thoughts on both the technical and philosophical aspects
-                            </li>
-                            <li className="flex items-start">
-                                <span className="font-medium mr-2">•</span>
-                                Explore deeper meanings in computer science concepts
-                            </li>
-                        </ul>
-                        <p className="text-gray-700 mb-4">
-                            To contribute your poem, please visit the <a
+                            Inspired to create your own code poetry? I'd love to see what you create! To contribute your poem, please visit the <a
                                 href="https://github.com/chamarapaul/poetic-source#contributing"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -157,9 +137,10 @@ export default function AboutPage() {
                         </p>
                         <a
                             href="/poems"
-                            className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+                            className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                         >
                             Explore the Collection
+                            <ArrowRight className="w-4 h-4 ml-2" />
                         </a>
                     </div>
                 </section>

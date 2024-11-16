@@ -109,13 +109,16 @@ export default function PoemDisplay({ poem, variant = 'full' }: PoemDisplayProps
       {/* View full poem link only for featured variant */}
       {isFeatured && (
         <div className="px-6 pb-6">
+          <div className="flex justify-end">
           <Link
             href={`/poems/${poem.id}`}
-            className="text-blue-600 hover:text-blue-700 inline-flex items-center"
+            className="text-blue-600 hover:text-blue-700 inline-flex items-center text-sm"
           >
-            View full poem with notes
             <ArrowRight className="w-4 h-4 ml-1" />
+            View full poem with notes
+            
           </Link>
+          </div>
         </div>
       )}
     </article>

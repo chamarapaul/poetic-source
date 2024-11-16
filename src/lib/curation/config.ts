@@ -4,8 +4,8 @@ import { CurationConfig } from './types';
 export const curationConfig: CurationConfig = {
   featuredPoems: [
     {
-      id: "cycles-of-release",
-      language: "befunge",
+      id: "quantum-tanka",
+      language: "python",
       startDate: "2024-11-14",
       // Current feature - no endDate
     },

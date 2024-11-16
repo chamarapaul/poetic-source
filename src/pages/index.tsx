@@ -18,26 +18,29 @@ interface HomePageProps {
 export default function Home({ featuredPoem, recentPoems }: HomePageProps) {
   return (
     <Layout>
-      {/* Hero Section - removed extra text */}
-      <section className="py-8 px-4 text-center">
-        <div className="max-w-2xl mx-auto">
-          <h1 className="text-5xl font-bold text-gray-900 mb-4">
-            Poetic Source
-          </h1>
-          <p className="text-xl text-gray-600 mb-6">
-            Where algorithms meet artistic expression
-          </p>
-          <Link 
-            href="/about"
-            className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-          >
-            Learn More About Code Poetry
-            <ArrowRight className="w-4 h-4 ml-2" />
-          </Link>
+      {/* Hero Section */}
+      <section className="pt-8 pb-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center relative">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 h-1 bg-gradient-to-r from-blue-500 to-blue-600 w-24" />
+            <div className="pt-12">
+              <h1 className="text-5xl font-bold text-gray-900 mb-6">
+                Poetic Source
+              </h1>
+              <p className="text-xl text-gray-600 mb-6 font-mono">
+                Where algorithms meet artistic expression
+              </p>
+              <a
+                href="/about"
+                className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                Learn More About Code Poetry
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </a>
+            </div>
+          </div>
         </div>
       </section>
-
-      {/* Rest of the sections remain the same */}
       <section className="pt-4 px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">
@@ -59,16 +62,9 @@ export default function Home({ featuredPoem, recentPoems }: HomePageProps) {
                 Recently compiled poems
               </p>
             </div>
-            <Link 
-              href="/poems"
-              className="text-blue-600 hover:text-blue-700 flex items-center"
-            >
-              View all poems
-              <ArrowRight className="w-4 h-4 ml-1" />
-            </Link>
           </div>
-          
-          <div className="space-y-4">
+
+          <div className="space-y-4 mb-8">
             {recentPoems.map((poem) => (
               <article key={poem.id} className="bg-white rounded-lg border hover:shadow-md transition-shadow">
                 <div className="p-4">
@@ -99,6 +95,15 @@ export default function Home({ featuredPoem, recentPoems }: HomePageProps) {
             ))}
           </div>
         </div>
+        <div className="flex justify-end">
+            <Link
+              href="/poems"
+              className="text-blue-600 hover:text-blue-700 flex items-center"
+            >
+              <ArrowRight className="w-4 h-4 ml-1" />
+              View all poems
+            </Link>
+          </div>
       </section>
     </Layout>
   );
@@ -108,13 +113,13 @@ export const getStaticProps: GetStaticProps = async () => {
   try {
     // Get featured poem
     const featuredPoemInfo = getCurrentFeaturedPoem();
-    const featuredPoemResult = featuredPoemInfo 
+    const featuredPoemResult = featuredPoemInfo
       ? getPoemBySlug(featuredPoemInfo.id, featuredPoemInfo.language)
       : null;
 
     // Get all poems
     const allPoems = getAllPoems();
-    
+
     // Get recent poems, excluding featured if it exists
     const recentPoems = allPoems
       .filter(poem => !featuredPoemResult?.poem || poem.id !== featuredPoemResult.poem.id)
@@ -142,8 +147,8 @@ export const getStaticProps: GetStaticProps = async () => {
     return {
       props: {
         featuredPoem: serializedFeaturedPoem || serializedRecentPoems[0],
-        recentPoems: serializedFeaturedPoem 
-          ? serializedRecentPoems 
+        recentPoems: serializedFeaturedPoem
+          ? serializedRecentPoems
           : serializedRecentPoems.slice(1)
       },
       revalidate: 3600

@@ -15,7 +15,7 @@ interface LanguagesPageProps {
 const LanguagesPage = ({ languageCategories }: LanguagesPageProps) => {
     return (
         <Layout>
-            <div className="container mx-auto px-4 py-8">
+            <div className="max-w-4xl mx-auto px-4 py-8">
                 <div className="mb-12">
                     <h1 className="text-3xl font-bold mb-4">Programming Languages</h1>
                     <p className="text-gray-600 max-w-3xl">

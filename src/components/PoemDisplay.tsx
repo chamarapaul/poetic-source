@@ -1,11 +1,13 @@
 // components/PoemDisplay.tsx
-import React from 'react';
-import { ScrollText, Code, Tags, ArrowRight, Info } from 'lucide-react';
+import React, { useState } from 'react';
+import { ScrollText, Code, Tags, ArrowRight, Info, ChevronDown, ChevronUp } from 'lucide-react';
 import Link from 'next/link';
 import { Poem } from '@/lib/types';
 import { getFormDisplayName, getLanguageDisplayName } from '@/lib/cache';
 import CodeBlock from './CodeBlock';
 import Tag from './Tag';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { cn } from '@/lib/utils';
 
 interface PoemDisplayProps {
   poem: Poem;
@@ -13,11 +15,67 @@ interface PoemDisplayProps {
 }
 
 export default function PoemDisplay({ poem, variant = 'full' }: PoemDisplayProps) {
+  const isDesktop = useMediaQuery('(min-width: 768px)');
   const isFeatured = variant === 'featured';
+
+  // State for collapsible sections (mobile only)
+  const [openSection, setOpenSection] = useState<string | null>('composition');
+
+  const toggleSection = (section: string) => {
+    if (!isDesktop) {
+      setOpenSection(openSection === section ? null : section);
+    }
+  };
+
+  const NotesSection = ({ type, content }: { type: string; content: string | null | undefined }) => {
+    if (!content) return null;
+    const isOpen = isDesktop || openSection === type;
+
+    return (
+      <div>
+        {!isDesktop ? (
+          // Mobile: Collapsible version
+          <>
+            <button
+              onClick={() => toggleSection(type)}
+              className="w-full flex items-center justify-between p-4 text-left"
+            >
+              <h3 className="text-lg font-semibold">
+                {type.charAt(0).toUpperCase() + type.slice(1)} Notes
+              </h3>
+              {isOpen ? (
+                <ChevronUp className="w-5 h-5 text-gray-500" />
+              ) : (
+                <ChevronDown className="w-5 h-5 text-gray-500" />
+              )}
+            </button>
+            <div
+              className={cn(
+                "overflow-hidden transition-[max-height] duration-300 ease-in-out",
+                isOpen ? "max-h-[1000px]" : "max-h-0"
+              )}
+            >
+              <div className="p-4 pt-0">
+                <p className="text-gray-700 whitespace-pre-wrap">{content}</p>
+              </div>
+            </div>
+          </>
+        ) : (
+          // Desktop: Regular version
+          <div className="p-6">
+            <h3 className="text-lg font-semibold mb-2">
+              {type.charAt(0).toUpperCase() + type.slice(1)} Notes
+            </h3>
+            <p className="text-gray-700 whitespace-pre-wrap">{content}</p>
+          </div>
+        )}
+      </div>
+    );
+  };
 
   return (
     <article className="bg-white rounded-xl shadow-sm overflow-hidden">
-      <header className="p-6 border-b">
+      <header className="p-4 md:p-6 border-b">
         {/* Title and Preview for Featured variant */}
         {isFeatured && (
           <>
@@ -37,39 +95,37 @@ export default function PoemDisplay({ poem, variant = 'full' }: PoemDisplayProps
           </h2>
         )}
 
-        <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600">
-          <div className="flex items-center group">
-            <ScrollText className="w-4 h-4 mr-2" />
-            <Link
-              href={`/forms/${poem.form}`}
-              className="hover:text-blue-600 transition-colors"
-            >
-              {getFormDisplayName(poem.form)}
-            </Link>
+        <div className="flex flex-col md:flex-row md:items-center gap-4 text-sm text-gray-600">
+          <div className="flex items-center gap-4">
+            <div className="flex items-center group">
+              <ScrollText className="w-4 h-4 mr-2" />
+              <Link href={`/forms/${poem.form}`} className="hover:text-blue-600 transition-colors">
+                {getFormDisplayName(poem.form)}
+              </Link>
+            </div>
+            <div className="flex items-center group">
+              <Code className="w-4 h-4 mr-2" />
+              <Link href={`/languages/${poem.language}`} className="hover:text-blue-600 transition-colors">
+                {getLanguageDisplayName(poem.language)}
+              </Link>
+            </div>
           </div>
-          <div className="flex items-center group">
-            <Code className="w-4 h-4 mr-2" />
-            <Link
-              href={`/languages/${poem.language}`}
-              className="hover:text-blue-600 transition-colors"
-            >
-              {getLanguageDisplayName(poem.language)}
-            </Link>
-          </div>
-          <div className="flex items-center gap-2">
-            <Tags className="w-4 h-4" />
-            {poem.tags.map(tag => (
-              <Tag key={tag} name={tag} />
-            ))}
+          <div className="flex items-start md:items-center gap-2">
+            <Tags className="w-4 h-4 shrink-0" />
+            <div className="flex flex-wrap gap-2">
+              {poem.tags.map(tag => (
+                <Tag key={tag} name={tag} />
+              ))}
+            </div>
           </div>
         </div>
       </header>
 
-      <div className="p-6">
+      <div className="p-4 md:p-6">
         <CodeBlock
           code={poem.content}
           language={poem.language}
-          showLineNumbers={true}
+          showLineNumbers={isDesktop}
         />
       </div>
 
@@ -84,25 +140,14 @@ export default function PoemDisplay({ poem, variant = 'full' }: PoemDisplayProps
 
       {/* Notes section only for full variant */}
       {!isFeatured && (poem.notes.composition || poem.notes.technical || poem.notes.philosophical) && (
-        <div className="p-6 border-t bg-gray-50">
-          {poem.notes.composition && (
-            <div className="mb-6">
-              <h3 className="text-lg font-semibold mb-2">Composition Notes</h3>
-              <p className="text-gray-700 whitespace-pre-wrap">{poem.notes.composition}</p>
-            </div>
-          )}
-          {poem.notes.technical && (
-            <div className="mb-6">
-              <h3 className="text-lg font-semibold mb-2">Technical Notes</h3>
-              <p className="text-gray-700 whitespace-pre-wrap">{poem.notes.technical}</p>
-            </div>
-          )}
-          {poem.notes.philosophical && (
-            <div>
-              <h3 className="text-lg font-semibold mb-2">Philosophical Notes</h3>
-              <p className="text-gray-700 whitespace-pre-wrap">{poem.notes.philosophical}</p>
-            </div>
-          )}
+        <div className="border-t bg-gray-50">
+          {(['composition', 'technical', 'philosophical'] as const).map((type) => (
+            <NotesSection
+              key={type}
+              type={type}
+              content={poem.notes[type]}
+            />
+          ))}
         </div>
       )}
 

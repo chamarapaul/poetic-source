@@ -49,41 +49,36 @@ export default function PoemPage({ poem }: PoemPageProps) {
   return (
     <Layout>
       <div className="max-w-4xl mx-auto px-4 py-8">
-        <div className="mb-6 flex items-center justify-between">
+        <div className="mb-6 flex flex-col md:flex-row md:items-center gap-3 md:gap-0 md:justify-between">
           {/* Breadcrumb Navigation */}
-          <nav className="flex items-center text-sm text-gray-600">
-            <Link
-              href="/poems"
-              className="hover:text-gray-900"
-            >
+          <nav className="flex items-center text-sm text-gray-600 overflow-x-auto">
+            <Link href="/poems" className="shrink-0 hover:text-gray-900">
               Browse
             </Link>
 
             {breadcrumbPath && (
               <>
-                <ChevronRight className="w-4 h-4 mx-2" />
-                <Link
-                  href={breadcrumbPath.href}
-                  className="hover:text-gray-900"
-                >
+                <ChevronRight className="w-4 h-4 mx-2 shrink-0" />
+                <Link href={breadcrumbPath.href} className="shrink-0 hover:text-gray-900">
                   {breadcrumbPath.label}
                 </Link>
               </>
             )}
 
-            <ChevronRight className="w-4 h-4 mx-2" />
-            <span className="text-gray-900 font-medium">{poem.title}</span>
+            <ChevronRight className="w-4 h-4 mx-2 shrink-0" />
+            <span className="text-gray-900 font-medium truncate">{poem.title}</span>
           </nav>
 
           {/* Random Poem Link */}
           <Link
             href="/poems/random"
-            className="text-blue-600 hover:text-blue-700 inline-flex items-center gap-2 text-sm"
+            className="text-blue-600 hover:text-blue-700 inline-flex items-center gap-2 text-sm shrink-0"
           >
             <Shuffle className="w-4 h-4" />
             Try another poem
           </Link>
         </div>
+        
         {/* Poem Display */}
         <PoemDisplay poem={poem} />
       </div>

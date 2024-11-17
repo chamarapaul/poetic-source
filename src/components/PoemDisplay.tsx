@@ -74,8 +74,8 @@ export default function PoemDisplay({ poem, variant = 'full' }: PoemDisplayProps
       </div>
 
       {!isFeatured && (
-        <div className="px-6 pt-2 pb-4 flex justify-end">
-          <div className="flex items-center text-sm text-gray-600">
+        <div className="px-6 pb-6">
+          <div className="flex items-center text-sm text-gray-600 justify-end">
             <Info className="w-4 h-4 mr-2" />
             <span>Created by {poem.author}</span>
           </div>
@@ -110,14 +110,14 @@ export default function PoemDisplay({ poem, variant = 'full' }: PoemDisplayProps
       {isFeatured && (
         <div className="px-6 pb-6">
           <div className="flex justify-end">
-          <Link
-            href={`/poems/${poem.id}`}
-            className="text-blue-600 hover:text-blue-700 inline-flex items-center text-sm"
-          >
-            <ArrowRight className="w-4 h-4 ml-1" />
-            View full poem with notes
-            
-          </Link>
+            <Link
+              href={`/poems/${poem.id}`}
+              className="text-blue-600 hover:text-blue-700 inline-flex items-center text-sm"
+            >
+              <ArrowRight className="w-4 h-4 ml-1" />
+              View full poem with notes
+
+            </Link>
           </div>
         </div>
       )}

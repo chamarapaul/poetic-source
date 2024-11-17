@@ -5,6 +5,7 @@ import { getAllPoems } from '@/lib/poems';
 import { Poem } from '@/lib/types';
 import Layout from '@/components/Layout';
 import PaginatedPoemList from '@/components/PaginatedPoemList';
+import { ArrowRight } from 'lucide-react';
 
 interface BrowsePageProps {
   poems: Poem[];
@@ -29,15 +30,17 @@ const BrowsePage = ({ poems, totalPoems }: BrowsePageProps) => {
           <div className="flex justify-center gap-4">
             <Link
               href="/forms"
-              className="inline-block bg-white text-gray-800 px-6 py-3 rounded-lg border hover:bg-gray-50 transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-white text-gray-800 border rounded-lg hover:bg-gray-50 transition-colors"
             >
               Browse by Form
+              <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
             <Link
               href="/languages"
-              className="inline-block bg-white text-gray-800 px-6 py-3 rounded-lg border hover:bg-gray-50 transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-white text-gray-800 border rounded-lg hover:bg-gray-50 transition-colors"
             >
               Browse by Language
+              <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
           </div>
         </div>

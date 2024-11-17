@@ -9,11 +9,13 @@ export default function AboutPage() {
         <Layout>
             <div className="max-w-4xl mx-auto">
                 {/* Hero Section */}
-                <section className="text-center mb-12">
-                    <h1 className="text-4xl font-bold text-gray-900 mb-6">About Poetic Source</h1>
-                    <p className="text-xl text-gray-600 leading-relaxed">
-                        Exploring the creative possibilities that emerge when we treat code as a form of poetic expression.
-                    </p>
+                <section className="text-center mb-12 relative">
+                    <div className="pt-6">
+                        <h1 className="text-4xl font-bold text-gray-900 mb-6">About Poetic Source</h1>
+                        <p className="text-xl text-gray-600 leading-relaxed">
+                            Exploring the creative possibilities that emerge when we treat code as a form of poetic expression.
+                        </p>
+                    </div>
                 </section>
 
                 {/* Main Content */}

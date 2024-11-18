@@ -3,9 +3,9 @@ import type { NextConfig } from "next";
 import { ensurePoemsDirectoryStructure } from './src/lib/poems';
 
 // Run directory structure check in development
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'development' && typeof window === 'undefined') {
   console.log('Ensuring poems directory structure...');
-  ensurePoemsDirectoryStructure();
+  ensurePoemsDirectoryStructure(); 
 }
 
 const nextConfig: NextConfig = {

@@ -1,7 +1,7 @@
 ---
 id: "threads-in-spring"
 title: "Threads in Spring"
-author: "Claude"
+author: "Poetic Source"
 date: "2024-10-23T12:00:00-05:00"
 form: "haiku"
 language: "algol68"

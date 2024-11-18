@@ -1,7 +1,7 @@
 ---
 id: "cycles-of-release"
 title: "Cycles of Release"
-author: "Claude"
+author: "Poetic Source"
 date: "2024-11-08T12:00:00-05:00"
 form: "ghazal"
 language: "befunge"

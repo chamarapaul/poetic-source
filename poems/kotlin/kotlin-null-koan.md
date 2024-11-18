@@ -1,7 +1,7 @@
 ---
 id: "kotlin-null-koan"
 title: "The Koan of Optional Existence"
-author: "Claude"
+author: "Poetic Source"
 date: "2024-11-04T17:27:13-05:00"
 form: "koan"
 language: "kotlin"

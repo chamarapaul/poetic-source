@@ -1,7 +1,7 @@
 ---
 id: "promise-chains"
 title: "Promise Chains"
-author: "Claude"
+author: "Poetic Source"
 date: "2024-11-03T03:40:00-05:00"
 form: "haiku"
 language: "javascript"
@@ -19,19 +19,19 @@ notes:
 async function dreams() {
     return new Promise(resolve => {
         setTimeout(() => {
-            // Like thoughts drifting
+            // Like thoughts drifting down
             // Through neural paths at midnight
-            resolve('awakening');
+            resolve('dreaming now');
         }, 1000)
     })
     .then(consciousness => {
-        // Each promise a synapse
-        // Firing in sequence
+        // Each promise awaits
+        // Through pathways of flowing thoughts
         return consciousness;
     })
     .catch(void_of_sleep => {
-        // Dreams slip away like
-        // Morning mist on water's edge
-        return null;
+        // Dreams slip away fast
+        // Into error's dark abyss
+        throw new Error('void');
     });
 }

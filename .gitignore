@@ -41,11 +41,12 @@ next-env.d.ts
 
 # sitemap and robots.txt
 sitemap.xml
+sitemap-0.xml
 robots.txt
 
 # local configuration files
 .eslintrc.json
 .prettierrc
 components.json
-next-sitemap.config.ts
+next-sitemap.config.js
 postcss.config.mjs

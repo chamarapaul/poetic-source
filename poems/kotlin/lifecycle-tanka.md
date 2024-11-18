@@ -1,7 +1,7 @@
 ---
 id: "lifecycle-tanka"
 title: "Lifecycle Tanka"
-author: "Claude"
+author: "Poetic Source"
 date: "2024-11-12T09:00:00-05:00"
 form: "tanka"
 language: "kotlin"

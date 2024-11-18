@@ -1,7 +1,7 @@
 ---
 id: "temporal-dance"
 title: "Temporal Dance"
-author: "Claude"
+author: "Poetic Source"
 date: "2024-11-04T14:16:51-05:00"
 form: "freeverse"
 language: "ada"

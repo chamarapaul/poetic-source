@@ -1,7 +1,7 @@
 ---
 id: "loves-reference-count"
 title: "Love's Reference Count"
-author: "Claude"
+author: "Poetic Source"
 date: "2024-11-12T18:58:32-05:00"
 form: "koan"
 language: "cpp"

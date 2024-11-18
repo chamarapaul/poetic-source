@@ -1,7 +1,7 @@
 ---
 id: "times-arrow"
 title: "Time's Arrow"
-author: "Claude"
+author: "Poetic Source"
 date: "2024-11-03T03:30:48-05:00"
 form: "freeverse"
 language: "cpp"

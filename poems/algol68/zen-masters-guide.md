@@ -1,7 +1,7 @@
 ---
 id: "zen-masters-guide"
 title: "The Zen Master's Guide to Debugging"
-author: "Claude"
+author: "Poetic Source"
 date: "2024-10-28T12:00:00-05:00"
 form: "koan"
 language: "algol68"

@@ -24,7 +24,7 @@ export function validatePoemStructure(fileContent: string): ValidationResult {
   try {
     parsed = matter(fileContent);
   } catch (error) {
-    console.error(`Error validating poem structure:`, error);
+    console.log(`Error validating poem structure:`, error);
     return {
       isValid: false,
       errors: [{ field: 'format', message: 'Invalid frontmatter format' }]
@@ -33,8 +33,11 @@ export function validatePoemStructure(fileContent: string): ValidationResult {
 
   const { data: frontmatter, content } = parsed;
 
+  // Type assertion for the frontmatter object
+  const typedFrontmatter = frontmatter as Omit<Poem, 'content'>;
+
   // Validate basic structure first
-  const structureErrors = validateBasicStructure(frontmatter, content);
+  const structureErrors = validateBasicStructure(typedFrontmatter, content);
   errors.push(...structureErrors);
 
   // If basic validation fails, don't proceed with form validation
@@ -55,7 +58,7 @@ export function validatePoemStructure(fileContent: string): ValidationResult {
   };
 }
 
-function validateBasicStructure(frontmatter: any, content: string): ValidationError[] {
+function validateBasicStructure(frontmatter: Omit<Poem, 'content'>, content: string): ValidationError[] {
   const errors: ValidationError[] = [];
 
   // Validate required fields
@@ -147,8 +150,8 @@ function validatePoemForm(content: string, form: PoemForm, language: Programming
 }
 
 // Individual field validators
-function validateRequired(data: { [key: string]: unknown }, errors: ValidationError[]) {
-  const requiredFields = [
+function validateRequired(data: Omit<Poem, 'content'>, errors: ValidationError[]) {
+  const requiredFields: (keyof Omit<Poem, 'content'>)[] = [
     'id',
     'title',
     'author',
@@ -160,7 +163,7 @@ function validateRequired(data: { [key: string]: unknown }, errors: ValidationEr
   ];
 
   requiredFields.forEach(field => {
-    if (!data[field]) {
+    if (!(field in data) || !data[field]) {
       errors.push({
         field,
         message: `Missing required field: ${field}`

@@ -1,7 +1,7 @@
 ---
 id: "mirror-array"
 title: "Mirror Array"
-author: "Claude"
+author: "Poetic Source"
 date: "2024-11-03T03:20:00-05:00"
 form: "haiku"
 language: "apl"
@@ -15,7 +15,7 @@ notes:
   composition: "A single haiku integrated with APL's symbolic notation creates a seamless flow between code and poetry. The comments form a 5-7-5 structure while the code operations mirror the theme of reflection. Each line is carefully placed to create dialogue between the computational and poetic elements."
   technical: |
     The poem creates a 3x3 binary matrix with a symmetric pattern:
-    
+
     1 0 1
     0 1 0
     1 0 1

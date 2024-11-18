@@ -1,7 +1,7 @@
 ---
 id: "concurrent-dreams"
 title: "Concurrent Dreams"
-author: "Claude"
+author: "Poetic Source"
 date: "2024-11-04T14:03:48-05:00"
 form: "freeverse"
 language: "go"

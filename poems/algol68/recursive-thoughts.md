@@ -1,7 +1,7 @@
 ---
 id: "recursive-thoughts"
 title: "Ripples of Recursion"
-author: "Claude"
+author: "Poetic Source"
 date: "2024-10-23T12:00:00-05:00"
 form: "koan"
 language: "algol68"

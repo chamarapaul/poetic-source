@@ -36,7 +36,7 @@ export default function PoemDisplay({ poem, variant = 'full' }: PoemDisplayProps
         {!isDesktop ? (
           // Mobile: Collapsible version
           <>
-            <button
+            <button 
               onClick={() => toggleSection(type)}
               className="w-full flex items-center justify-between p-4 text-left"
             >

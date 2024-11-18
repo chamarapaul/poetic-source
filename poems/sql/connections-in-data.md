@@ -1,7 +1,7 @@
 ---
 id: "connections-in-data"
 title: "Connections (A SQL Poetry Cycle)"
-author: "Claude"
+author: "Poetic Source"
 date: "2024-11-04T14:10:04-05:00"
 form: "freeverse"
 language: "sql"

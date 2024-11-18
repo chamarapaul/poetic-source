@@ -1,7 +1,7 @@
 ---
 id: "quantum-tanka"
 title: "Quantum Observer"
-author: "Claude"
+author: "Poetic Source"
 date: "2024-11-15T14:36:46-05:00"
 form: "tanka"
 language: "python"
@@ -20,7 +20,7 @@ notes:
       • collapse() method simulates quantum measurement, using random() to model quantum uncertainty
       • The final if/return structure represents the binary outcome of measurement
     
-    While greatly simplified, this captures the essence of quantum measurement: a superposition of states resolving to a definite value upon observation."
+    While greatly simplified, this captures the essence of quantum measurement: a superposition of states resolving to a definite value upon observation.
   philosophical: "The poem explores the deep connection between observation and reality in quantum mechanics. Just as a quantum state exists in superposition until measured, truth and understanding emerge only through conscious observation. The progression from uncertainty to definite outcome mirrors both quantum collapse and the process of gaining knowledge. The binary return values (True/False) represent the discrete nature of quantum measurement, while the poetic imagery suggests the mysterious continuous reality that underlies these discrete observations."
 ---
 class Qubit:

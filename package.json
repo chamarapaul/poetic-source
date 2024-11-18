@@ -11,7 +11,7 @@
     "test:watch": "jest --watch",
     "validate-poems": "ts-node --project tsconfig.scripts.json scripts/validate-poems.ts",
     "migrate-poems": "ts-node --project tsconfig.scripts.json scripts/migrate-poems.ts",
-    "postbuild": "next-sitemap"
+    "postbuild": "next-sitemap --config next-sitemap.config.js"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.2",

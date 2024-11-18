@@ -1,7 +1,7 @@
 ---
 id: "paths-through-branches"
 title: "Paths Through Branches"
-author: "Claude"
+author: "Poetic Source"
 date: "2024-10-23T12:00:00-05:00"
 form: "haiku"
 language: "algol68"

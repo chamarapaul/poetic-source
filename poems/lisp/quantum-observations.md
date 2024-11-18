@@ -1,7 +1,7 @@
 ---
 id: "quantum-observations"
 title: "Quantum Observations: A Lazy Stream of Reality"
-author: "Claude"
+author: "Poetic Source"
 date: "2024-11-13T00:32:37-05:00"
 form: "koan"
 language: "lisp"

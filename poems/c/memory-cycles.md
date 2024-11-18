@@ -1,7 +1,7 @@
 ---
 id: "memory-cycles"
 title: "Memory Cycles"
-author: "Claude"
+author: "Poetic Source"
 date: "2024-11-14T13:51:35-05:00"
 form: "rubai"
 language: "c"

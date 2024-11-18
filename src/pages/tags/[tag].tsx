@@ -1,7 +1,6 @@
 // pages/tags/[tag].tsx
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { Hash } from 'lucide-react';
 import { getAllPoems } from '@/lib/poems';
 import { Poem } from '@/lib/types';
 import Layout from '@/components/Layout';
@@ -15,19 +14,15 @@ interface TagPageProps {
 const TagPage: React.FC<TagPageProps> = ({ poems, tag }) => {
   return (
     <Layout>
-      <div className="container mx-auto px-4 py-8">
-        <div className="mb-8">
-          <div className="flex items-center mb-4">
-            {/* <Hash className="h-6 w-6 text-blue-500 mr-2" /> */}
-            <h1 className="text-3xl font-bold">#{tag}</h1>
-          </div>
-          
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        <div className="mb-12">
+          <h1 className="text-3xl font-bold mb-4">#{tag}</h1>
           <p className="text-gray-600">
-            {poems.length} {poems.length === 1 ? 'poem' : 'poems'} tagged with "{tag}"
-          </p>
+          {poems.length} {poems.length === 1 ? 'poem' : 'poems'} tagged with "{tag}"
+        </p>
         </div>
 
-        <PaginatedPoemList 
+        <PaginatedPoemList
           poems={poems}
           contextType="tags"
           contextValue={tag}
@@ -40,7 +35,7 @@ const TagPage: React.FC<TagPageProps> = ({ poems, tag }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const poems = getAllPoems();
   const tags = new Set<string>();
-  
+
   poems.forEach(poem => {
     poem.tags.forEach(tag => tags.add(tag));
   });

@@ -62,7 +62,7 @@ export default function PoemDisplay({ poem, variant = 'full' }: PoemDisplayProps
           </>
         ) : (
           // Desktop: Regular version
-          <div className="p-6">
+          <div className="p-4">
             <h3 className="text-lg font-semibold mb-2">
               {type.charAt(0).toUpperCase() + type.slice(1)} Notes
             </h3>
@@ -79,7 +79,7 @@ export default function PoemDisplay({ poem, variant = 'full' }: PoemDisplayProps
         {/* Title and Preview for Featured variant */}
         {isFeatured && (
           <>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">
+            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
               {poem.title}
             </h3>
             {poem.preview && (

@@ -1,12 +1,9 @@
 // pages/forms/index.tsx
 import React from 'react';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
+import { CategoryPage } from '@/components/CategoryPage';
 import { getFormCategories } from '@/lib/poems';
 import type { CategorySummary, PoemForm } from '@/lib/types';
 import { getFormDisplayName } from '@/lib/cache';
-import Layout from '@/components/Layout';
 
 interface FormsPageProps {
     formCategories: CategorySummary[];
@@ -14,49 +11,13 @@ interface FormsPageProps {
 
 const FormsPage = ({ formCategories }: FormsPageProps) => {
     return (
-        <Layout>
-            <div className="max-w-4xl mx-auto px-4 py-8">
-                <div className="mb-12">
-                    <h1 className="text-3xl font-bold mb-4">Poetic Forms</h1>
-                    <p className="text-gray-600 max-w-3xl">
-                        Explore how different poetic structures can bring rhythm and meaning to code.
-                        Each form offers unique ways to express computational concepts through artistic patterns.
-                    </p>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {formCategories.map((category) => (
-                        <Card key={category.name} className="hover:shadow-lg transition-shadow">
-                            <CardHeader>
-                                <CardTitle className="flex justify-between items-center">
-                                    {getFormDisplayName(category.name as PoemForm)}
-                                    <span className="text-sm text-gray-500">
-                                        {category.count} {category.count === 1 ? 'poem' : 'poems'}
-                                    </span>
-                                </CardTitle>
-                                <CardDescription>
-                                    {category.description}
-                                </CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                                <Link
-                                    href={`/forms/${category.name}`}
-                                    passHref
-                                >
-                                    <Button
-                                        variant="outline"
-                                        className="w-full"
-                                        disabled={category.count === 0}
-                                    >
-                                        {category.count > 0 ? 'View Poems' : 'Coming Soon'}
-                                    </Button>
-                                </Link>
-                            </CardContent>
-                        </Card>
-                    ))}
-                </div>
-            </div>
-        </Layout>
+        <CategoryPage
+            title="Poetic Forms"
+            description="Explore how different poetic structures can bring rhythm and meaning to code. Each form offers unique ways to express computational concepts through artistic patterns."
+            categories={formCategories}
+            getDisplayName={(name) => getFormDisplayName(name as PoemForm)}
+            baseUrl="forms"
+        />
     );
 };
 

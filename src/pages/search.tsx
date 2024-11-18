@@ -2,6 +2,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import { getAllPoems } from '@/lib/poems';
 import { searchPoems } from '@/lib/search';
 import { Poem } from '@/lib/types';
@@ -21,8 +22,8 @@ const SearchPage: React.FC<SearchPageProps> = ({ poems }) => {
 
   return (
     <Layout>
-      <div className="container mx-auto px-4 py-8">
-        <div className="mb-8">
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        <div className="mb-12">
           <h1 className="text-3xl font-bold mb-4">Search Results</h1>
           <p className="text-gray-600">
             {searchResults.length} {searchResults.length === 1 ? 'poem' : 'poems'} found
@@ -33,17 +34,20 @@ const SearchPage: React.FC<SearchPageProps> = ({ poems }) => {
         </div>
 
         {searchResults.length === 0 ? (
-          <div className="text-center py-12">
-            <p className="text-gray-600 mb-4">No poems found matching your search</p>
+          <div className="text-center py-8 md:py-12">
+            <p className="text-gray-600 mb-6">
+              No poems found matching your search
+            </p>
             <Link
               href="/poems"
-              className="text-blue-600 hover:text-blue-700"
+              className="inline-flex items-center px-5 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             >
               Browse all poems
+              <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
           </div>
         ) : (
-          <PaginatedPoemList 
+          <PaginatedPoemList
             poems={searchResults}
             contextType="search"
             contextValue={searchTerm}
@@ -57,7 +61,7 @@ const SearchPage: React.FC<SearchPageProps> = ({ poems }) => {
 export async function getStaticProps() {
   try {
     const allPoems = getAllPoems();
-    
+
     return {
       props: {
         poems: allPoems.map(poem => ({

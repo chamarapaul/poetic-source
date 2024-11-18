@@ -28,7 +28,7 @@ const SearchPage: React.FC<SearchPageProps> = ({ poems }) => {
           <p className="text-gray-600">
             {searchResults.length} {searchResults.length === 1 ? 'poem' : 'poems'} found
             {searchTerm && (
-              <> for "<span className="font-medium">{searchTerm}</span>"</>
+              <> for &quot;<span className="font-medium">{searchTerm}</span>&quot;</>
             )}
           </p>
         </div>

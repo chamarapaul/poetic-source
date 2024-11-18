@@ -38,3 +38,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# sitemap and robots.txt
+sitemap.xml
+robots.txt
+
+# local configuration files
+.eslintrc.json
+.prettierrc
+components.json
+next-sitemap.config.ts
+postcss.config.mjs

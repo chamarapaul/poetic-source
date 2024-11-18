@@ -1,7 +1,7 @@
 // pages/index.tsx
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
-import { Calendar, Tags, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Layout from '@/components/Layout';
 import { getCurrentFeaturedPoem } from '@/lib/curation';
 import { getPoemBySlug, getAllPoems } from '@/lib/poems';
@@ -29,13 +29,13 @@ export default function Home({ featuredPoem, recentPoems }: HomePageProps) {
               <p className="text-lg md:text-xl text-gray-600 mb-6 font-mono">
                 Where algorithms meet artistic expression
               </p>
-              <a
+              <Link
                 href="/about"
                 className="inline-flex items-center px-5 py-2.5 md:px-6 md:py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
               >
                 Learn More About Code Poetry
                 <ArrowRight className="w-4 h-4 ml-2" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

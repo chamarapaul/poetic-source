@@ -23,7 +23,8 @@ export function validatePoemStructure(fileContent: string): ValidationResult {
   let parsed;
   try {
     parsed = matter(fileContent);
-  } catch (e) {
+  } catch (error) {
+    console.error(`Error validating poem structure:`, error);
     return {
       isValid: false,
       errors: [{ field: 'format', message: 'Invalid frontmatter format' }]
@@ -146,7 +147,7 @@ function validatePoemForm(content: string, form: PoemForm, language: Programming
 }
 
 // Individual field validators
-function validateRequired(data: any, errors: ValidationError[]) {
+function validateRequired(data: { [key: string]: unknown }, errors: ValidationError[]) {
   const requiredFields = [
     'id',
     'title',
@@ -193,7 +194,7 @@ function validateDate(date: string, errors: ValidationError[]) {
 
 // Get valid forms and languages from types
 function validateForm(form: string, errors: ValidationError[]) {
-  if (!POEM_FORMS.includes(form as any)) {
+  if (!POEM_FORMS.includes(form as PoemForm)) {
     errors.push({
       field: 'form',
       message: `Invalid form. Must be one of: ${POEM_FORMS.join(', ')}`
@@ -202,7 +203,7 @@ function validateForm(form: string, errors: ValidationError[]) {
 }
 
 function validateLanguage(language: string, errors: ValidationError[]) {
-  if (!PROGRAMMING_LANGUAGES.includes(language as any)) {
+  if (!PROGRAMMING_LANGUAGES.includes(language as ProgrammingLanguage)) {
     errors.push({
       field: 'language',
       message: `Invalid language. Must be one of: ${PROGRAMMING_LANGUAGES.join(', ')}`

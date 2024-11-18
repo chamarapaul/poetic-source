@@ -18,7 +18,7 @@ const TagPage: React.FC<TagPageProps> = ({ poems, tag }) => {
         <div className="mb-12">
           <h1 className="text-3xl font-bold mb-4">#{tag}</h1>
           <p className="text-gray-600">
-          {poems.length} {poems.length === 1 ? 'poem' : 'poems'} tagged with "{tag}"
+          {poems.length} {poems.length === 1 ? 'poem' : 'poems'} tagged with &quot;{tag}&quot;
         </p>
         </div>
 

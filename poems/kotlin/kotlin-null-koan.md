@@ -11,9 +11,9 @@ tags:
   - reflection
 preview: "A meditation on existence and nullability through Kotlin's type system"
 notes:
-  composition: "Uses Kotlin's null safety features to explore the nature of existence and absence"
-  technical: "Demonstrates Kotlin's smart casting, null safety operators, and extension functions"
-  philosophical: "Explores the paradox of existence and non-existence, using null as a metaphor for emptiness"
+  composition: "Uses Kotlin's null safety features to explore the nature of existence and absence."
+  technical: "Demonstrates Kotlin's smart casting, null safety operators, and extension functions."
+  philosophical: "Explores the paradox of existence and non-existence, using null as a metaphor for emptiness."
 ---
 fun String?.contemplateExistence() = when {
     this == null -> "What exists in nothing?"

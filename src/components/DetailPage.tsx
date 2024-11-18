@@ -8,7 +8,7 @@ interface DetailPageProps {
     title: string;
     description: string;
     cards: {
-        icon: React.ComponentType<any>;
+        icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
         title: string;
         content: React.ReactNode;
     }[];
@@ -24,7 +24,7 @@ export const DetailPage: React.FC<DetailPageProps> = ({
     return (
         <Layout>
             <div className="max-w-4xl mx-auto px-4 py-6 md:py-8">
-                {/* Header - adjusted spacing */}
+                {/* Header */}
                 <div className="mb-8 md:mb-12">
                     <h1 className="text-3xl font-bold mb-4">{title}</h1>
                     <p className="text-gray-600 text-base md:text-lg">
@@ -32,7 +32,7 @@ export const DetailPage: React.FC<DetailPageProps> = ({
                     </p>
                 </div>
 
-                {/* Info Cards - adjusted spacing and padding */}
+                {/* Info Cards */}
                 <div className="space-y-4 md:space-y-0 md:grid md:grid-cols-2 md:gap-6 mb-8 md:mb-12">
                     {cards.map((card, index) => (
                         <Card key={index}>

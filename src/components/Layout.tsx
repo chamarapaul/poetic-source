@@ -170,7 +170,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <p className="text-sm text-gray-600">
               © {new Date().getFullYear()} Poetic Source
             </p>
-            <a
+            <Link
               href="https://github.com/chamarapaul/poetic-source"
               className="flex items-center text-gray-600 hover:text-gray-900"
               target="_blank"
@@ -178,7 +178,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             >
               <Github className="w-5 h-5 mr-2" />
               <span>GitHub</span>
-            </a>
+            </Link>
           </div>
         </div>
       </footer>

@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import Layout from '@/components/Layout';
 import PoemDisplay from '@/components/PoemDisplay';
 import { getAllPoems, getPoemBySlug } from '@/lib/poems';
-import { Poem } from '@/lib/types';
+import { Poem, PoemForm, ProgrammingLanguage } from '@/lib/types';
 import { getFormDisplayName, getLanguageDisplayName } from '@/lib/cache';
 
 interface PoemPageProps {
@@ -22,12 +22,12 @@ export default function PoemPage({ poem }: PoemPageProps) {
       case 'forms':
         return {
           href: `/forms/${context}`,
-          label: getFormDisplayName(context as any)
+          label: getFormDisplayName(context as PoemForm)
         };
       case 'languages':
         return {
           href: `/languages/${context}`,
-          label: getLanguageDisplayName(context as any)
+          label: getLanguageDisplayName(context as ProgrammingLanguage)
         };
       case 'tags':
         return {

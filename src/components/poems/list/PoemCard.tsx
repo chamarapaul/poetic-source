@@ -1,8 +1,8 @@
-// components/poems/PoemCard.tsx
+// components/poems/list/PoemCard.tsx
 import Link from 'next/link';
 import Tag from '@/components/poems/Tag';
-import { getFormDisplayName, getLanguageDisplayName } from '@/lib/cache';
-import { Poem } from '@/lib/types';
+import { getFormDisplayName, getLanguageDisplayName } from '@/lib/cache/cache';
+import { Poem } from '@/lib/poems/types';
 
 interface PoemCardProps {
   poem: Poem;

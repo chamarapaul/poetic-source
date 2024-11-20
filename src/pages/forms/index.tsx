@@ -1,9 +1,9 @@
 // pages/forms/index.tsx
 import React from 'react';
 import { CategoryPage } from '@/components/common/CategoryPage';
-import { getFormDisplayName } from '@/lib/cache';
-import { getFormCategories } from '@/lib/poems';
-import type { CategorySummary, PoemForm } from '@/lib/types';
+import { getFormDisplayName } from '@/lib/cache/cache';
+import { getFormCategories } from '@/lib/poems/poems';
+import type { CategorySummary, PoemForm } from '@/lib/poems/types';
 
 interface FormsPageProps {
   formCategories: CategorySummary[];

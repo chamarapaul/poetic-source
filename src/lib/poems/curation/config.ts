@@ -1,4 +1,4 @@
-// lib/curation/config.ts
+// lib/poems/curation/config.ts
 import { CurationConfig } from './types';
 
 export const curationConfig: CurationConfig = {

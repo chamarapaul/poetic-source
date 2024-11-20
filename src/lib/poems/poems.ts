@@ -1,8 +1,8 @@
-// lib/poems.ts
+// lib/poems/poems.ts
 import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
-import { getLanguageDescriptions } from './cache';
+import { getLanguageDescriptions } from '../cache/cache';
 import {
   CategorySummary,
   Poem,

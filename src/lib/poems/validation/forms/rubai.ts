@@ -1,4 +1,4 @@
-// src/lib/validation/forms/rubai.ts
+// src/lib/poems/validation/forms/rubai.ts
 import { ProgrammingLanguage } from '../../types';
 import {
   PoeticLine,

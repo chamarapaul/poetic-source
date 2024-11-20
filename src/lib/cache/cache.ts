@@ -1,4 +1,4 @@
-// lib/poems.ts
+// lib/cache/cache.ts
 import {
   PoemForm,
   PoeticGroup,
@@ -8,7 +8,7 @@ import {
   languageMetadata,
   poeticCharacteristics,
   poeticGroupMetadata,
-} from './types';
+} from '../poems/types';
 
 export interface CachedMetadata {
   languageDescriptions: Record<ProgrammingLanguage, string>;
@@ -131,7 +131,7 @@ export function getMetadataCache(): CachedMetadata {
 }
 
 // Export the original function directly - no need to cache simple lookups
-export { getLanguageDisplayName } from './types';
+export { getLanguageDisplayName } from '../poems/types';
 
 // Helper functions for cached data
 export function getLanguageDescriptions(): Record<ProgrammingLanguage, string> {

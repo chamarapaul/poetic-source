@@ -1,9 +1,9 @@
-// components/PaginatedPoemList.tsx
+// components/poems/list/PaginatedPoemList.tsx
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import React from 'react';
-import { PoemCard } from '@/components/poems/PoemCard';
+import { PoemCard } from '@/components/poems/list/PoemCard';
 import { Button } from '@/components/ui/button';
-import { Poem } from '@/lib/types';
+import { Poem } from '@/lib/poems/types';
 import { cn } from '@/lib/utils';
 
 interface PaginationProps {

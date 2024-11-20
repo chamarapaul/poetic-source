@@ -1,6 +1,6 @@
 // next.config.ts
 import type { NextConfig } from "next";
-import { ensurePoemsDirectoryStructure } from './src/lib/poems';
+import { ensurePoemsDirectoryStructure } from './src/lib/poems/poems';
 
 // Run directory structure check in development
 if (process.env.NODE_ENV === 'development' &&

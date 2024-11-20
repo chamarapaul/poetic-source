@@ -1,4 +1,4 @@
-// lib/curation/utils.ts
+// lib/poems/curation/utils.ts
 import { curationConfig } from './config';
 import { CuratedPoem, ThematicCollection } from './types';
 

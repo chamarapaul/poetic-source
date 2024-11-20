@@ -13,7 +13,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { TYPOGRAPHY } from '@/lib/constants';
-import type { CategorySummary } from '@/lib/types';
+import type { CategorySummary } from '@/lib/poems/types';
 
 // Shared component for both Forms and Languages pages
 interface CategoryPageProps {

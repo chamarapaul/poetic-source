@@ -1,4 +1,4 @@
-// components/poems/NotesSection.tsx
+// components/poems/display/NotesSection.tsx
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -20,7 +20,7 @@ export const NotesSection = ({
   if (!content) return null;
 
   return (
-    <div className="border-t first:border-t-0">
+    <div>
       {!isDesktop ? (
         // Mobile collapsible version
         <>
@@ -40,7 +40,7 @@ export const NotesSection = ({
           <div
             className={cn(
               'overflow-hidden transition-[max-height] duration-300 ease-in-out',
-              isOpen ? 'max-h-[1000px]' : 'max-h-0'
+              isOpen ? 'max-h-[2000px]' : 'max-h-0'
             )}
           >
             <div className="p-4 pt-0">
@@ -50,7 +50,7 @@ export const NotesSection = ({
         </>
       ) : (
         // Desktop version
-        <div className="p-6">
+        <div className="p-4">
           <h3 className="text-lg font-semibold mb-2">
             {type.charAt(0).toUpperCase() + type.slice(1)} Notes
           </h3>

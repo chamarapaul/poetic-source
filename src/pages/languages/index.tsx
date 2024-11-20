@@ -1,9 +1,9 @@
 // pages/languages/index.tsx
 import React from 'react';
 import { CategoryPage } from '@/components/common/CategoryPage';
-import { getLanguageDisplayName } from '@/lib/cache';
-import { getLanguageCategories } from '@/lib/poems';
-import type { CategorySummary, ProgrammingLanguage } from '@/lib/types';
+import { getLanguageDisplayName } from '@/lib/cache/cache';
+import { getLanguageCategories } from '@/lib/poems/poems';
+import type { CategorySummary, ProgrammingLanguage } from '@/lib/poems/types';
 
 interface LanguagesPageProps {
   languageCategories: CategorySummary[];

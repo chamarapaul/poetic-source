@@ -1,4 +1,4 @@
-// lib/search.ts
+// lib/poems/search.ts
 import { Poem } from './types';
 
 export interface SearchOptions {

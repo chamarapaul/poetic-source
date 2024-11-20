@@ -4,10 +4,10 @@ import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { BulletList } from '@/components/common/BulletList';
 import { DetailPage } from '@/components/common/DetailPage';
-import PaginatedPoemList from '@/components/poems/PaginatedPoemList';
-import { getLanguageDisplayName } from '@/lib/cache';
-import { getPoemsByLanguage } from '@/lib/poems';
-import { Poem, ProgrammingLanguage, languageMetadata } from '@/lib/types';
+import PaginatedPoemList from '@/components/poems/list/PaginatedPoemList';
+import { getLanguageDisplayName } from '@/lib/cache/cache';
+import { getPoemsByLanguage } from '@/lib/poems/poems';
+import { Poem, ProgrammingLanguage, languageMetadata } from '@/lib/poems/types';
 
 interface LanguagePageProps {
   language: ProgrammingLanguage;

@@ -1,4 +1,4 @@
-// lib/types.ts
+// lib/poems/types.ts
 
 // Poetic Forms
 export const POEM_FORMS = [

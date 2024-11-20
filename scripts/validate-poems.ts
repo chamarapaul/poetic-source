@@ -2,8 +2,8 @@
 import fs from 'fs';
 import path from 'path';
 import chalk from 'chalk';
-import { validatePoemStructure, ValidationError } from '../src/lib/validation/poem';
-import { ProgrammingLanguage } from '../src/lib/types';
+import { validatePoemStructure, ValidationError } from '../src/lib/poems/validation/poem';
+import { ProgrammingLanguage } from '../src/lib/poems/types';
 
 const POEMS_DIR: string = path.join(process.cwd(), 'poems');
 

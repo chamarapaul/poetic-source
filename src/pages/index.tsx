@@ -3,11 +3,11 @@ import { ArrowRight } from 'lucide-react';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
 import Layout from '@/components/layout/Layout';
-import PaginatedPoemList from '@/components/poems/PaginatedPoemList';
-import PoemDisplay from '@/components/poems/PoemDisplay';
-import { getCurrentFeaturedPoem } from '@/lib/curation';
-import { getAllPoems, getPoemBySlug } from '@/lib/poems';
-import { Poem } from '@/lib/types';
+import PoemDisplay from '@/components/poems/display/PoemDisplay';
+import PaginatedPoemList from '@/components/poems/list/PaginatedPoemList';
+import { getCurrentFeaturedPoem } from '@/lib/poems/curation';
+import { getAllPoems, getPoemBySlug } from '@/lib/poems/poems';
+import { Poem } from '@/lib/poems/types';
 
 interface HomePageProps {
   featuredPoem: Poem;

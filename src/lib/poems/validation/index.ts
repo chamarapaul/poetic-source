@@ -1,4 +1,4 @@
-// lib/validation/index.ts
+// lib/poems/validation/index.ts
 export * from './poem';
 export * from './forms/ghazal';
 export * from './forms/haiku';

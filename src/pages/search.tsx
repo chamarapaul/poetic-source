@@ -5,11 +5,11 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
-import PaginatedPoemList from '@/components/poems/PaginatedPoemList';
+import PaginatedPoemList from '@/components/poems/list/PaginatedPoemList';
 import { TYPOGRAPHY } from '@/lib/constants';
-import { getAllPoems } from '@/lib/poems';
-import { searchPoems } from '@/lib/search';
-import { Poem } from '@/lib/types';
+import { getAllPoems } from '@/lib/poems/poems';
+import { searchPoems } from '@/lib/poems/search';
+import { Poem } from '@/lib/poems/types';
 
 interface SearchPageProps {
   poems: Poem[];

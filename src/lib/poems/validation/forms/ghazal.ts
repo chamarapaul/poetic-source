@@ -1,4 +1,4 @@
-// src/lib/validation/forms/ghazal.ts
+// src/lib/poems/validation/forms/ghazal.ts
 import { ProgrammingLanguage } from '../../types';
 import {
   PoeticLine,

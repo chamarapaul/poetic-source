@@ -1,4 +1,4 @@
-// src/lib/validation/forms/tanka.ts
+// src/lib/poems/validation/forms/tanka.ts
 import { ProgrammingLanguage } from '../../types';
 import { PoeticLine, extractPoeticLines } from '../utils';
 

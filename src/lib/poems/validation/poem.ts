@@ -1,4 +1,4 @@
-// src/lib/validation/poem.ts
+// src/lib/poems/validation/poem.ts
 import matter from 'gray-matter';
 import {
   POEM_FORMS,

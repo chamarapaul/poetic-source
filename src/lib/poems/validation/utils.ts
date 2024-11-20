@@ -1,4 +1,4 @@
-// src/lib/validation/utils.ts
+// src/lib/poems/validation/utils.ts
 import { ProgrammingLanguage } from '../types';
 
 export interface PoeticLine {

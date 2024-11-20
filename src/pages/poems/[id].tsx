@@ -5,10 +5,10 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
-import PoemDisplay from '@/components/poems/PoemDisplay';
-import { getFormDisplayName, getLanguageDisplayName } from '@/lib/cache';
-import { getAllPoems, getPoemBySlug } from '@/lib/poems';
-import { Poem, PoemForm, ProgrammingLanguage } from '@/lib/types';
+import PoemDisplay from '@/components/poems/display/PoemDisplay';
+import { getFormDisplayName, getLanguageDisplayName } from '@/lib/cache/cache';
+import { getAllPoems, getPoemBySlug } from '@/lib/poems/poems';
+import { Poem, PoemForm, ProgrammingLanguage } from '@/lib/poems/types';
 
 interface PoemPageProps {
   poem: Poem;

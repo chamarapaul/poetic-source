@@ -4,17 +4,17 @@ import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { BulletList } from '@/components/common/BulletList';
 import { DetailPage } from '@/components/common/DetailPage';
-import PaginatedPoemList from '@/components/poems/PaginatedPoemList';
+import PaginatedPoemList from '@/components/poems/list/PaginatedPoemList';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { getFormDisplayName } from '@/lib/cache';
+import { getFormDisplayName } from '@/lib/cache/cache';
 import { SPACING } from '@/lib/constants';
-import { getPoemsByForm } from '@/lib/poems';
+import { getPoemsByForm } from '@/lib/poems/poems';
 import {
   Poem,
   PoemForm,
   formDescriptions,
   formStructureInfo,
-} from '@/lib/types';
+} from '@/lib/poems/types';
 
 interface FormPageProps {
   poems: Poem[];

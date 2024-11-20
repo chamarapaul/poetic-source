@@ -3,10 +3,10 @@ import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
-import PaginatedPoemList from '@/components/poems/PaginatedPoemList';
+import PaginatedPoemList from '@/components/poems/list/PaginatedPoemList';
 import { TYPOGRAPHY } from '@/lib/constants';
-import { getAllPoems } from '@/lib/poems';
-import { Poem } from '@/lib/types';
+import { getAllPoems } from '@/lib/poems/poems';
+import { Poem } from '@/lib/poems/types';
 
 interface TagPageProps {
   poems: Poem[];

@@ -1,6 +1,6 @@
 // pages/poems/random.tsx
 import { GetServerSideProps } from 'next';
-import { getAllPoems } from '@/lib/poems';
+import { getAllPoems } from '@/lib/poems/poems';
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const poems = getAllPoems();

@@ -1,4 +1,4 @@
-// lib/curation/types.ts
+// lib/poems/curation/types.ts
 import { ProgrammingLanguage } from '../types';
 
 export interface CuratedPoem {

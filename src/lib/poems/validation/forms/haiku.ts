@@ -1,4 +1,4 @@
-// src/lib/validation/forms/haiku.ts
+// src/lib/poems/validation/forms/haiku.ts
 import { ProgrammingLanguage } from '../../types';
 import { PoeticLine, extractPoeticLines } from '../utils';
 

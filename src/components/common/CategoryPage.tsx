@@ -1,9 +1,12 @@
-// components/CategoryPage.tsx
+// components/common/CategoryPage.tsx
 import React from 'react';
-import type { CategorySummary } from '@/lib/types';
-import Layout from '@/components/Layout';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import Link from 'next/link';
+import type { CategorySummary } from '@/lib/types';
+import { TYPOGRAPHY } from '@/lib/constants';
+import Layout from '@/components/layout/Layout';
+import { Container } from '@/components/layout/Container';
+import { PageHeader } from '@/components/layout/PageHeader';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
 // Shared component for both Forms and Languages pages
@@ -18,14 +21,9 @@ interface CategoryPageProps {
 export const CategoryPage = ({ title, description, categories, getDisplayName, baseUrl }: CategoryPageProps) => {
     return (
         <Layout>
-            <div className="max-w-4xl mx-auto px-4 py-6 md:py-8">
+            <Container className="py-6 md:py-8">
                 {/* Header */}
-                <div className="mb-8 md:mb-12">
-                    <h1 className="text-3xl font-bold mb-4">{title}</h1>
-                    <p className="text-gray-600 text-base md:text-lg">
-                        {description}
-                    </p>
-                </div>
+                <PageHeader title={title} description={description} />
 
                 {/* Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
@@ -40,7 +38,7 @@ export const CategoryPage = ({ title, description, categories, getDisplayName, b
                                         <CardTitle className="text-lg md:text-xl">
                                             {getDisplayName(category.name)}
                                         </CardTitle>
-                                        <span className="text-sm text-gray-500">
+                                        <span className={TYPOGRAPHY.small}>
                                             {category.count} {category.count === 1 ? 'poem' : 'poems'}
                                         </span>
                                     </div>
@@ -66,7 +64,7 @@ export const CategoryPage = ({ title, description, categories, getDisplayName, b
                         </Card>
                     ))}
                 </div>
-            </div>
+            </Container>
         </Layout>
     );
 };

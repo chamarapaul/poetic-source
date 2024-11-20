@@ -1,6 +1,6 @@
 // pages/forms/index.tsx
 import React from 'react';
-import { CategoryPage } from '@/components/CategoryPage';
+import { CategoryPage } from '@/components/common/CategoryPage';
 import { getFormCategories } from '@/lib/poems';
 import type { CategorySummary, PoemForm } from '@/lib/types';
 import { getFormDisplayName } from '@/lib/cache';
@@ -21,7 +21,6 @@ const FormsPage = ({ formCategories }: FormsPageProps) => {
     );
 };
 
-// In pages/forms/index.tsx
 export async function getStaticProps() {
     try {
         const formCategories = getFormCategories();

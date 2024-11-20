@@ -1,7 +1,9 @@
-// components/DetailPage.tsx
+// components/common/DetailPage.tsx
 import React from 'react';
-import Layout from '@/components/Layout';
+import Layout from '@/components/layout/Layout';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { Container } from '@/components/layout/Container';
+import { PageHeader } from '@/components/layout/PageHeader';
 
 // Shared component for both Form and Language detail pages
 interface DetailPageProps {
@@ -23,14 +25,9 @@ export const DetailPage: React.FC<DetailPageProps> = ({
 }) => {
     return (
         <Layout>
-            <div className="max-w-4xl mx-auto px-4 py-6 md:py-8">
+            <Container className="py-6 md:py-8">
                 {/* Header */}
-                <div className="mb-8 md:mb-12">
-                    <h1 className="text-3xl font-bold mb-4">{title}</h1>
-                    <p className="text-gray-600 text-base md:text-lg">
-                        {description}
-                    </p>
-                </div>
+                <PageHeader title={title} description={description} />
 
                 {/* Info Cards */}
                 <div className="space-y-4 md:space-y-0 md:grid md:grid-cols-2 md:gap-6 mb-8 md:mb-12">
@@ -51,7 +48,7 @@ export const DetailPage: React.FC<DetailPageProps> = ({
 
                 {/* Additional content (example section for forms, poems list) */}
                 {children}
-            </div>
+            </Container>
         </Layout>
     );
 };

@@ -1,10 +1,12 @@
 // pages/tags/[tag].tsx
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { TYPOGRAPHY } from '@/lib/constants';
 import { getAllPoems } from '@/lib/poems';
 import { Poem } from '@/lib/types';
-import Layout from '@/components/Layout';
-import PaginatedPoemList from '@/components/PaginatedPoemList';
+import Layout from '@/components/layout/Layout';
+import PaginatedPoemList from '@/components/poems/PaginatedPoemList';
+import { Container } from '@/components/layout/Container';
 
 interface TagPageProps {
   poems: Poem[];
@@ -14,9 +16,9 @@ interface TagPageProps {
 const TagPage: React.FC<TagPageProps> = ({ poems, tag }) => {
   return (
     <Layout>
-      <div className="max-w-4xl mx-auto px-4 py-8">
+      <Container className="py-8">
         <div className="mb-12">
-          <h1 className="text-3xl font-bold mb-4">#{tag}</h1>
+          <h1 className={TYPOGRAPHY.h1}>#{tag}</h1>
           <p className="text-gray-600">
           {poems.length} {poems.length === 1 ? 'poem' : 'poems'} tagged with &quot;{tag}&quot;
         </p>
@@ -27,7 +29,7 @@ const TagPage: React.FC<TagPageProps> = ({ poems, tag }) => {
           contextType="tags"
           contextValue={tag}
         />
-      </div>
+      </Container>
     </Layout>
   );
 };

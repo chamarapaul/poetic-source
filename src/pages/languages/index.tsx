@@ -1,6 +1,6 @@
 // pages/languages/index.tsx
 import React from 'react';
-import { CategoryPage } from '@/components/CategoryPage';
+import { CategoryPage } from '@/components/common/CategoryPage';
 import { getLanguageCategories } from '@/lib/poems';
 import type { CategorySummary, ProgrammingLanguage } from '@/lib/types';
 import { getLanguageDisplayName } from '@/lib/cache';
@@ -21,7 +21,6 @@ const LanguagesPage = ({ languageCategories }: LanguagesPageProps) => {
     );
 };
 
-// In pages/languages/index.tsx
 export async function getStaticProps() {
     try {
         const languageCategories = getLanguageCategories();

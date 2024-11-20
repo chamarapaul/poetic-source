@@ -3,9 +3,12 @@ import type { NextConfig } from "next";
 import { ensurePoemsDirectoryStructure } from './src/lib/poems';
 
 // Run directory structure check in development
-if (process.env.NODE_ENV === 'development' && typeof window === 'undefined') {
+if (process.env.NODE_ENV === 'development' &&
+  typeof window === 'undefined' &&
+  !process.env.POEMS_STRUCTURE_CHECKED) {
   console.log('Ensuring poems directory structure...');
-  ensurePoemsDirectoryStructure(); 
+  ensurePoemsDirectoryStructure();
+  process.env.POEMS_STRUCTURE_CHECKED = 'true';
 }
 
 const nextConfig: NextConfig = {

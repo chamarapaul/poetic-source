@@ -3,8 +3,9 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { ChevronRight, Shuffle } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import Layout from '@/components/Layout';
-import PoemDisplay from '@/components/PoemDisplay';
+import Layout from '@/components/layout/Layout';
+import PoemDisplay from '@/components/poems/PoemDisplay';
+import { Container } from '@/components/layout/Container';
 import { getAllPoems, getPoemBySlug } from '@/lib/poems';
 import { Poem, PoemForm, ProgrammingLanguage } from '@/lib/types';
 import { getFormDisplayName, getLanguageDisplayName } from '@/lib/cache';
@@ -48,7 +49,7 @@ export default function PoemPage({ poem }: PoemPageProps) {
 
   return (
     <Layout>
-      <div className="max-w-4xl mx-auto px-4 py-8">
+      <Container className="py-8">
         <div className="mb-6 flex flex-col md:flex-row md:items-center gap-3 md:gap-0 md:justify-between">
           {/* Breadcrumb Navigation */}
           <nav className="flex items-center text-sm text-gray-600 overflow-x-auto">
@@ -81,7 +82,7 @@ export default function PoemPage({ poem }: PoemPageProps) {
         
         {/* Poem Display */}
         <PoemDisplay poem={poem} />
-      </div>
+      </Container>
     </Layout>
   );
 }

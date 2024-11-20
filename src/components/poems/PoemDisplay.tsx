@@ -1,11 +1,11 @@
-// components/PoemDisplay.tsx
+// components/poems/PoemDisplay.tsx
 import React, { useState } from 'react';
 import { ScrollText, Code, Tags, ArrowRight, Info, ChevronDown, ChevronUp } from 'lucide-react';
 import Link from 'next/link';
 import { Poem } from '@/lib/types';
 import { getFormDisplayName, getLanguageDisplayName } from '@/lib/cache';
-import CodeBlock from './CodeBlock';
-import Tag from './Tag';
+import CodeBlock from '@/components/poems/CodeBlock';
+import Tag from '@/components/poems/Tag';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { cn } from '@/lib/utils';
 
@@ -75,7 +75,7 @@ export default function PoemDisplay({ poem, variant = 'full' }: PoemDisplayProps
 
   return (
     <article className="bg-white rounded-xl shadow-sm overflow-hidden">
-      <header className="p-4 md:p-6 border-b">
+      <header className="p-4 md:px-6 md:pt-6 border-b">
         {/* Title and Preview for Featured variant */}
         {isFeatured && (
           <>
@@ -90,7 +90,7 @@ export default function PoemDisplay({ poem, variant = 'full' }: PoemDisplayProps
 
         {/* Title for Full variant */}
         {!isFeatured && (
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">
+          <h2 className="text-2xl font-bold text-gray-900 mb-2 md:mb-3">
             {poem.title}
           </h2>
         )}
@@ -140,7 +140,7 @@ export default function PoemDisplay({ poem, variant = 'full' }: PoemDisplayProps
 
       {/* Notes section only for full variant */}
       {!isFeatured && (poem.notes.composition || poem.notes.technical || poem.notes.philosophical) && (
-        <div className="border-t bg-gray-50">
+        <div className="border-t bg-gray-50 md:pt-2">
           {(['composition', 'technical', 'philosophical'] as const).map((type) => (
             <NotesSection
               key={type}

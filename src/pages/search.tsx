@@ -3,11 +3,13 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { TYPOGRAPHY } from '@/lib/constants';
 import { getAllPoems } from '@/lib/poems';
 import { searchPoems } from '@/lib/search';
 import { Poem } from '@/lib/types';
-import Layout from '@/components/Layout';
-import PaginatedPoemList from '@/components/PaginatedPoemList';
+import Layout from '@/components/layout/Layout';
+import PaginatedPoemList from '@/components/poems/PaginatedPoemList';
+import { Container } from '@/components/layout/Container';
 
 interface SearchPageProps {
   poems: Poem[];
@@ -22,9 +24,9 @@ const SearchPage: React.FC<SearchPageProps> = ({ poems }) => {
 
   return (
     <Layout>
-      <div className="max-w-4xl mx-auto px-4 py-8">
+      <Container className="py-8">
         <div className="mb-12">
-          <h1 className="text-3xl font-bold mb-4">Search Results</h1>
+          <h1 className={TYPOGRAPHY.h1}>Search Results</h1>
           <p className="text-gray-600">
             {searchResults.length} {searchResults.length === 1 ? 'poem' : 'poems'} found
             {searchTerm && (
@@ -53,7 +55,7 @@ const SearchPage: React.FC<SearchPageProps> = ({ poems }) => {
             contextValue={searchTerm}
           />
         )}
-      </div>
+      </Container>
     </Layout>
   );
 };

@@ -1,9 +1,11 @@
 // pages/forms/[form].tsx
 import React from 'react';
-import { DetailPage } from '@/components/DetailPage';
+import { DetailPage } from '@/components/common/DetailPage';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { ListTree, Code } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import PaginatedPoemList from '@/components/poems/PaginatedPoemList';
+import { BulletList } from '@/components/common/BulletList';
 import { getPoemsByForm } from '@/lib/poems';
 import {
   PoemForm,
@@ -12,7 +14,7 @@ import {
   Poem
 } from '@/lib/types';
 import { getFormDisplayName } from '@/lib/cache';
-import PaginatedPoemList from '@/components/PaginatedPoemList';
+import { SPACING } from '@/lib/constants';
 
 interface FormPageProps {
   poems: Poem[];
@@ -29,28 +31,14 @@ export default function FormPage({ poems, form }: FormPageProps) {
       icon: ListTree,
       title: 'Structure',
       content: (
-        <ul className="space-y-2">
-          {formInfo?.rules.map((rule, index) => (
-            <li key={index} className="flex items-start">
-              <span className="font-medium mr-2">•</span>
-              <span className="text-sm md:text-base">{rule}</span>
-            </li>
-          ))}
-        </ul>
+        <BulletList items={formInfo.rules} />
       )
     },
     {
       icon: Code,
       title: 'Code Considerations',
       content: (
-        <ul className="space-y-2">
-          {formInfo?.codeConsiderations.map((consideration, index) => (
-            <li key={index} className="flex items-start">
-              <span className="font-medium mr-2">•</span>
-              <span className="text-sm md:text-base">{consideration}</span>
-            </li>
-          ))}
-        </ul>
+        <BulletList items={formInfo.codeConsiderations} />
       )
     }
   ];
@@ -63,7 +51,7 @@ export default function FormPage({ poems, form }: FormPageProps) {
     >
       {/* Example if available */}
       {formInfo?.example && (
-        <div className="mb-8 md:mb-12">
+        <div className={SPACING.section}>
           <Card>
             <CardHeader className="p-4 md:p-6">
               <CardTitle>Example Structure</CardTitle>

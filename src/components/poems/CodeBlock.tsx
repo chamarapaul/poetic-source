@@ -1,4 +1,4 @@
-// components/CodeBlock.tsx
+// components/poems/CodeBlock.tsx
 import React from 'react';
 import { Highlight, themes, type Language } from 'prism-react-renderer';
 

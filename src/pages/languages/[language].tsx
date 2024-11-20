@@ -1,12 +1,13 @@
 // pages/languages/[language].tsx
 import React from 'react';
-import { DetailPage } from '@/components/DetailPage';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { FileClock, Box } from 'lucide-react';
 import { getPoemsByLanguage } from '@/lib/poems';
 import { ProgrammingLanguage, languageMetadata, Poem } from '@/lib/types';
 import { getLanguageDisplayName } from '@/lib/cache';
-import PaginatedPoemList from '@/components/PaginatedPoemList';
+import PaginatedPoemList from '@/components/poems/PaginatedPoemList';
+import { DetailPage } from '@/components/common/DetailPage';
+import { BulletList } from '@/components/common/BulletList';
 
 interface LanguagePageProps {
   language: ProgrammingLanguage;
@@ -39,16 +40,12 @@ export default function LanguagePage({ language, metadata, poems }: LanguagePage
       icon: Box,
       title: 'Paradigms',
       content: (
-        <ul className="space-y-2">
-          {metadata.paradigms.map((paradigm, index) => (
-            <li key={index} className="flex items-start">
-              <span className="font-medium mr-2">•</span>
-              <span className="capitalize text-sm md:text-base">
-                {paradigm.split('-').join(' ')}
-              </span>
-            </li>
-          ))}
-        </ul>
+        <BulletList
+          items={metadata.paradigms.map(paradigm =>
+            paradigm.split('-').join(' ')
+          )} 
+          className='capitalize'
+        />
       )
     }
   ];

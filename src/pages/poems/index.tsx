@@ -1,10 +1,12 @@
 // pages/poems/index.tsx
 import React from 'react';
 import Link from 'next/link';
+import { TYPOGRAPHY } from '@/lib/constants';
 import { getAllPoems } from '@/lib/poems';
 import { Poem } from '@/lib/types';
-import Layout from '@/components/Layout';
-import PaginatedPoemList from '@/components/PaginatedPoemList';
+import Layout from '@/components/layout/Layout';
+import PaginatedPoemList from '@/components/poems/PaginatedPoemList';
+import { Container } from '@/components/layout/Container';
 import { ArrowRight } from 'lucide-react';
 
 interface BrowsePageProps {
@@ -15,9 +17,9 @@ interface BrowsePageProps {
 const BrowsePage = ({ poems, totalPoems }: BrowsePageProps) => {
   return (
     <Layout>
-      <div className="max-w-4xl mx-auto px-4 py-8">
+      <Container className="py-8">
         <div className="mb-12">
-          <h1 className="text-3xl font-bold mb-4">Browse Poems</h1>
+          <h1 className={TYPOGRAPHY.h1}>Browse Poems</h1>
           <p className="text-gray-600 max-w-3xl">
             Exploring {totalPoems} poems across multiple languages and forms
           </p>
@@ -44,7 +46,7 @@ const BrowsePage = ({ poems, totalPoems }: BrowsePageProps) => {
             </Link>
           </div>
         </div>
-      </div>
+      </Container>
     </Layout>
   );
 };

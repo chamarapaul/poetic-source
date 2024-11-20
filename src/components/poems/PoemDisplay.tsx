@@ -1,20 +1,31 @@
 // components/poems/PoemDisplay.tsx
+import {
+  ArrowRight,
+  ChevronDown,
+  ChevronUp,
+  Code,
+  Info,
+  ScrollText,
+  Tags,
+} from 'lucide-react';
 import React, { useState } from 'react';
-import { ScrollText, Code, Tags, ArrowRight, Info, ChevronDown, ChevronUp } from 'lucide-react';
 import Link from 'next/link';
-import { Poem } from '@/lib/types';
-import { getFormDisplayName, getLanguageDisplayName } from '@/lib/cache';
 import CodeBlock from '@/components/poems/CodeBlock';
 import Tag from '@/components/poems/Tag';
-import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { getFormDisplayName, getLanguageDisplayName } from '@/lib/cache';
+import { Poem } from '@/lib/types';
 import { cn } from '@/lib/utils';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 interface PoemDisplayProps {
   poem: Poem;
-  variant?: 'full' | 'featured';  // Add variant prop to control display mode
+  variant?: 'full' | 'featured'; // Add variant prop to control display mode
 }
 
-export default function PoemDisplay({ poem, variant = 'full' }: PoemDisplayProps) {
+export default function PoemDisplay({
+  poem,
+  variant = 'full',
+}: PoemDisplayProps) {
   const isDesktop = useMediaQuery('(min-width: 768px)');
   const isFeatured = variant === 'featured';
 
@@ -27,7 +38,13 @@ export default function PoemDisplay({ poem, variant = 'full' }: PoemDisplayProps
     }
   };
 
-  const NotesSection = ({ type, content }: { type: string; content: string | null | undefined }) => {
+  const NotesSection = ({
+    type,
+    content,
+  }: {
+    type: string;
+    content: string | null | undefined;
+  }) => {
     if (!content) return null;
     const isOpen = isDesktop || openSection === type;
 
@@ -36,7 +53,7 @@ export default function PoemDisplay({ poem, variant = 'full' }: PoemDisplayProps
         {!isDesktop ? (
           // Mobile: Collapsible version
           <>
-            <button 
+            <button
               onClick={() => toggleSection(type)}
               className="w-full flex items-center justify-between p-4 text-left"
             >
@@ -51,8 +68,8 @@ export default function PoemDisplay({ poem, variant = 'full' }: PoemDisplayProps
             </button>
             <div
               className={cn(
-                "overflow-hidden transition-[max-height] duration-300 ease-in-out",
-                isOpen ? "max-h-[1000px]" : "max-h-0"
+                'overflow-hidden transition-[max-height] duration-300 ease-in-out',
+                isOpen ? 'max-h-[1000px]' : 'max-h-0'
               )}
             >
               <div className="p-4 pt-0">
@@ -99,13 +116,19 @@ export default function PoemDisplay({ poem, variant = 'full' }: PoemDisplayProps
           <div className="flex items-center gap-4">
             <div className="flex items-center group">
               <ScrollText className="w-4 h-4 mr-2" />
-              <Link href={`/forms/${poem.form}`} className="hover:text-blue-600 transition-colors">
+              <Link
+                href={`/forms/${poem.form}`}
+                className="hover:text-blue-600 transition-colors"
+              >
                 {getFormDisplayName(poem.form)}
               </Link>
             </div>
             <div className="flex items-center group">
               <Code className="w-4 h-4 mr-2" />
-              <Link href={`/languages/${poem.language}`} className="hover:text-blue-600 transition-colors">
+              <Link
+                href={`/languages/${poem.language}`}
+                className="hover:text-blue-600 transition-colors"
+              >
                 {getLanguageDisplayName(poem.language)}
               </Link>
             </div>
@@ -113,7 +136,7 @@ export default function PoemDisplay({ poem, variant = 'full' }: PoemDisplayProps
           <div className="flex items-start md:items-center gap-2">
             <Tags className="w-4 h-4 shrink-0" />
             <div className="flex flex-wrap gap-2">
-              {poem.tags.map(tag => (
+              {poem.tags.map((tag) => (
                 <Tag key={tag} name={tag} />
               ))}
             </div>
@@ -139,17 +162,22 @@ export default function PoemDisplay({ poem, variant = 'full' }: PoemDisplayProps
       )}
 
       {/* Notes section only for full variant */}
-      {!isFeatured && (poem.notes.composition || poem.notes.technical || poem.notes.philosophical) && (
-        <div className="border-t bg-gray-50 md:pt-2">
-          {(['composition', 'technical', 'philosophical'] as const).map((type) => (
-            <NotesSection
-              key={type}
-              type={type}
-              content={poem.notes[type]}
-            />
-          ))}
-        </div>
-      )}
+      {!isFeatured &&
+        (poem.notes.composition ||
+          poem.notes.technical ||
+          poem.notes.philosophical) && (
+          <div className="border-t bg-gray-50 md:pt-2">
+            {(['composition', 'technical', 'philosophical'] as const).map(
+              (type) => (
+                <NotesSection
+                  key={type}
+                  type={type}
+                  content={poem.notes[type]}
+                />
+              )
+            )}
+          </div>
+        )}
 
       {/* View full poem link only for featured variant */}
       {isFeatured && (
@@ -161,7 +189,6 @@ export default function PoemDisplay({ poem, variant = 'full' }: PoemDisplayProps
             >
               <ArrowRight className="w-4 h-4 ml-1" />
               View full poem with notes
-
             </Link>
           </div>
         </div>

@@ -1,10 +1,10 @@
 // components/PaginatedPoemList.tsx
-import React from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { Poem } from '@/lib/types';
-import { Button } from '@/components/ui/button';
+import React from 'react';
 import { PoemCard } from '@/components/poems/PoemCard';
+import { Button } from '@/components/ui/button';
+import { Poem } from '@/lib/types';
+import { cn } from '@/lib/utils';
 
 interface PaginationProps {
   currentPage: number;
@@ -70,12 +70,12 @@ const Pagination: React.FC<PaginationProps> = ({
                 <span className="px-2">...</span>
               ) : (
                 <Button
-                  variant={currentPage === page ? "default" : "outline"}
+                  variant={currentPage === page ? 'default' : 'outline'}
                   size="sm"
                   onClick={() => onPageChange(page as number)}
                   className={cn(
-                    "h-8 w-8 p-0",
-                    currentPage === page && "pointer-events-none"
+                    'h-8 w-8 p-0',
+                    currentPage === page && 'pointer-events-none'
                   )}
                 >
                   {page}
@@ -114,7 +114,7 @@ const PaginatedPoemList: React.FC<PaginatedPoemListProps> = ({
   poems,
   contextType,
   contextValue,
-  pageSize = 10
+  pageSize = 10,
 }) => {
   const [currentPage, setCurrentPage] = React.useState(1);
 

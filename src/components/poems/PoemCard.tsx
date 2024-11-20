@@ -1,8 +1,8 @@
 // components/poems/PoemCard.tsx
 import Link from 'next/link';
+import Tag from '@/components/poems/Tag';
 import { getFormDisplayName, getLanguageDisplayName } from '@/lib/cache';
 import { Poem } from '@/lib/types';
-import Tag from '@/components/poems/Tag';
 
 interface PoemCardProps {
   poem: Poem;
@@ -10,9 +10,13 @@ interface PoemCardProps {
   contextValue?: string;
 }
 
-export const PoemCard = ({ poem, contextType, contextValue }: PoemCardProps) => {
+export const PoemCard = ({
+  poem,
+  contextType,
+  contextValue,
+}: PoemCardProps) => {
   const href = `/poems/${poem.id}${contextType ? `?from=${contextType}&context=${contextValue}` : ''}`;
-  
+
   return (
     <article className="bg-white rounded-lg border hover:shadow-md transition-shadow">
       <div className="p-4">
@@ -23,7 +27,8 @@ export const PoemCard = ({ poem, contextType, contextValue }: PoemCardProps) => 
                 {poem.title}
               </span>
               <span className="block text-sm text-gray-500 mt-1">
-                {getFormDisplayName(poem.form)} in {getLanguageDisplayName(poem.language)}
+                {getFormDisplayName(poem.form)} in{' '}
+                {getLanguageDisplayName(poem.language)}
               </span>
             </Link>
           </div>
@@ -38,9 +43,7 @@ export const PoemCard = ({ poem, contextType, contextValue }: PoemCardProps) => 
           </div>
         </div>
         <Link href={href} className="block no-underline">
-          <span className="block text-sm text-gray-600">
-            {poem.preview}
-          </span>
+          <span className="block text-sm text-gray-600">{poem.preview}</span>
         </Link>
       </div>
     </article>

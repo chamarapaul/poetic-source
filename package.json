@@ -9,6 +9,7 @@
     "lint": "next lint",
     "test": "jest",
     "test:watch": "jest --watch",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "validate-poems": "ts-node --project tsconfig.scripts.json scripts/validate-poems.ts",
     "migrate-poems": "ts-node --project tsconfig.scripts.json scripts/migrate-poems.ts",
     "postbuild": "next-sitemap --config next-sitemap.config.js"
@@ -33,6 +34,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.15",
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/jest": "^29.5.14",
     "@types/node": "^20",
     "@types/react": "^18",
@@ -42,6 +44,7 @@
     "eslint-config-next": "15.0.1",
     "jest-environment-jsdom": "^29.7.0",
     "postcss": "^8.4.47",
+    "prettier": "^3.3.3",
     "tailwindcss": "^3.4.14",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",

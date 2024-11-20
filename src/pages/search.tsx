@@ -1,15 +1,15 @@
 // pages/search.tsx
-import React from 'react';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import React from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { Container } from '@/components/layout/Container';
+import Layout from '@/components/layout/Layout';
+import PaginatedPoemList from '@/components/poems/PaginatedPoemList';
 import { TYPOGRAPHY } from '@/lib/constants';
 import { getAllPoems } from '@/lib/poems';
 import { searchPoems } from '@/lib/search';
 import { Poem } from '@/lib/types';
-import Layout from '@/components/layout/Layout';
-import PaginatedPoemList from '@/components/poems/PaginatedPoemList';
-import { Container } from '@/components/layout/Container';
 
 interface SearchPageProps {
   poems: Poem[];
@@ -28,9 +28,14 @@ const SearchPage: React.FC<SearchPageProps> = ({ poems }) => {
         <div className="mb-12">
           <h1 className={TYPOGRAPHY.h1}>Search Results</h1>
           <p className="text-gray-600">
-            {searchResults.length} {searchResults.length === 1 ? 'poem' : 'poems'} found
+            {searchResults.length}{' '}
+            {searchResults.length === 1 ? 'poem' : 'poems'} found
             {searchTerm && (
-              <> for &quot;<span className="font-medium">{searchTerm}</span>&quot;</>
+              <>
+                {' '}
+                for &quot;<span className="font-medium">{searchTerm}</span>
+                &quot;
+              </>
             )}
           </p>
         </div>
@@ -66,14 +71,14 @@ export async function getStaticProps() {
 
     return {
       props: {
-        poems: allPoems.map(poem => ({
+        poems: allPoems.map((poem) => ({
           ...poem,
           notes: {
             composition: poem.notes.composition || null,
             technical: poem.notes.technical || null,
-            philosophical: poem.notes.philosophical || null
-          }
-        }))
+            philosophical: poem.notes.philosophical || null,
+          },
+        })),
       },
       revalidate: 3600,
     };

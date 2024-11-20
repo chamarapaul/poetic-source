@@ -1,13 +1,13 @@
 // pages/languages/[language].tsx
+import { Box, FileClock } from 'lucide-react';
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { FileClock, Box } from 'lucide-react';
-import { getPoemsByLanguage } from '@/lib/poems';
-import { ProgrammingLanguage, languageMetadata, Poem } from '@/lib/types';
-import { getLanguageDisplayName } from '@/lib/cache';
-import PaginatedPoemList from '@/components/poems/PaginatedPoemList';
-import { DetailPage } from '@/components/common/DetailPage';
 import { BulletList } from '@/components/common/BulletList';
+import { DetailPage } from '@/components/common/DetailPage';
+import PaginatedPoemList from '@/components/poems/PaginatedPoemList';
+import { getLanguageDisplayName } from '@/lib/cache';
+import { getPoemsByLanguage } from '@/lib/poems';
+import { Poem, ProgrammingLanguage, languageMetadata } from '@/lib/types';
 
 interface LanguagePageProps {
   language: ProgrammingLanguage;
@@ -21,7 +21,11 @@ interface LanguagePageProps {
   };
 }
 
-export default function LanguagePage({ language, metadata, poems }: LanguagePageProps) {
+export default function LanguagePage({
+  language,
+  metadata,
+  poems,
+}: LanguagePageProps) {
   const displayName = getLanguageDisplayName(language);
 
   const cards = [
@@ -30,24 +34,30 @@ export default function LanguagePage({ language, metadata, poems }: LanguagePage
       title: 'History',
       content: (
         <ul className="space-y-2 text-sm md:text-base">
-          <li><strong>Created:</strong> {metadata.yearCreated}</li>
-          <li><strong>Creator:</strong> {metadata.creator}</li>
-          <li><strong>Key Influences:</strong> {metadata.influences.join(', ')}</li>
+          <li>
+            <strong>Created:</strong> {metadata.yearCreated}
+          </li>
+          <li>
+            <strong>Creator:</strong> {metadata.creator}
+          </li>
+          <li>
+            <strong>Key Influences:</strong> {metadata.influences.join(', ')}
+          </li>
         </ul>
-      )
+      ),
     },
     {
       icon: Box,
       title: 'Paradigms',
       content: (
         <BulletList
-          items={metadata.paradigms.map(paradigm =>
+          items={metadata.paradigms.map((paradigm) =>
             paradigm.split('-').join(' ')
-          )} 
-          className='capitalize'
+          )}
+          className="capitalize"
         />
-      )
-    }
+      ),
+    },
   ];
 
   return (
@@ -56,7 +66,6 @@ export default function LanguagePage({ language, metadata, poems }: LanguagePage
       description={metadata.description}
       cards={cards}
     >
-
       {/* Poems List */}
       <PaginatedPoemList
         poems={poems}
@@ -71,12 +80,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const languages = Object.keys(languageMetadata) as ProgrammingLanguage[];
 
   const paths = languages.map((language) => ({
-    params: { language }
+    params: { language },
   }));
 
   return {
     paths,
-    fallback: false
+    fallback: false,
   };
 };
 
@@ -98,18 +107,18 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
           paradigms: metadata.paradigms,
           influences: metadata.influences,
           creator: metadata.creator,
-          description: metadata.description
+          description: metadata.description,
         },
-        poems: poems.map(poem => ({
+        poems: poems.map((poem) => ({
           ...poem,
           notes: {
             composition: poem.notes.composition || null,
             technical: poem.notes.technical || null,
-            philosophical: poem.notes.philosophical || null
-          }
-        }))
+            philosophical: poem.notes.philosophical || null,
+          },
+        })),
       },
-      revalidate: 3600
+      revalidate: 3600,
     };
   } catch (error) {
     console.error('Error in getStaticProps:', error);

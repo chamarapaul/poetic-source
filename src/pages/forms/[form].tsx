@@ -1,20 +1,20 @@
 // pages/forms/[form].tsx
+import { Code, ListTree } from 'lucide-react';
 import React from 'react';
-import { DetailPage } from '@/components/common/DetailPage';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { ListTree, Code } from 'lucide-react';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import PaginatedPoemList from '@/components/poems/PaginatedPoemList';
 import { BulletList } from '@/components/common/BulletList';
+import { DetailPage } from '@/components/common/DetailPage';
+import PaginatedPoemList from '@/components/poems/PaginatedPoemList';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { getFormDisplayName } from '@/lib/cache';
+import { SPACING } from '@/lib/constants';
 import { getPoemsByForm } from '@/lib/poems';
 import {
+  Poem,
   PoemForm,
   formDescriptions,
   formStructureInfo,
-  Poem
 } from '@/lib/types';
-import { getFormDisplayName } from '@/lib/cache';
-import { SPACING } from '@/lib/constants';
 
 interface FormPageProps {
   poems: Poem[];
@@ -30,17 +30,13 @@ export default function FormPage({ poems, form }: FormPageProps) {
     {
       icon: ListTree,
       title: 'Structure',
-      content: (
-        <BulletList items={formInfo.rules} />
-      )
+      content: <BulletList items={formInfo.rules} />,
     },
     {
       icon: Code,
       title: 'Code Considerations',
-      content: (
-        <BulletList items={formInfo.codeConsiderations} />
-      )
-    }
+      content: <BulletList items={formInfo.codeConsiderations} />,
+    },
   ];
 
   return (
@@ -76,15 +72,22 @@ export default function FormPage({ poems, form }: FormPageProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const forms: PoemForm[] = ['ghazal', 'haiku', 'rubai', 'tanka', 'koan', 'freeverse'];
+  const forms: PoemForm[] = [
+    'ghazal',
+    'haiku',
+    'rubai',
+    'tanka',
+    'koan',
+    'freeverse',
+  ];
 
   const paths = forms.map((form) => ({
-    params: { form }
+    params: { form },
   }));
 
   return {
     paths,
-    fallback: false
+    fallback: false,
   };
 };
 
@@ -98,16 +101,16 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return {
     props: {
-      poems: poems.map(poem => ({
+      poems: poems.map((poem) => ({
         ...poem,
         notes: {
           composition: poem.notes.composition || null,
           technical: poem.notes.technical || null,
-          philosophical: poem.notes.philosophical || null
-        }
+          philosophical: poem.notes.philosophical || null,
+        },
       })),
-      form
+      form,
     },
-    revalidate: 3600
+    revalidate: 3600,
   };
 };

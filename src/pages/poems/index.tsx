@@ -1,13 +1,13 @@
 // pages/poems/index.tsx
+import { ArrowRight } from 'lucide-react';
 import React from 'react';
 import Link from 'next/link';
+import { Container } from '@/components/layout/Container';
+import Layout from '@/components/layout/Layout';
+import PaginatedPoemList from '@/components/poems/PaginatedPoemList';
 import { TYPOGRAPHY } from '@/lib/constants';
 import { getAllPoems } from '@/lib/poems';
 import { Poem } from '@/lib/types';
-import Layout from '@/components/layout/Layout';
-import PaginatedPoemList from '@/components/poems/PaginatedPoemList';
-import { Container } from '@/components/layout/Container';
-import { ArrowRight } from 'lucide-react';
 
 interface BrowsePageProps {
   poems: Poem[];
@@ -56,21 +56,21 @@ export async function getStaticProps() {
     const allPoems = getAllPoems();
 
     // Sort by date, newest first
-    const sortedPoems = allPoems.sort((a, b) =>
-      new Date(b.date).getTime() - new Date(a.date).getTime()
+    const sortedPoems = allPoems.sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
     );
 
     return {
       props: {
         totalPoems: allPoems.length,
-        poems: sortedPoems.map(poem => ({
+        poems: sortedPoems.map((poem) => ({
           ...poem,
           notes: {
             composition: poem.notes.composition || null,
             technical: poem.notes.technical || null,
-            philosophical: poem.notes.philosophical || null
-          }
-        }))
+            philosophical: poem.notes.philosophical || null,
+          },
+        })),
       },
       revalidate: 3600,
     };

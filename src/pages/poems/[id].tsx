@@ -1,14 +1,14 @@
 // pages/poems/[id].tsx
-import { GetStaticPaths, GetStaticProps } from 'next';
 import { ChevronRight, Shuffle } from 'lucide-react';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
 import PoemDisplay from '@/components/poems/PoemDisplay';
-import { Container } from '@/components/layout/Container';
+import { getFormDisplayName, getLanguageDisplayName } from '@/lib/cache';
 import { getAllPoems, getPoemBySlug } from '@/lib/poems';
 import { Poem, PoemForm, ProgrammingLanguage } from '@/lib/types';
-import { getFormDisplayName, getLanguageDisplayName } from '@/lib/cache';
 
 interface PoemPageProps {
   poem: Poem;
@@ -23,22 +23,22 @@ export default function PoemPage({ poem }: PoemPageProps) {
       case 'forms':
         return {
           href: `/forms/${context}`,
-          label: getFormDisplayName(context as PoemForm)
+          label: getFormDisplayName(context as PoemForm),
         };
       case 'languages':
         return {
           href: `/languages/${context}`,
-          label: getLanguageDisplayName(context as ProgrammingLanguage)
+          label: getLanguageDisplayName(context as ProgrammingLanguage),
         };
       case 'tags':
         return {
           href: `/tags/${context}`,
-          label: `#${context}`
+          label: `#${context}`,
         };
       case 'search':
         return {
           href: `/search?q=${context}`,
-          label: `Search: "${context}"`
+          label: `Search: "${context}"`,
         };
       default:
         return null;
@@ -60,14 +60,19 @@ export default function PoemPage({ poem }: PoemPageProps) {
             {breadcrumbPath && (
               <>
                 <ChevronRight className="w-4 h-4 mx-2 shrink-0" />
-                <Link href={breadcrumbPath.href} className="shrink-0 hover:text-gray-900">
+                <Link
+                  href={breadcrumbPath.href}
+                  className="shrink-0 hover:text-gray-900"
+                >
                   {breadcrumbPath.label}
                 </Link>
               </>
             )}
 
             <ChevronRight className="w-4 h-4 mx-2 shrink-0" />
-            <span className="text-gray-900 font-medium truncate">{poem.title}</span>
+            <span className="text-gray-900 font-medium truncate">
+              {poem.title}
+            </span>
           </nav>
 
           {/* Random Poem Link */}
@@ -79,7 +84,7 @@ export default function PoemPage({ poem }: PoemPageProps) {
             Try another poem
           </Link>
         </div>
-        
+
         {/* Poem Display */}
         <PoemDisplay poem={poem} />
       </Container>
@@ -92,9 +97,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths: poems.map((poem) => ({
-      params: { id: poem.id }
+      params: { id: poem.id },
     })),
-    fallback: false
+    fallback: false,
   };
 };
 
@@ -102,7 +107,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   try {
     // First get all poems to find the language
     const allPoems = getAllPoems();
-    const poemInfo = allPoems.find(p => p.id === params?.id);
+    const poemInfo = allPoems.find((p) => p.id === params?.id);
 
     if (!poemInfo) {
       console.log(`No poem found with id: ${params?.id}`);
@@ -123,11 +128,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
           notes: {
             composition: result.poem.notes.composition || null,
             technical: result.poem.notes.technical || null,
-            philosophical: result.poem.notes.philosophical || null
-          }
-        }
+            philosophical: result.poem.notes.philosophical || null,
+          },
+        },
       },
-      revalidate: 3600
+      revalidate: 3600,
     };
   } catch (error) {
     console.error('Error in getStaticProps:', error);

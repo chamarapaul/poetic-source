@@ -5,7 +5,7 @@ import { getAllPoems } from '@/lib/poems';
 export const getServerSideProps: GetServerSideProps = async () => {
   const poems = getAllPoems();
   const randomPoem = poems[Math.floor(Math.random() * poems.length)];
-  
+
   return {
     redirect: {
       destination: `/poems/${randomPoem.id}`,

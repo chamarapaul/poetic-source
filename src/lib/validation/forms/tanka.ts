@@ -30,7 +30,7 @@ export function validateTanka(
   if (poeticLines.length < 5) {
     errors.push({
       message: 'Tanka must have at least five meaningful lines',
-      severity: 'error'
+      severity: 'error',
     });
     return { isValid: false, errors, lines: poeticLines };
   }
@@ -38,14 +38,15 @@ export function validateTanka(
   // Check for reasonable line distribution
   if (poeticLines.length > 8) {
     errors.push({
-      message: 'Tanka seems to have too many meaningful lines. Consider condensing the expression',
-      severity: 'warning'
+      message:
+        'Tanka seems to have too many meaningful lines. Consider condensing the expression',
+      severity: 'warning',
     });
   }
 
   return {
-    isValid: errors.filter(e => e.severity === 'error').length === 0,
+    isValid: errors.filter((e) => e.severity === 'error').length === 0,
     errors,
-    lines: poeticLines
+    lines: poeticLines,
   };
 }

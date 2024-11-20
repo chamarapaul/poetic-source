@@ -1,13 +1,13 @@
 // pages/index.tsx
+import { ArrowRight } from 'lucide-react';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
-import { getCurrentFeaturedPoem } from '@/lib/curation';
-import { getPoemBySlug, getAllPoems } from '@/lib/poems';
-import { Poem } from '@/lib/types';
-import PoemDisplay from '@/components/poems/PoemDisplay';
 import PaginatedPoemList from '@/components/poems/PaginatedPoemList';
+import PoemDisplay from '@/components/poems/PoemDisplay';
+import { getCurrentFeaturedPoem } from '@/lib/curation';
+import { getAllPoems, getPoemBySlug } from '@/lib/poems';
+import { Poem } from '@/lib/types';
 
 interface HomePageProps {
   featuredPoem: Poem;
@@ -42,7 +42,7 @@ export default function Home({ featuredPoem, recentPoems }: HomePageProps) {
       </section>
 
       {/* Featured Section */}
-       <section className="pt-4 px-4">
+      <section className="pt-4 px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 md:mb-6">
             Featured Poem
@@ -58,9 +58,7 @@ export default function Home({ featuredPoem, recentPoems }: HomePageProps) {
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
               Latest Additions
             </h2>
-            <p className="text-gray-600">
-              Recently compiled poems
-            </p>
+            <p className="text-gray-600">Recently compiled poems</p>
           </div>
 
           <PaginatedPoemList poems={recentPoems} />
@@ -92,26 +90,31 @@ export const getStaticProps: GetStaticProps = async () => {
 
     // Get recent poems, excluding featured if it exists
     const recentPoems = allPoems
-      .filter(poem => !featuredPoemResult?.poem || poem.id !== featuredPoemResult.poem.id)
+      .filter(
+        (poem) =>
+          !featuredPoemResult?.poem || poem.id !== featuredPoemResult.poem.id
+      )
       .slice(0, 3);
 
     // Ensure all properties are serializable
-    const serializedFeaturedPoem = featuredPoemResult?.poem ? {
-      ...featuredPoemResult.poem,
-      notes: {
-        composition: featuredPoemResult.poem.notes.composition || null,
-        technical: featuredPoemResult.poem.notes.technical || null,
-        philosophical: featuredPoemResult.poem.notes.philosophical || null
-      }
-    } : null;
+    const serializedFeaturedPoem = featuredPoemResult?.poem
+      ? {
+          ...featuredPoemResult.poem,
+          notes: {
+            composition: featuredPoemResult.poem.notes.composition || null,
+            technical: featuredPoemResult.poem.notes.technical || null,
+            philosophical: featuredPoemResult.poem.notes.philosophical || null,
+          },
+        }
+      : null;
 
-    const serializedRecentPoems = recentPoems.map(poem => ({
+    const serializedRecentPoems = recentPoems.map((poem) => ({
       ...poem,
       notes: {
         composition: poem.notes.composition || null,
         technical: poem.notes.technical || null,
-        philosophical: poem.notes.philosophical || null
-      }
+        philosophical: poem.notes.philosophical || null,
+      },
     }));
 
     return {
@@ -119,18 +122,18 @@ export const getStaticProps: GetStaticProps = async () => {
         featuredPoem: serializedFeaturedPoem || serializedRecentPoems[0],
         recentPoems: serializedFeaturedPoem
           ? serializedRecentPoems
-          : serializedRecentPoems.slice(1)
+          : serializedRecentPoems.slice(1),
       },
-      revalidate: 3600
+      revalidate: 3600,
     };
   } catch (error) {
     console.error('Error in getStaticProps:', error);
     return {
       props: {
         featuredPoem: null,
-        recentPoems: []
+        recentPoems: [],
       },
-      revalidate: 3600
+      revalidate: 3600,
     };
   }
 };

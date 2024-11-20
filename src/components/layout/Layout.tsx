@@ -1,9 +1,15 @@
 // components/layout/Layout.tsx
-import React, { useState, useEffect } from 'react';
+import { Github, Menu, Search, X } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Github, Search, X, Menu } from 'lucide-react';
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -19,16 +25,28 @@ interface SearchFormProps {
 
 const NavLinks = () => (
   <>
-    <Link href="/poems" className="text-gray-600 hover:text-gray-900 flex items-center">
+    <Link
+      href="/poems"
+      className="text-gray-600 hover:text-gray-900 flex items-center"
+    >
       Browse
     </Link>
-    <Link href="/forms" className="text-gray-600 hover:text-gray-900 flex items-center">
+    <Link
+      href="/forms"
+      className="text-gray-600 hover:text-gray-900 flex items-center"
+    >
       Forms
     </Link>
-    <Link href="/languages" className="text-gray-600 hover:text-gray-900 flex items-center">
+    <Link
+      href="/languages"
+      className="text-gray-600 hover:text-gray-900 flex items-center"
+    >
       Languages
     </Link>
-    <Link href="/about" className="text-gray-600 hover:text-gray-900 flex items-center">
+    <Link
+      href="/about"
+      className="text-gray-600 hover:text-gray-900 flex items-center"
+    >
       About
     </Link>
   </>
@@ -39,7 +57,7 @@ const SearchForm: React.FC<SearchFormProps> = ({
   onSearchChange,
   onSubmit,
   onClear,
-  className = ""
+  className = '',
 }) => {
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const searchInputRef = React.useRef<HTMLInputElement>(null);
@@ -110,7 +128,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <nav className="bg-white shadow-sm">
         <div className="max-w-5xl mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
-            <Link href="/" className="flex items-center text-xl font-bold text-gray-900">
+            <Link
+              href="/"
+              className="flex items-center text-xl font-bold text-gray-900"
+            >
               <span>Poetic</span>
               <span className="text-blue-600 mx-1">/</span>
               <span>Source</span>
@@ -159,9 +180,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </nav>
 
       {/* Main content */}
-      <main className="max-w-4xl mx-auto py-8 px-4">
-        {children}
-      </main>
+      <main className="max-w-4xl mx-auto py-8 px-4">{children}</main>
 
       {/* Footer */}
       <footer className="bg-white border-t mt-auto">

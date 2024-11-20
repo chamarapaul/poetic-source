@@ -19,123 +19,126 @@ interface LanguageConfig {
 const LANGUAGE_CONFIGS: Record<ProgrammingLanguage, LanguageConfig> = {
   ada: {
     singleLineComment: ['--'],
-    stringDelimiters: ['"']
+    stringDelimiters: ['"'],
   },
   algol68: {
     singleLineComment: ['#', 'CO'],
     multiLineComment: {
       start: 'COMMENT',
-      end: 'COMMENT'
+      end: 'COMMENT',
     },
-    stringDelimiters: ['"']
+    stringDelimiters: ['"'],
   },
   apl: {
     singleLineComment: ['⍝'],
-    stringDelimiters: ["'"]
+    stringDelimiters: ["'"],
   },
   befunge: {
     singleLineComment: [';'],
-    stringDelimiters: ['"']
+    stringDelimiters: ['"'],
   },
   c: {
     singleLineComment: ['//'],
     multiLineComment: {
       start: '/*',
-      end: '*/'
+      end: '*/',
     },
-    stringDelimiters: ['"']
+    stringDelimiters: ['"'],
   },
   cpp: {
     singleLineComment: ['//'],
     multiLineComment: {
       start: '/*',
-      end: '*/'
+      end: '*/',
     },
-    stringDelimiters: ['"']
+    stringDelimiters: ['"'],
   },
   go: {
     singleLineComment: ['//'],
     multiLineComment: {
       start: '/*',
-      end: '*/'
+      end: '*/',
     },
-    stringDelimiters: ['"', '`']
+    stringDelimiters: ['"', '`'],
   },
   java: {
     singleLineComment: ['//'],
     multiLineComment: {
       start: '/*',
-      end: '*/'
+      end: '*/',
     },
-    stringDelimiters: ['"']
+    stringDelimiters: ['"'],
   },
   javascript: {
     singleLineComment: ['//'],
     multiLineComment: {
       start: '/*',
-      end: '*/'
+      end: '*/',
     },
-    stringDelimiters: ['"', "'", '`']
+    stringDelimiters: ['"', "'", '`'],
   },
   kotlin: {
     singleLineComment: ['//'],
     multiLineComment: {
       start: '/*',
-      end: '*/'
+      end: '*/',
     },
-    stringDelimiters: ['"', "'"]
+    stringDelimiters: ['"', "'"],
   },
   lisp: {
     singleLineComment: [';'],
     multiLineComment: {
       start: '#|',
-      end: '|#'
+      end: '|#',
     },
-    stringDelimiters: ['"']
+    stringDelimiters: ['"'],
   },
   objectivec: {
     singleLineComment: ['//'],
     multiLineComment: {
       start: '/*',
-      end: '*/'
+      end: '*/',
     },
-    stringDelimiters: ['"', '@"']
+    stringDelimiters: ['"', '@"'],
   },
   python: {
     singleLineComment: ['#'],
-    stringDelimiters: ['"', "'", '"""', "'''"]
+    stringDelimiters: ['"', "'", '"""', "'''"],
   },
   ruby: {
     singleLineComment: ['#'],
     multiLineComment: {
       start: '=begin',
-      end: '=end'
+      end: '=end',
     },
-    stringDelimiters: ['"', "'"]
+    stringDelimiters: ['"', "'"],
   },
   sql: {
     singleLineComment: ['--'],
     multiLineComment: {
       start: '/*',
-      end: '*/'
+      end: '*/',
     },
-    stringDelimiters: ["'"]
+    stringDelimiters: ["'"],
   },
   swift: {
     singleLineComment: ['//'],
     multiLineComment: {
       start: '/*',
-      end: '*/'
+      end: '*/',
     },
-    stringDelimiters: ['"']
-  }
+    stringDelimiters: ['"'],
+  },
 };
 
 /**
  * Extracts meaningful poetic lines from code, handling comments and strings
  * appropriately for each language
  */
-export function extractPoeticLines(content: string, language: ProgrammingLanguage): PoeticLine[] {
+export function extractPoeticLines(
+  content: string,
+  language: ProgrammingLanguage
+): PoeticLine[] {
   const config = LANGUAGE_CONFIGS[language];
   if (!config) {
     throw new Error(`Unsupported language: ${language}`);
@@ -171,7 +174,7 @@ export function extractPoeticLines(content: string, language: ProgrammingLanguag
           poeticLines.push({
             content: multiLineCommentContent.trim(),
             lineNumber: i + 1,
-            type: 'comment'
+            type: 'comment',
           });
         }
         multiLineCommentContent = '';
@@ -196,13 +199,13 @@ export function extractPoeticLines(content: string, language: ProgrammingLanguag
           poeticLines.push({
             content: `${code} ${comment}`,
             lineNumber: i + 1,
-            type: 'mixed'
+            type: 'mixed',
           });
         } else if (comment) {
           poeticLines.push({
             content: comment,
             lineNumber: i + 1,
-            type: 'comment'
+            type: 'comment',
           });
         }
         foundComment = true;
@@ -217,12 +220,15 @@ export function extractPoeticLines(content: string, language: ProgrammingLanguag
       const regex = new RegExp(`${delimiter}[^${delimiter}]*${delimiter}`);
       const match = line.match(regex);
       if (match) {
-        const stringContent = match[0].slice(delimiter.length, -delimiter.length);
+        const stringContent = match[0].slice(
+          delimiter.length,
+          -delimiter.length
+        );
         if (stringContent.trim()) {
           poeticLines.push({
             content: stringContent,
             lineNumber: i + 1,
-            type: 'string'
+            type: 'string',
           });
           hasString = true;
         }
@@ -236,7 +242,7 @@ export function extractPoeticLines(content: string, language: ProgrammingLanguag
       poeticLines.push({
         content: line,
         lineNumber: i + 1,
-        type: 'code'
+        type: 'code',
       });
     }
   }
@@ -259,32 +265,32 @@ export function cleanLine(line: string): string {
  * Check if two words rhyme by comparing sounds from last vowel onwards
  */
 export function rhymesWith(word1: string, word2: string): boolean {
-    // Convert words to lowercase for comparison
-    word1 = word1.toLowerCase();
-    word2 = word2.toLowerCase();
+  // Convert words to lowercase for comparison
+  word1 = word1.toLowerCase();
+  word2 = word2.toLowerCase();
 
-    // Check for exact match
-    if (word1 === word2) return true;
+  // Check for exact match
+  if (word1 === word2) return true;
 
-    // Find the last vowel position in each word
-    const vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
-    const getLastVowelIndex = (word: string) => {
-        for (let i = word.length - 1; i >= 0; i--) {
-            if (vowels.includes(word[i])) return i;
-        }
-        return -1;
-    };
+  // Find the last vowel position in each word
+  const vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
+  const getLastVowelIndex = (word: string) => {
+    for (let i = word.length - 1; i >= 0; i--) {
+      if (vowels.includes(word[i])) return i;
+    }
+    return -1;
+  };
 
-    const lastVowel1 = getLastVowelIndex(word1);
-    const lastVowel2 = getLastVowelIndex(word2);
+  const lastVowel1 = getLastVowelIndex(word1);
+  const lastVowel2 = getLastVowelIndex(word2);
 
-    if (lastVowel1 === -1 || lastVowel2 === -1) return false;
+  if (lastVowel1 === -1 || lastVowel2 === -1) return false;
 
-    // Compare the ending from the last vowel onwards
-    const ending1 = word1.slice(lastVowel1);
-    const ending2 = word2.slice(lastVowel2);
-    
-    return ending1 === ending2;
+  // Compare the ending from the last vowel onwards
+  const ending1 = word1.slice(lastVowel1);
+  const ending2 = word2.slice(lastVowel2);
+
+  return ending1 === ending2;
 }
 
 /**
@@ -292,20 +298,20 @@ export function rhymesWith(word1: string, word2: string): boolean {
  * comments, strings, and code syntax
  */
 export function getEndWord(line: string): string {
-    // Clean the line
-    const cleaned = line
-        .replace(/\/\/.*$/, '')         // Remove single-line comments
-        .replace(/\/\*.*\*\//, '')      // Remove inline comments
-        .replace(/\([^)]*\)/g, '')      // Remove function parameters
-        .replace(/[{};(),\[\]]/g, '')   // Remove punctuation
-        .replace(/->/g, ' ')            // Replace arrow operator with space
-        .trim();
+  // Clean the line
+  const cleaned = line
+    .replace(/\/\/.*$/, '') // Remove single-line comments
+    .replace(/\/\*.*\*\//, '') // Remove inline comments
+    .replace(/\([^)]*\)/g, '') // Remove function parameters
+    .replace(/[{};(),\[\]]/g, '') // Remove punctuation
+    .replace(/->/g, ' ') // Replace arrow operator with space
+    .trim();
 
-    // Get the last meaningful word/token and split on underscores
-    const words = cleaned.split(/\s+/).filter(word => word.length > 0);
-    const lastWord = words[words.length - 1] || '';
-    
-    // Split the last word on underscore and take the last part
-    const parts = lastWord.split('_');
-    return parts[parts.length - 1];
+  // Get the last meaningful word/token and split on underscores
+  const words = cleaned.split(/\s+/).filter((word) => word.length > 0);
+  const lastWord = words[words.length - 1] || '';
+
+  // Split the last word on underscore and take the last part
+  const parts = lastWord.split('_');
+  return parts[parts.length - 1];
 }

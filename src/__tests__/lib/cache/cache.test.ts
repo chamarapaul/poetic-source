@@ -7,7 +7,7 @@ import {
   getLanguagesByGroup,
   getLanguagesByParadigm,
   getMetadataCache,
-} from '../cache';
+} from '@/lib/cache/cache';
 
 describe('Metadata Cache', () => {
   beforeEach(() => {

@@ -1,5 +1,5 @@
 // pages/forms/[form].tsx
-import { Code, ListTree } from 'lucide-react';
+import { Binary, ListCollapse } from 'lucide-react';
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { BulletList } from '@/components/common/BulletList';
@@ -28,12 +28,12 @@ export default function FormPage({ poems, form }: FormPageProps) {
 
   const cards = [
     {
-      icon: ListTree,
+      icon: ListCollapse,
       title: 'Structure',
       content: <BulletList items={formInfo.rules} />,
     },
     {
-      icon: Code,
+      icon: Binary,
       title: 'Code Considerations',
       content: <BulletList items={formInfo.codeConsiderations} />,
     },

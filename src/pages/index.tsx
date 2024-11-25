@@ -8,6 +8,7 @@ import PaginatedPoemList from '@/components/poems/list/PaginatedPoemList';
 import { getCurrentFeaturedPoem } from '@/lib/poems/curation';
 import { getAllPoems, getPoemBySlug } from '@/lib/poems/poems';
 import { Poem } from '@/lib/poems/types';
+import { TYPOGRAPHY } from '@/lib/constants';
 
 interface HomePageProps {
   featuredPoem: Poem;
@@ -58,7 +59,7 @@ export default function Home({ featuredPoem, recentPoems }: HomePageProps) {
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
               Latest Additions
             </h2>
-            <p className="text-gray-600">Recently compiled poems</p>
+            <p className={TYPOGRAPHY.body}>Recently compiled poems</p>
           </div>
 
           <PaginatedPoemList poems={recentPoems} />
@@ -99,13 +100,13 @@ export const getStaticProps: GetStaticProps = async () => {
     // Ensure all properties are serializable
     const serializedFeaturedPoem = featuredPoemResult?.poem
       ? {
-          ...featuredPoemResult.poem,
-          notes: {
-            composition: featuredPoemResult.poem.notes.composition || null,
-            technical: featuredPoemResult.poem.notes.technical || null,
-            philosophical: featuredPoemResult.poem.notes.philosophical || null,
-          },
-        }
+        ...featuredPoemResult.poem,
+        notes: {
+          composition: featuredPoemResult.poem.notes.composition || null,
+          technical: featuredPoemResult.poem.notes.technical || null,
+          philosophical: featuredPoemResult.poem.notes.philosophical || null,
+        },
+      }
       : null;
 
     const serializedRecentPoems = recentPoems.map((poem) => ({

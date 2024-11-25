@@ -1,5 +1,5 @@
 // components/poems/display/PoemHeader.tsx
-import { Code, ScrollText, Tags } from 'lucide-react';
+import { SquareCode, ScrollText, Tags } from 'lucide-react';
 import Link from 'next/link';
 import Tag from '@/components/poems/Tag';
 import { getFormDisplayName, getLanguageDisplayName } from '@/lib/cache/cache';
@@ -46,7 +46,7 @@ export function PoemHeader({ poem, variant = 'full' }: PoemHeaderProps) {
             </Link>
           </div>
           <div className="flex items-center group">
-            <Code className="w-4 h-4 mr-2" />
+            <SquareCode className="w-4 h-4 mr-2" />
             <Link
               href={`/languages/${poem.language}`}
               className="hover:text-blue-600 transition-colors"

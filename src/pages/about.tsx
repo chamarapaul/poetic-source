@@ -1,25 +1,23 @@
 // pages/about.tsx
-import { ArrowRight, Code } from 'lucide-react';
+import { ArrowRight, ScrollText, SquareCode, BookOpenText, Cpu } from 'lucide-react';
 import React from 'react';
 import Link from 'next/link';
+import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function AboutPage() {
   return (
     <Layout>
-      <div className="max-w-4xl mx-auto">
+      <Container className="py-8">
         {/* Hero Section */}
-        <section className="text-center mb-8 md:mb-12 relative">
-          <div className="pt-4 md:pt-6">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6">
-              About Poetic Source
-            </h1>
-            <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-              Exploring the creative possibilities that emerge when we treat
-              code as a form of poetic expression.
-            </p>
-          </div>
+        <section className="mb-8 md:mb-12 relative">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6">
+            About Poetic Source
+          </h1>
+          <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-mono">
+            Code and poetry intertwined: dual expressions of universal patterns
+          </p>
         </section>
 
         {/* Main Content */}
@@ -42,7 +40,7 @@ export default function AboutPage() {
             <Card>
               <CardHeader className="p-4 md:p-6">
                 <CardTitle className="flex items-center text-lg md:text-xl">
-                  <Code className="w-5 h-5 mr-2" />
+                  <SquareCode className="w-5 h-5 mr-2" />
                   Valid Code
                 </CardTitle>
               </CardHeader>
@@ -58,7 +56,7 @@ export default function AboutPage() {
             <Card>
               <CardHeader className="p-4 md:p-6">
                 <CardTitle className="flex items-center text-lg md:text-xl">
-                  <Code className="w-5 h-5 mr-2" />
+                  <ScrollText className="w-5 h-5 mr-2" />
                   Poetic Forms
                 </CardTitle>
               </CardHeader>
@@ -74,7 +72,7 @@ export default function AboutPage() {
             <Card>
               <CardHeader className="p-4 md:p-6">
                 <CardTitle className="flex items-center text-lg md:text-xl">
-                  <Code className="w-5 h-5 mr-2" />
+                  <BookOpenText className="w-5 h-5 mr-2" />
                   Context & Meaning
                 </CardTitle>
               </CardHeader>
@@ -90,7 +88,7 @@ export default function AboutPage() {
             <Card>
               <CardHeader className="p-4 md:p-6">
                 <CardTitle className="flex items-center text-lg md:text-xl">
-                  <Code className="w-5 h-5 mr-2" />
+                  <Cpu className="w-5 h-5 mr-2" />
                   AI Collaboration
                 </CardTitle>
               </CardHeader>
@@ -154,8 +152,8 @@ export default function AboutPage() {
           </div>
 
           {/* Call to Action */}
-          <div className="text-center py-6 md:py-8">
-            <p className="text-base md:text-lg text-gray-700 mb-4">
+          <div className="text-center py-6">
+            <p className="text-base md:text-lg text-gray-700 mb-6">
               Join me in exploring the beauty that emerges when we view code
               through a poetic lens.
             </p>
@@ -168,7 +166,7 @@ export default function AboutPage() {
             </Link>
           </div>
         </section>
-      </div>
+      </Container>
     </Layout>
   );
 }

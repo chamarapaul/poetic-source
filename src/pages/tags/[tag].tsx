@@ -3,8 +3,8 @@ import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
+import { PageHeader } from '@/components/layout/PageHeader';
 import PaginatedPoemList from '@/components/poems/list/PaginatedPoemList';
-import { TYPOGRAPHY } from '@/lib/constants';
 import { getAllPoems } from '@/lib/poems/poems';
 import { Poem } from '@/lib/poems/types';
 
@@ -17,13 +17,10 @@ const TagPage: React.FC<TagPageProps> = ({ poems, tag }) => {
   return (
     <Layout>
       <Container className="py-8">
-        <div className="mb-12">
-          <h1 className={TYPOGRAPHY.h1}>#{tag}</h1>
-          <p className="text-gray-600">
-            {poems.length} {poems.length === 1 ? 'poem' : 'poems'} tagged with
-            &quot;{tag}&quot;
-          </p>
-        </div>
+        <PageHeader
+          title={`#${tag}`}
+          description={`${poems.length} ${poems.length === 1 ? 'poem' : 'poems'} tagged with "${tag}"`}
+        />
 
         <PaginatedPoemList
           poems={poems}

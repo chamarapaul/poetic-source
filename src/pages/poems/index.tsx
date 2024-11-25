@@ -4,8 +4,8 @@ import React from 'react';
 import Link from 'next/link';
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
+import { PageHeader } from '@/components/layout/PageHeader';
 import PaginatedPoemList from '@/components/poems/list/PaginatedPoemList';
-import { TYPOGRAPHY } from '@/lib/constants';
 import { getAllPoems } from '@/lib/poems/poems';
 import { Poem } from '@/lib/poems/types';
 
@@ -18,12 +18,10 @@ const BrowsePage = ({ poems, totalPoems }: BrowsePageProps) => {
   return (
     <Layout>
       <Container className="py-8">
-        <div className="mb-12">
-          <h1 className={TYPOGRAPHY.h1}>Browse Poems</h1>
-          <p className="text-gray-600 max-w-3xl">
-            Exploring {totalPoems} poems across multiple languages and forms
-          </p>
-        </div>
+        <PageHeader
+          title="Browse Poems"
+          description={`Exploring ${totalPoems} poems across multiple languages and forms`}
+        />
 
         <PaginatedPoemList poems={poems} />
 

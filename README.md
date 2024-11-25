@@ -19,7 +19,7 @@ The collection includes various poetic forms:
 Written across multiple programming languages:
   - Modern Synthesis: Swift, Go, JavaScript
   - Natural Flow: Python, Ruby, Kotlin
-  - Structured Elegance: ALGOL s68, Ada, Java
+  - Structured Elegance: ALGOL 68, Ada, Java
   - Visual Expression: APL, Befunge
   - System Dialogues: C, C++, Objective-C
   - Symbolic Patterns: Lisp, SQL
@@ -62,11 +62,13 @@ npm run dev
 ```
 poetic-source/
 ├── src/
-│   ├── components/    # React components
-│   ├── lib/          # Utility functions and types
-│   ├── pages/        # Next.js pages
-│   └── styles/       # Global styles
-├── poems/            # Markdown files containing poems
+│   ├── __tests__/   
+│   ├── hooks/
+│   ├── components/  
+│   ├── lib/         
+│   ├── pages/       
+│   └── styles/   
+├── poems/   # Markdown files containing poems
 └── scripts/         
 ```
 

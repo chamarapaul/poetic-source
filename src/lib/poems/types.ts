@@ -87,7 +87,6 @@ export const formStructureInfo: Record<PoemForm, PoemFormStructure> = {
   rubai: {
     rules: [
       'Four lines (quatrain) with AABA or AAAA rhyme pattern',
-      'First, second, and fourth lines rhyme',
       'Often structured as: statement, elaboration, pivot, conclusion',
       'Traditionally explores philosophical or metaphysical themes',
     ],

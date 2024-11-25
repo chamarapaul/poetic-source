@@ -1,4 +1,4 @@
-// lib/cache/__tests__/cache.test.ts
+// __tests__/lib/cache/cache.test.ts
 import {
   clearMetadataCache,
   getFormDisplayName,

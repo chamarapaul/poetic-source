@@ -5,8 +5,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
+import { PageHeader } from '@/components/layout/PageHeader';
 import PaginatedPoemList from '@/components/poems/list/PaginatedPoemList';
-import { TYPOGRAPHY } from '@/lib/constants';
 import { getAllPoems } from '@/lib/poems/poems';
 import { searchPoems } from '@/lib/poems/search';
 import { Poem } from '@/lib/poems/types';
@@ -25,20 +25,12 @@ const SearchPage: React.FC<SearchPageProps> = ({ poems }) => {
   return (
     <Layout>
       <Container className="py-8">
-        <div className="mb-12">
-          <h1 className={TYPOGRAPHY.h1}>Search Results</h1>
-          <p className="text-gray-600">
-            {searchResults.length}{' '}
-            {searchResults.length === 1 ? 'poem' : 'poems'} found
-            {searchTerm && (
-              <>
-                {' '}
-                for &quot;<span className="font-medium">{searchTerm}</span>
-                &quot;
-              </>
-            )}
-          </p>
-        </div>
+        <PageHeader
+          title="Search Results"
+          description={`${searchResults.length} ${
+            searchResults.length === 1 ? 'poem' : 'poems'
+          } found${searchTerm ? ` for "${searchTerm}"` : ''}`}
+        />
 
         {searchResults.length === 0 ? (
           <div className="text-center py-8 md:py-12">

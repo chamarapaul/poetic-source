@@ -5,10 +5,10 @@ import Link from 'next/link';
 import Layout from '@/components/layout/Layout';
 import PoemDisplay from '@/components/poems/display/PoemDisplay';
 import PaginatedPoemList from '@/components/poems/list/PaginatedPoemList';
+import { TYPOGRAPHY } from '@/lib/constants';
 import { getCurrentFeaturedPoem } from '@/lib/poems/curation';
 import { getAllPoems, getPoemBySlug } from '@/lib/poems/poems';
 import { Poem } from '@/lib/poems/types';
-import { TYPOGRAPHY } from '@/lib/constants';
 
 interface HomePageProps {
   featuredPoem: Poem;
@@ -100,13 +100,13 @@ export const getStaticProps: GetStaticProps = async () => {
     // Ensure all properties are serializable
     const serializedFeaturedPoem = featuredPoemResult?.poem
       ? {
-        ...featuredPoemResult.poem,
-        notes: {
-          composition: featuredPoemResult.poem.notes.composition || null,
-          technical: featuredPoemResult.poem.notes.technical || null,
-          philosophical: featuredPoemResult.poem.notes.philosophical || null,
-        },
-      }
+          ...featuredPoemResult.poem,
+          notes: {
+            composition: featuredPoemResult.poem.notes.composition || null,
+            technical: featuredPoemResult.poem.notes.technical || null,
+            philosophical: featuredPoemResult.poem.notes.philosophical || null,
+          },
+        }
       : null;
 
     const serializedRecentPoems = recentPoems.map((poem) => ({

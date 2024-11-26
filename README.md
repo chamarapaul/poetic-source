@@ -61,10 +61,9 @@ npm run dev
 
 ```
 poetic-source/
-├── src/
-│   ├── __tests__/   
-│   ├── hooks/
-│   ├── components/  
+├── src/ 
+│   ├── components/ 
+│   ├── hooks/ 
 │   ├── lib/         
 │   ├── pages/       
 │   └── styles/   

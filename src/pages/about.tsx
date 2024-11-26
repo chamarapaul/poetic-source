@@ -1,5 +1,11 @@
 // pages/about.tsx
-import { ArrowRight, ScrollText, SquareCode, BookOpenText, Cpu } from 'lucide-react';
+import {
+  ArrowRight,
+  BookOpenText,
+  Cpu,
+  ScrollText,
+  SquareCode,
+} from 'lucide-react';
 import React from 'react';
 import Link from 'next/link';
 import { Container } from '@/components/layout/Container';
@@ -11,13 +17,15 @@ export default function AboutPage() {
     <Layout>
       <Container className="py-8">
         {/* Hero Section */}
-        <section className="mb-8 md:mb-12 relative">
+        <section className="mb-12 space-y-5 md:space-y-6">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6">
             About Poetic Source
           </h1>
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-mono">
             Code and poetry intertwined: dual expressions of universal patterns
           </p>
+
+          <div className="absolute h-1 bg-gradient-to-r from-blue-500 to-blue-600 w-24" />
         </section>
 
         {/* Main Content */}

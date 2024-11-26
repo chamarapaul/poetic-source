@@ -26,7 +26,7 @@ export const getFormDisplayName = (form: PoemForm): string => {
 export const formDescriptions: Record<PoemForm, string> = {
   ghazal: 'Repeated patterns mirror recursive functions',
   haiku: '5-7-5 syllables, perfect for concise algorithms',
-  koan: 'Explores paradoxes in computer science',
+  koan: 'Paradoxical puzzles reflecting computational contradictions',
   rubai:
     'Four-line mathematical-mystical form bridging computation and cosmic truth',
   tanka: '5-7-5-7-7 syllables, good for multi-step algorithms',
@@ -305,7 +305,7 @@ export const languageMetadata: Record<ProgrammingLanguage, LanguageMetadata> = {
     influences: ['ALGOL 60', 'ALGOL W', 'CPL'],
     creator: 'Adriaan van Wijngaarden',
     description:
-      'Classic algorithmic language, where structured programming began',
+      'Structured programming where algorithmic patterns first emerged',
   },
   ada: {
     yearCreated: 1983,
@@ -329,7 +329,7 @@ export const languageMetadata: Record<ProgrammingLanguage, LanguageMetadata> = {
     influences: ['Forth', 'Brainfuck'],
     creator: 'Chris Pressey',
     description:
-      'A two-dimensional language where code flows in multiple directions, creating visual patterns that are both executable and aesthetically meaningful',
+      'Two-dimensional code creating patterns both visual and meaningful',
   },
   c: {
     yearCreated: 1972,
@@ -343,29 +343,29 @@ export const languageMetadata: Record<ProgrammingLanguage, LanguageMetadata> = {
     paradigms: ['multi-paradigm', 'object-oriented', 'generic'],
     influences: ['C', 'Simula', 'Ada'],
     creator: 'Bjarne Stroustrup',
-    description: 'Power and abstraction that spans paradigms',
+    description: 'Power and abstraction spanning system horizons',
   },
   go: {
     yearCreated: 2009,
     paradigms: ['concurrent', 'imperative', 'structured'],
     influences: ['C', 'Pascal', 'Oberon'],
     creator: 'Robert Griesemer, Rob Pike, Ken Thompson',
-    description: 'Simple elegance where goroutines dance in concurrent verses',
+    description:
+      'Concise design where simplicity orchestrates parallel possibilities',
   },
   java: {
     yearCreated: 1995,
     paradigms: ['object-oriented', 'class-based', 'concurrent'],
     influences: ['C++', 'Smalltalk', 'Objective-C'],
     creator: 'James Gosling',
-    description: 'Object-oriented patterns that build complex architectures',
+    description: 'Object-oriented patterns building architectural harmonies',
   },
   javascript: {
     yearCreated: 1995,
     paradigms: ['multi-paradigm', 'event-driven', 'functional'],
     influences: ['Self', 'Scheme', 'Java'],
     creator: 'Brendan Eich',
-    description:
-      'Dynamic, asynchronous poetry that weaves through promise chains and closures',
+    description: 'Dynamic expressions bridging browser and machine',
   },
   kotlin: {
     yearCreated: 2011,
@@ -379,52 +379,49 @@ export const languageMetadata: Record<ProgrammingLanguage, LanguageMetadata> = {
     influences: ['Java', 'Scala', 'Groovy', 'C#', 'JavaScript', 'Python'],
     creator: 'JetBrains Team led by Andrey Breslav',
     description:
-      'Where safety meets elegance, null bows to Maybe, and functions flow like verses through the stream of time',
+      'Where type safety and elegance meet, turning nulls into possibilities',
   },
   lisp: {
     yearCreated: 1958,
     paradigms: ['functional', 'meta-circular', 'symbolic'],
     influences: ['lambda calculus', 'IPL'],
     creator: 'John McCarthy',
-    description:
-      'Symbolic expressions that blur the line between code and data',
+    description: 'Symbolic expressions blurring the line between code and data',
   },
   objectivec: {
     yearCreated: 1984,
     paradigms: ['object-oriented', 'reflective', 'message-passing'],
     influences: ['Smalltalk', 'C', 'Mesa'],
     creator: 'Brad Cox',
-    description: 'Message-passing philosophy with explicit intent',
+    description: 'Message-passing philosophy with deliberate intent',
   },
   python: {
     yearCreated: 1991,
     paradigms: ['object-oriented', 'imperative', 'functional'],
     influences: ['ABC', 'C', 'Haskell'],
     creator: 'Guido van Rossum',
-    description: 'Clear, readable syntax that flows like natural language',
+    description: 'Clear syntax that reads like natural language',
   },
   ruby: {
     yearCreated: 1995,
     paradigms: ['object-oriented', 'imperative', 'functional'],
     influences: ['Smalltalk', 'Perl', 'Lisp'],
     creator: 'Yukihiro Matsumoto',
-    description:
-      'Elegant, expressive code that prioritizes programmer happiness',
+    description: 'Elegant expressions that celebrate programmer creativity',
   },
   sql: {
     yearCreated: 1974,
     paradigms: ['declarative', 'set-based', 'relational'],
     influences: ['relational algebra', 'SEQUEL', 'SQUARE'],
     creator: 'Patricia McQueen, Donald Chamberlin, Raymond Boyce',
-    description:
-      'Declarative verses that weave relationships between data and meaning',
+    description: 'Declarative verses revealing relationships in data',
   },
   swift: {
     yearCreated: 2014,
     paradigms: ['protocol-oriented', 'object-oriented', 'functional'],
     influences: ['Objective-C', 'Rust', 'Haskell'],
     creator: 'Chris Lattner',
-    description: 'Modern clarity meets powerful expression',
+    description: 'Modern clarity meeting powerful expression',
   },
 };
 

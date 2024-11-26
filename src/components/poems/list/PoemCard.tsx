@@ -1,6 +1,6 @@
 // components/poems/list/PoemCard.tsx
 import Link from 'next/link';
-import Tag from '@/components/poems/Tag';
+import Tag from '@/components/poems/common/Tag';
 import { getFormDisplayName, getLanguageDisplayName } from '@/lib/cache/cache';
 import { Poem } from '@/lib/poems/types';
 

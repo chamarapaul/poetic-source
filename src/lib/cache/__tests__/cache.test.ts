@@ -33,9 +33,11 @@ describe('Metadata Cache', () => {
     it('returns cached language descriptions', () => {
       const descriptions = getLanguageDescriptions();
       expect(descriptions.python).toBe(
-        'Clear, readable syntax that flows like natural language'
+        'Clear syntax that reads like natural language'
       );
-      expect(descriptions.kotlin).toContain('safety meets elegance');
+      expect(descriptions.kotlin).toContain(
+        'Where type safety and elegance meet, turning nulls into possibilities'
+      );
     });
 
     it('returns same reference on multiple calls', () => {

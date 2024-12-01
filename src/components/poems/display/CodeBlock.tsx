@@ -64,8 +64,11 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
       return (
         <pre className="overflow-x-auto p-4 rounded-lg bg-[#011627] text-[#d6deeb]">
           {tokens.map((line, i) => (
-            <div key={i} className="flex flex-row min-h-[1.25rem] md:min-h-[1.5rem] 
-                 leading-5 md:leading-6">
+            <div
+              key={i}
+              className="flex flex-row min-h-[1.25rem] md:min-h-[1.5rem] 
+                 leading-5 md:leading-6"
+            >
               {showLineNumbers && (
                 <span className="table-cell text-right pr-4 select-none opacity-50 text-sm">
                   {i + 1}

@@ -33,13 +33,26 @@ export default function AboutPage() {
           {/* Vision */}
           <div className="prose max-w-none">
             <p className="text-base md:text-lg text-gray-700 leading-relaxed">
-              This project is a creative challenge to reveal the inherent poetry
-              in computer science, uncovering profound truths hiding within our
-              algorithms. Working in collaboration with generative AI, I&apos;m
-              exploring how artificial intelligence can help discover new forms
-              of artistic expression at the intersection of code and poetry.
-              Each piece in this collection is AI-generated, representing a
-              unique blend of computational thinking and poetic imagination.
+              Poetry is one of humanity&apos;s oldest art forms, giving voice to
+              our deepest thoughts and feelings through creative expression.
+              Similarly, programming languages enable us to instruct machines
+              through precise, structured commands. While poems speak to the
+              human heart, programs speak to computers — each in their own
+              unique language.
+            </p>
+            <p className="text-base md:text-lg text-gray-700 leading-relaxed mt-4">
+              A "code poem" brings these worlds together: it is both a valid
+              program that machines can run and a carefully crafted poem that
+              humans can contemplate. Each piece maintains technical precision
+              while expressing poetic beauty through its algorithms and
+              structures.
+            </p>
+            <p className="text-base md:text-lg text-gray-700 leading-relaxed mt-4">
+              This project reveals the inherent art in computer science,
+              uncovering profound truths hidden within our algorithms. Working
+              with generative AI, I&apos;m exploring how programming languages
+              can intersect seamlessly with poetry, representing a unique blend
+              of computational thinking and creative imagination.
             </p>
           </div>
 
@@ -55,8 +68,7 @@ export default function AboutPage() {
               <CardContent className="p-4 md:space-y-2 md:mb-4 pt-0">
                 <p className="text-gray-600">
                   Each poem strives to maintain code validity while expressing
-                  deeper meanings through carefully chosen algorithms and
-                  structures.
+                  deeper meanings through its algorithms and comments.
                 </p>
               </CardContent>
             </Card>
@@ -70,9 +82,9 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent className="p-4 md:space-y-2 md:mb-4 pt-0">
                 <p className="text-gray-600">
-                  Poetic forms such as Ghazal, Haiku, Koans, Rubaʿi, Tanka, and
-                  Free Verse are explored, each bringing its own structure and
-                  rhythm to the code.
+                  Six Poetic forms — Ghazal, Haiku, Koans, Rubaʿi, Tanka, and
+                  Free Verse — each bring their own structure and rhythm to the
+                  code.
                 </p>
               </CardContent>
             </Card>
@@ -86,8 +98,8 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent className="p-4 md:space-y-2 md:mb-4 pt-0">
                 <p className="text-gray-600">
-                  Each piece includes philosophical and technical notes,
-                  exploring both the programming concepts and deeper meanings
+                  Each piece includes philosophical and technical commentary,
+                  examining the programming concepts and poetic elements
                   embedded in the code.
                 </p>
               </CardContent>
@@ -102,8 +114,9 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent className="p-4 md:space-y-2 md:mb-4 pt-0">
                 <p className="text-gray-600">
-                  These poems represent an exploration of how artificial
-                  intelligence can help create new forms of artistic expression.
+                  The collection features poems created by humans and through
+                  human-AI collaboration, demonstrating new possibilities in
+                  artistic expression.
                 </p>
               </CardContent>
             </Card>
@@ -116,23 +129,24 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-3 md:space-y-4 text-gray-700">
               <p>
-                This project emerged from a desire to challenge conventional
-                boundaries between technical and poetic ways of understanding
-                reality. I became fascinated by how fundamental patterns in
-                computer science seem to mirror the natural world: garbage
+                This project began with an observation: fundamental patterns in
+                computer science mirror the natural world in fascinating ways.
+                Object-oriented concepts parallel biological evolution, garbage
                 collection algorithms reflect Earth&apos;s closed metabolic
-                systems, object-oriented concepts parallel biological evolution,
-                and recursive functions echo the fractal patterns found in ferns
-                and river networks.
+                systems, and recursive functions echo the fractals found in
+                ferns and river networks. These parallels suggest that our
+                programming paradigms might not be mere inventions, but
+                discoveries of principles inherent in reality itself.
               </p>
               <p>
-                These parallels suggest something profound: perhaps our
-                programming paradigms aren&apos;t just human inventions, but
-                discoveries of patterns inherent in reality itself. Through code
-                poetry, I&apos;m exploring this intersection where computational
-                thinking meets natural wisdom, developing a framework that
-                embraces both the mathematical precision of computer science and
-                the intuitive truth of poetic expression.
+                Just as poets find their verses in reflecting life&apos;s
+                moments — a falling leaf, a chance encounter, a remembered dream
+                — these unexpected harmonies between computation and nature
+                suggested an underlying elegance. Poetic Source explores this
+                connection, using structured verse and various programming
+                languages, while AI collaboration helps to bridge gaps and
+                discover new ways to transform technical concepts into poetic
+                expression.
               </p>
             </div>
           </div>
@@ -145,7 +159,7 @@ export default function AboutPage() {
             <div className="space-y-3 md:space-y-4 text-gray-700">
               <p>
                 Inspired to create your own code poetry? I&apos;d love to see
-                what you create! To contribute your poem, please visit the{' '}
+                what you create! To contribute a poem, please visit the{' '}
                 <a
                   href="https://github.com/chamarapaul/poetic-source#contributing"
                   target="_blank"
@@ -162,8 +176,8 @@ export default function AboutPage() {
           {/* Call to Action */}
           <div className="text-center py-6">
             <p className="text-base md:text-lg text-gray-700 mb-6">
-              Join me in exploring the beauty that emerges when we view code
-              through a poetic lens.
+              Discover the beauty that emerges when we view code through a
+              poetic lens.
             </p>
             <Link
               href="/poems"

@@ -118,15 +118,11 @@
   - Should include meaningful comments that contribute to the poetry
   - Should explore deeper meanings in computer science concepts
 
-  5. Validate your poem:
-    ```bash
-    npm run validate-poems
-    ```
-    This will check:
-    - Required frontmatter fields
-    - Valid field formats (dates, IDs, tags)
-    - Directory structure
-    - Language and form validity
+  5. Validate your poem (`npm run validate-poems`). This will check:
+  - Required frontmatter fields
+  - Valid field formats (dates, IDs, tags)
+  - Directory structure
+  - Language and form validity
 
   6. Commit your changes (`git commit -am 'Add new poem'`)
   7. Push to the branch (`git push origin feature/new-poem`)
@@ -134,10 +130,9 @@
 
   ### Contribution Tips
   - Run validation before submitting to ensure your poem meets the requirements
-  - For form-specific rules, check the [forms documentation](http://poeticsource.com/forms)
-  - Consider using the form's constraints to enhance both the code and poetic aspects
+  - Consider using language and form constraints to enhance both the code and poetic aspects
 
-  Pull requests will be checked for poem validation (`npm run validate-poems`) and poetic form adherence.
+  Pull requests will be checked for poem validation and poetic form adherence.
 
   ## Technical Details
 
@@ -157,8 +152,7 @@
 
   ## Acknowledgments
 
-  - Inspired by two loves: code and poetry
+  - Inspired by a love of code and poetry
   - Built with assistance from [Claude AI](https://www.anthropic.com) - AI collaboration in code poem generation and site development
 
   ---
-  

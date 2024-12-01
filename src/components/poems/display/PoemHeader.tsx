@@ -1,7 +1,7 @@
 // components/poems/display/PoemHeader.tsx
 import { ScrollText, SquareCode, Tags } from 'lucide-react';
 import Link from 'next/link';
-import Tag from '@/components/poems/common/Tag';
+import Tag from '@/components/poems/shared/Tag';
 import { getFormDisplayName, getLanguageDisplayName } from '@/lib/cache/cache';
 import { Poem } from '@/lib/poems/types';
 

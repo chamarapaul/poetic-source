@@ -47,4 +47,3 @@ robots.txt
 # local configuration files
 .eslintrc.json
 .prettierrc
-components.json

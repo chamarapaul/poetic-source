@@ -48,5 +48,3 @@ robots.txt
 .eslintrc.json
 .prettierrc
 components.json
-next-sitemap.config.js
-postcss.config.mjs

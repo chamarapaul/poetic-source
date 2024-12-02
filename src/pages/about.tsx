@@ -143,10 +143,9 @@ export default function AboutPage() {
                 moments — a falling leaf, a chance encounter, a remembered dream
                 — these unexpected harmonies between computation and nature
                 suggest an underlying elegance. Poetic Source explores this
-                connection, blending structured verse and code, while AI 
-                collaboration enriches the process and helps to
-                discover new ways to transform technical concepts into poetic
-                expression.
+                connection, blending structured verse and code, while AI
+                collaboration enriches the process and helps to discover new
+                ways to transform technical concepts into poetic expression.
               </p>
             </div>
           </div>

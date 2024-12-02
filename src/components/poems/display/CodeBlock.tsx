@@ -79,7 +79,9 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
                 {line.map((token, j) => (
                   <span
                     key={j}
-                    className={token.className ?? DEFAULT_CLASSES[token.type] ?? ''}
+                    className={
+                      token.className ?? DEFAULT_CLASSES[token.type] ?? ''
+                    }
                   >
                     {token.content}
                   </span>

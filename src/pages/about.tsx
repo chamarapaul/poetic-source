@@ -41,11 +41,11 @@ export default function AboutPage() {
               unique language.
             </p>
             <p className="text-base md:text-lg text-gray-700 leading-relaxed mt-4">
-              A "code poem" brings these worlds together: it is both a valid
-              program that machines can run and a carefully crafted poem that
-              humans can contemplate. Each piece maintains technical precision
-              while expressing poetic beauty through its algorithms and
-              structures.
+              A &quot;code poem&quot; brings these worlds together: it is both a
+              valid program that machines can run and a carefully crafted poem
+              that humans can contemplate. Each piece maintains technical
+              precision while expressing poetic beauty through its algorithms
+              and structures.
             </p>
             <p className="text-base md:text-lg text-gray-700 leading-relaxed mt-4">
               This project reveals the inherent art in computer science,

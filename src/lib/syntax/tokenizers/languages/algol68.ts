@@ -1,6 +1,6 @@
 // src/lib/syntax/tokenizers/algol68.ts
 import { createTokenizer } from '../base';
-import { Token, TokenType } from '../types';
+import { TokenType } from '../types';
 
 const patterns: [RegExp, TokenType][] = [
   // All comment variations

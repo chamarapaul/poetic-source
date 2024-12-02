@@ -13,29 +13,33 @@ tags:
   - zen
 preview: "A recursive meditation written in ALGOL 68, where a procedure's self-reflection becomes a Zen koan about consciousness and the nature of thought"
 notes:
-  composition: "This poem takes the form of a koan, using a recursive procedure as a meditation on consciousness. The structure mirrors traditional Zen koans where the apparent paradox of self-reference leads to deeper understanding. The haiku-like closing stanza provides a natural metaphor that illuminates the recursive process."
+  composition: "This poem takes the form of a koan, using a recursive procedure as a meditation on consciousness. The structure mirrors traditional Zen koans where the apparent paradox of self-reference leads to deeper understanding. The ALGOL keywords and operations themselves become part of the poetic flow, with 'LOC' and 'SKIP' suggesting temporary states of mind."
   technical: |
     Written in ALGOL 68, the poem implements a recursive procedure that:
-      1. Takes a reference to a 'mind' parameter
-      2. Uses a base case where consciousness fades to dawn
+      1. Defines a MODE for mind as a REF to a REAL value
+      2. Uses a base case where consciousness fades to NIL
       3. Implements recursive self-calls that build up and then unwind
-      4. Comments are placed strategically to maintain poetic flow while being valid code
-
+      4. Uses ALGOL 68's CO keyword for comments
+      5. Employs 'SKIP' as a meditative pause in the recursion
+      
     The recursive pattern reflects both technical accuracy and meditative depth.
-  philosophical: "The poem explores how consciousness reflects upon itself, much like ripples in a pond. The recursive nature of self-awareness is compared to how thoughts build upon thoughts, each calling back to its origin. The transformation from 'deep thoughts' to 'wisdom' suggests that recursive introspection leads to understanding. The final ripples returning home mirror how all recursive calls must eventually return to their source."
+  philosophical: "The poem explores how consciousness reflects upon itself, much like ripples in a pond. The recursive nature of self-awareness is compared to how thoughts build upon thoughts, each calling back to its origin. The transformation through recursive contemplation suggests that deep introspection leads to understanding. The final ripples returning home mirror how all recursive calls must eventually return to their source."
 ---
-PROC deep thoughts rise up =
-    (REF REAL mind) VOID: BEGIN
-        # each thought calls its past #
-        IF mind = NIL
-            THEN dreams fade to dawn
+MODE MIND = REF REAL;
+PROC deep thoughts rise up = 
+    (MIND mind) VOID: 
+    BEGIN
+        CO each thought calls its past CO
+        IF mind = NIL 
+            THEN SKIP CO dreams fade to dawn CO
         ELSE 
-            thoughts arise here;
+            SKIP; CO thoughts arise CO
             deep thoughts rise up(mind);
-            wisdom echoes back
+            SKIP CO wisdom returns CO
         FI
     END;
 
-# like rings in still pond #
+CO like rings in still pond CO
+MIND soul := LOC REAL;
 deep thoughts rise up(soul);
-# ripples return home #
+CO ripples return home CO

@@ -129,7 +129,7 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-3 md:space-y-4 text-gray-700">
               <p>
-                This project began with an observation: fundamental patterns in
+                Poetic Source began with an observation: fundamental patterns in
                 computer science mirror the natural world in fascinating ways.
                 Object-oriented concepts parallel biological evolution, garbage
                 collection algorithms reflect Earth&apos;s closed metabolic
@@ -142,9 +142,9 @@ export default function AboutPage() {
                 Just as poets find their verses in reflecting life&apos;s
                 moments — a falling leaf, a chance encounter, a remembered dream
                 — these unexpected harmonies between computation and nature
-                suggested an underlying elegance. Poetic Source explores this
-                connection, using structured verse and various programming
-                languages, while AI collaboration helps to bridge gaps and
+                suggest an underlying elegance. Poetic Source explores this
+                connection, blending structured verse and code, while AI 
+                collaboration enriches the process and helps to
                 discover new ways to transform technical concepts into poetic
                 expression.
               </p>
@@ -161,7 +161,7 @@ export default function AboutPage() {
                 Inspired to create your own code poetry? I&apos;d love to see
                 what you create! To contribute a poem, please visit the{' '}
                 <a
-                  href="https://github.com/chamarapaul/poetic-source#contributing"
+                  href="https://github.com/chamarapaul/poetic-source#poetic-source"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-700"

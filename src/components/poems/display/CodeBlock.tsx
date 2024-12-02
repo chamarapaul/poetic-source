@@ -11,6 +11,7 @@ import {
   rubyTokenize,
 } from '@/lib/syntax/tokenizers';
 import { Token } from '@/lib/syntax/tokenizers';
+import { DEFAULT_CLASSES } from '@/lib/syntax/tokenizers/base';
 
 interface CodeBlockProps {
   code: string;
@@ -78,24 +79,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
                 {line.map((token, j) => (
                   <span
                     key={j}
-                    className={
-                      token.className ??
-                      (token.type === 'comment'
-                        ? 'text-[#637777]'
-                        : token.type === 'string'
-                          ? 'text-[#addb67]'
-                          : token.type === 'keyword'
-                            ? 'text-[#c792ea] font-bold'
-                            : token.type === 'operator'
-                              ? 'text-[#7fdbca] font-bold'
-                              : token.type === 'number'
-                                ? 'text-[#f78c6c]'
-                                : token.type === 'function'
-                                  ? 'text-[#82aaff]'
-                                  : token.type === 'variable'
-                                    ? 'text-[#addb67]'
-                                    : '')
-                    }
+                    className={token.className ?? DEFAULT_CLASSES[token.type] ?? ''}
                   >
                     {token.content}
                   </span>

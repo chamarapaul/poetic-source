@@ -78,7 +78,7 @@
 
   ### Creative Exploration
 
-  As a contributor to Poetic Source, you have the opportunity to explore the creative possibilities that emerge when we treat code as a poetic medium. 
+  As a contributor to Poetic Source, you have the opportunity to explore the creative possibilities that emerge when we treat code as a poetic medium: 
   - Experiment with different programming languages, poetic forms, and computer science concepts
   - Use programming and syntax constraints to create meaning and beauty
   - Discover new ways to express ideas through code

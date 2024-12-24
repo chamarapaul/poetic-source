@@ -1,6 +1,7 @@
 // components/poems/list/PaginatedPoemList.tsx
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { PoemCard } from '@/components/poems/list/PoemCard';
 import { Button } from '@/components/ui/button';
 import { Poem } from '@/lib/poems/types';
@@ -116,9 +117,27 @@ const PaginatedPoemList: React.FC<PaginatedPoemListProps> = ({
   contextValue,
   pageSize = 10,
 }) => {
+  const router = useRouter();
   const [currentPage, setCurrentPage] = React.useState(1);
 
+  // Initialize page from URL on mount and handle browser navigation
+  useEffect(() => {
+    const page = Number(router.query.page) || 1;
+    setCurrentPage(page);
+  }, [router.query.page]);
+
   const handlePageChange = (page: number) => {
+    // Update URL with new page number
+    const query = { ...router.query, page: page.toString() };
+    router.push(
+      {
+        pathname: router.pathname,
+        query,
+      },
+      undefined,
+      { shallow: true }
+    );
+
     setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };

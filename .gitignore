@@ -47,3 +47,9 @@ robots.txt
 # local configuration files
 .eslintrc.json
 .prettierrc
+
+# swc
+.swc/
+
+# poem drafts and reviews
+/poems_review/

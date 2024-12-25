@@ -9,20 +9,20 @@ const patterns: [RegExp, TokenType][] = [
   // Strings (single and double quoted)
   [/"[^"]*"|'[^']*'/, 'string'],
 
-  // Keywords
+  // Constants, Class names, and Error types (to take precedence over keywords)
+  [/\b[A-Z][A-Za-z0-9_]*\b/, 'type'],
+
+  // Keywords (with strict word boundaries)
   [
-    /\b(class|def|module|if|else|elsif|end|begin|rescue|ensure|do|while|until|for|in|unless|case|when|break|next|return|yield|super|self|nil|true|false|and|or|not|alias|undef|BEGIN|END)\b/,
+    /\b(?:class|def|module|if|else|elsif|end|begin|rescue|ensure|do|while|until|for|in|unless|case|when|break|next|return|yield|super|self|nil|true|false|and|or|not|alias|undef|BEGIN|END)\b/,
     'keyword',
   ],
 
   // Built-in methods
   [
-    /\b(puts|print|require|require_relative|include|extend|attr_accessor|attr_reader|attr_writer|raise|fail|catch|throw|loop|lambda|proc)\b/,
+    /\b(?:puts|print|require|require_relative|include|extend|attr_accessor|attr_reader|attr_writer|raise|fail|catch|throw|loop|lambda|proc)\b/,
     'builtin',
   ],
-
-  // Constants (capitalized words)
-  //[/\b[A-Z]\w*\b/, 'constant'],
 
   // Symbols
   [/:[a-zA-Z_]\w*/, 'symbol'],
@@ -33,17 +33,17 @@ const patterns: [RegExp, TokenType][] = [
   // Operators
   [/&&|\|\||=~|=>|<<|>>|\*\*|[-+*\/%=<>!&|^~]=?/, 'operator'],
 
-  // Punctuation
-  [/[{}\[\]().,;]/, 'punctuation'],
-
   // Method calls and definitions
   [/\b[a-z_]\w*[!?]?(?=\s*[({])/, 'function'],
 
   // Instance variables
-  [/@[a-zA-Z_]\w*/, 'variable'],
+  [/(?:^|\s)@[a-zA-Z_]\w*/, 'variable'],
+
+  // Punctuation
+  [/[{}\[\]().,;]/, 'punctuation'],
 
   // Block parameters
-  [/\|[^|]*\|/, 'variable'],
+  [/\|\s*(?:[a-z_]\w*(?:\s*,\s*[a-z_]\w*)*)\s*\|/, 'variable'],
 ];
 
 export const rubyTokenize = createTokenizer(patterns);

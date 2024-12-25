@@ -4,16 +4,16 @@ import { CurationConfig } from './types';
 export const curationConfig: CurationConfig = {
   featuredPoems: [
     {
-      id: 'quantum-tanka',
-      language: 'python',
-      startDate: '2024-11-14',
+      id: 'loves-reference-count',
+      language: 'cpp',
+      startDate: '2024-12-24',
       // Current feature - no endDate
     },
     {
-      id: 'binary-search-meditation',
-      language: 'ruby',
-      startDate: '2024-10-15',
-      endDate: '2024-11-11',
+      id: 'quantum-tanka',
+      language: 'python',
+      startDate: '2024-11-14',
+      endDate: '2024-12-24',
     },
   ],
   thematicCollections: [

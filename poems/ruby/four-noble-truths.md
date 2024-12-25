@@ -62,7 +62,7 @@ class Memory
   def nature_of_dukkha
     @fragments = [] # Shattered pieces of what was whole
     @leaks     = {} # Attachments that persist beyond need
-   @cycles    = [] # The wheel of reference and release
+    @cycles    = [] # The wheel of reference and release
   end
 end
 
@@ -150,6 +150,6 @@ module Reflection
     freed = nil             # Empty the vessel
     freed = Object.new      # Form arises
     freed = nil             # Form dissolves
-    # The cycle continues   # But who observes?
+    # The cycle continues     # But who observes?
   end
 end

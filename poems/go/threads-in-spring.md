@@ -11,7 +11,7 @@ tags:
   - nature
   - synchronization
   - harmony
-preview: "Concurrent thoughts bloom like spring flowers in this Go code poem, exploring the beauty of parallel processing through nature-inspired haiku."
+preview: "Concurrent thoughts bloom like spring flowers in this Go code poem, exploring the beauty of parallel processing through nature-inspired haiku"
 notes:
   composition: "The code poem maintains a cohesive narrative through haiku-structured comments, with each stanza focusing on a single theme. The technical implementation in Go and the poetic expression work together to explore the beauty of concurrent computation."
   technical: |

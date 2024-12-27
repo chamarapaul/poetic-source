@@ -94,6 +94,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const form = params?.form as PoemForm;
   const poems = getPoemsByForm(form);
+  const displayName = getFormDisplayName(form);
 
   if (!formDescriptions[form]) {
     return { notFound: true };
@@ -101,6 +102,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return {
     props: {
+      title: displayName,
       poems: poems.map((poem) => ({
         ...poem,
         notes: {

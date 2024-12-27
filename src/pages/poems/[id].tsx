@@ -123,6 +123,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
     return {
       props: {
+        title: result.poem.title,
         poem: {
           ...result.poem,
           notes: {

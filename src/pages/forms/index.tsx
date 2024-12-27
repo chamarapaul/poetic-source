@@ -48,6 +48,7 @@ export async function getStaticProps() {
 
     return {
       props: {
+        title: 'Poetic Forms',
         formCategories: serializedFormCategories,
       },
       revalidate: 3600,
@@ -56,6 +57,7 @@ export async function getStaticProps() {
     console.error('Error in getStaticProps:', error);
     return {
       props: {
+        title: 'Poetic Forms',
         formCategories: [],
       },
       revalidate: 3600,

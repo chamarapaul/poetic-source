@@ -7,6 +7,7 @@ import {
   SquareCode,
 } from 'lucide-react';
 import React from 'react';
+import { GetStaticProps } from 'next';
 import Link from 'next/link';
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
@@ -191,3 +192,11 @@ export default function AboutPage() {
     </Layout>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: {
+      title: 'About',
+    },
+  };
+};

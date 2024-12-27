@@ -94,6 +94,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const language = params?.language as ProgrammingLanguage;
     const poems = getPoemsByLanguage(language);
     const metadata = languageMetadata[language];
+    const displayName = getLanguageDisplayName(language);
 
     if (!metadata) {
       return { notFound: true };
@@ -101,6 +102,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
     return {
       props: {
+        title: displayName,
         language,
         metadata: {
           yearCreated: metadata.yearCreated,

@@ -52,4 +52,6 @@ robots.txt
 .swc/
 
 # poem drafts and reviews
+poems/all_poems.md
+poems/combine_poems.sh
 poems_review/

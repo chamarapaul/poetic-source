@@ -1,7 +1,5 @@
 // pages/search.tsx
-import { ArrowRight } from 'lucide-react';
 import React from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
@@ -10,6 +8,7 @@ import PaginatedPoemList from '@/components/poems/list/PaginatedPoemList';
 import { getAllPoems } from '@/lib/poems/poems';
 import { searchPoems } from '@/lib/poems/search';
 import { Poem } from '@/lib/poems/types';
+import { ActionButton } from '@/components/shared/buttons/action-buttons';
 
 interface SearchPageProps {
   poems: Poem[];
@@ -27,9 +26,8 @@ const SearchPage: React.FC<SearchPageProps> = ({ poems }) => {
       <Container className="py-8">
         <PageHeader
           title="Search Results"
-          description={`${searchResults.length} ${
-            searchResults.length === 1 ? 'poem' : 'poems'
-          } found${searchTerm ? ` for "${searchTerm}"` : ''}`}
+          description={`${searchResults.length} ${searchResults.length === 1 ? 'poem' : 'poems'
+            } found${searchTerm ? ` for "${searchTerm}"` : ''}`}
         />
 
         {searchResults.length === 0 ? (
@@ -37,13 +35,9 @@ const SearchPage: React.FC<SearchPageProps> = ({ poems }) => {
             <p className="text-gray-600 mb-6">
               No poems found matching your search
             </p>
-            <Link
-              href="/poems"
-              className="inline-flex items-center px-5 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              Browse all poems
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Link>
+            <ActionButton href="/poems">
+              Browse All Poems
+            </ActionButton>
           </div>
         ) : (
           <PaginatedPoemList

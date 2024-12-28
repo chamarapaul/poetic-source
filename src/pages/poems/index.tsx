@@ -1,13 +1,12 @@
 // pages/poems/index.tsx
-import { ArrowRight } from 'lucide-react';
 import React from 'react';
-import Link from 'next/link';
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
 import { PageHeader } from '@/components/layout/PageHeader';
 import PaginatedPoemList from '@/components/poems/list/PaginatedPoemList';
 import { getAllPoems } from '@/lib/poems/poems';
 import { Poem } from '@/lib/poems/types';
+import { ActionButton } from '@/components/shared/buttons/action-buttons';
 
 interface BrowsePageProps {
   poems: Poem[];
@@ -28,20 +27,12 @@ const BrowsePage = ({ poems, totalPoems }: BrowsePageProps) => {
         <div className="mt-12 text-center">
           <p className="text-gray-600 mb-6">Looking for something specific?</p>
           <div className="flex justify-center gap-4">
-            <Link
-              href="/forms"
-              className="inline-flex items-center px-6 py-3 bg-white text-gray-800 border rounded-lg hover:bg-gray-50 transition-colors"
-            >
+            <ActionButton href="/forms" variant="secondary">
               Browse by Form
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Link>
-            <Link
-              href="/languages"
-              className="inline-flex items-center px-6 py-3 bg-white text-gray-800 border rounded-lg hover:bg-gray-50 transition-colors"
-            >
+            </ActionButton>
+            <ActionButton href="/languages" variant="secondary">
               Browse by Language
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Link>
+            </ActionButton>
           </div>
         </div>
       </Container>

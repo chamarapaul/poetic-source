@@ -9,6 +9,7 @@ import PoemDisplay from '@/components/poems/display/PoemDisplay';
 import { getFormDisplayName, getLanguageDisplayName } from '@/lib/cache/cache';
 import { getAllPoems, getPoemBySlug } from '@/lib/poems/poems';
 import { Poem, PoemForm, ProgrammingLanguage } from '@/lib/poems/types';
+import { NavButton } from '@/components/shared/buttons/action-buttons';
 
 interface PoemPageProps {
   poem: Poem;
@@ -76,13 +77,9 @@ export default function PoemPage({ poem }: PoemPageProps) {
           </nav>
 
           {/* Random Poem Link */}
-          <Link
-            href="/poems/random"
-            className="text-blue-600 hover:text-blue-700 inline-flex items-center gap-2 text-sm shrink-0"
-          >
-            <Shuffle className="w-4 h-4" />
+          <NavButton href="/poems/random" iconPosition="left" icon={Shuffle}>
             Try another poem
-          </Link>
+          </NavButton>
         </div>
 
         {/* Poem Display */}

@@ -1,12 +1,12 @@
 // components/poems/display/PoemDisplay.tsx
-import { ArrowRight, Info } from 'lucide-react';
+import { Info } from 'lucide-react';
 import React, { useState } from 'react';
-import Link from 'next/link';
 import CodeBlock from '@/components/poems/display/CodeBlock';
 import { NotesSection } from '@/components/poems/display/NotesSection';
 import { PoemHeader } from '@/components/poems/display/PoemHeader';
 import { Poem } from '@/lib/poems/types';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { NavButton } from '@/components/shared/buttons/action-buttons';
 
 interface PoemDisplayProps {
   poem: Poem;
@@ -74,13 +74,9 @@ export default function PoemDisplay({
       {isFeatured && (
         <div className="px-6 pb-6">
           <div className="flex justify-end">
-            <Link
-              href={`/poems/${poem.id}`}
-              className="text-blue-600 hover:text-blue-700 inline-flex items-center text-sm"
-            >
-              <ArrowRight className="w-4 h-4 ml-1" />
+            <NavButton href={`/poems/${poem.id}`} className="gap-0" iconPosition="left">
               View full poem with notes
-            </Link>
+            </NavButton>
           </div>
         </div>
       )}

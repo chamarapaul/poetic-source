@@ -1,7 +1,5 @@
 // pages/index.tsx
-import { ArrowRight } from 'lucide-react';
 import { GetStaticProps } from 'next';
-import Link from 'next/link';
 import Layout from '@/components/layout/Layout';
 import PoemDisplay from '@/components/poems/display/PoemDisplay';
 import PaginatedPoemList from '@/components/poems/list/PaginatedPoemList';
@@ -9,6 +7,7 @@ import { TYPOGRAPHY } from '@/lib/constants';
 import { getCurrentFeaturedPoem } from '@/lib/poems/curation';
 import { getAllPoems, getPoemBySlug } from '@/lib/poems/poems';
 import { Poem } from '@/lib/poems/types';
+import { ActionButton, NavButton } from '@/components/shared/buttons/action-buttons';
 
 interface HomePageProps {
   featuredPoem: Poem;
@@ -30,13 +29,9 @@ export default function Home({ featuredPoem, recentPoems }: HomePageProps) {
               <p className="text-lg md:text-xl text-gray-600 mb-6 font-mono">
                 Where algorithms meet artistic expression
               </p>
-              <Link
-                href="/about"
-                className="inline-flex items-center px-5 py-2.5 md:px-6 md:py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-              >
+              <ActionButton href="/about">
                 Learn More About Code Poetry
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Link>
+              </ActionButton>
             </div>
           </div>
         </div>
@@ -65,13 +60,9 @@ export default function Home({ featuredPoem, recentPoems }: HomePageProps) {
           <PaginatedPoemList poems={recentPoems} />
         </div>
         <div className="flex justify-end mt-4 md:mt-6 px-4">
-          <Link
-            href="/poems"
-            className="text-blue-600 hover:text-blue-700 flex items-center text-sm md:text-base"
-          >
+          <NavButton href="/poems" className="text-sm md:text-base">
             View all poems
-            <ArrowRight className="w-4 h-4 ml-1" />
-          </Link>
+          </NavButton>
         </div>
       </section>
     </Layout>
@@ -100,13 +91,13 @@ export const getStaticProps: GetStaticProps = async () => {
     // Ensure all properties are serializable
     const serializedFeaturedPoem = featuredPoemResult?.poem
       ? {
-          ...featuredPoemResult.poem,
-          notes: {
-            composition: featuredPoemResult.poem.notes.composition || null,
-            technical: featuredPoemResult.poem.notes.technical || null,
-            philosophical: featuredPoemResult.poem.notes.philosophical || null,
-          },
-        }
+        ...featuredPoemResult.poem,
+        notes: {
+          composition: featuredPoemResult.poem.notes.composition || null,
+          technical: featuredPoemResult.poem.notes.technical || null,
+          philosophical: featuredPoemResult.poem.notes.philosophical || null,
+        },
+      }
       : null;
 
     const serializedRecentPoems = recentPoems.map((poem) => ({

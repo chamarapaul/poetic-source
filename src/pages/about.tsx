@@ -1,6 +1,5 @@
 // pages/about.tsx
 import {
-  ArrowRight,
   BookOpenText,
   Cpu,
   ScrollText,
@@ -8,10 +7,10 @@ import {
 } from 'lucide-react';
 import React from 'react';
 import { GetStaticProps } from 'next';
-import Link from 'next/link';
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { ActionButton } from '@/components/shared/buttons/action-buttons';
 
 export default function AboutPage() {
   return (
@@ -179,13 +178,9 @@ export default function AboutPage() {
               Discover the beauty that emerges when we view code through a
               poetic lens.
             </p>
-            <Link
-              href="/poems"
-              className="inline-flex items-center px-5 py-2.5 md:px-6 md:py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-            >
+            <ActionButton href="/poems">
               Explore the Collection
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Link>
+            </ActionButton>
           </div>
         </section>
       </Container>

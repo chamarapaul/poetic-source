@@ -1,16 +1,11 @@
 // pages/about.tsx
-import {
-  BookOpenText,
-  Cpu,
-  ScrollText,
-  SquareCode,
-} from 'lucide-react';
+import { BookOpenText, Cpu, ScrollText, SquareCode } from 'lucide-react';
 import React from 'react';
 import { GetStaticProps } from 'next';
 import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ActionButton } from '@/components/shared/buttons/action-buttons';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function AboutPage() {
   return (
@@ -178,9 +173,7 @@ export default function AboutPage() {
               Discover the beauty that emerges when we view code through a
               poetic lens.
             </p>
-            <ActionButton href="/poems">
-              Explore the Collection
-            </ActionButton>
+            <ActionButton href="/poems">Explore the Collection</ActionButton>
           </div>
         </section>
       </Container>

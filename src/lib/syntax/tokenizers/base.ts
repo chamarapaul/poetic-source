@@ -9,7 +9,7 @@ export const DEFAULT_CLASSES: CustomClassesMap = {
   operator: 'text-[#89ddff] font-bold', // Bright blue bold for operators
   number: 'text-[#f78c6c]', // Orange for numbers
   function: 'text-[#82aaff]', // Blue for functions/methods
-  variable: 'text-[#addb67]', // Green for variables (same as strings)
+  variable: 'text-[#d7dbe0]', // Soft gray for variables
   builtin: 'text-[#ffd700]', // Gold for built-in functions
   attribute: 'text-[#addb67]', // Green for attributes
   symbol: 'text-[#89ddff]', // Bright blue for symbols

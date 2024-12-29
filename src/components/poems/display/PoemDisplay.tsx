@@ -4,9 +4,9 @@ import React, { useState } from 'react';
 import CodeBlock from '@/components/poems/display/CodeBlock';
 import { NotesSection } from '@/components/poems/display/NotesSection';
 import { PoemHeader } from '@/components/poems/display/PoemHeader';
+import { NavButton } from '@/components/shared/buttons/action-buttons';
 import { Poem } from '@/lib/poems/types';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
-import { NavButton } from '@/components/shared/buttons/action-buttons';
 
 interface PoemDisplayProps {
   poem: Poem;
@@ -74,7 +74,11 @@ export default function PoemDisplay({
       {isFeatured && (
         <div className="px-6 pb-6">
           <div className="flex justify-end">
-            <NavButton href={`/poems/${poem.id}`} className="gap-0" iconPosition="left">
+            <NavButton
+              href={`/poems/${poem.id}`}
+              className="gap-0"
+              iconPosition="left"
+            >
               View full poem with notes
             </NavButton>
           </div>

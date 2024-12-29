@@ -5,10 +5,10 @@ import { Container } from '@/components/layout/Container';
 import Layout from '@/components/layout/Layout';
 import { PageHeader } from '@/components/layout/PageHeader';
 import PaginatedPoemList from '@/components/poems/list/PaginatedPoemList';
+import { ActionButton } from '@/components/shared/buttons/action-buttons';
 import { getAllPoems } from '@/lib/poems/poems';
 import { searchPoems } from '@/lib/poems/search';
 import { Poem } from '@/lib/poems/types';
-import { ActionButton } from '@/components/shared/buttons/action-buttons';
 
 interface SearchPageProps {
   poems: Poem[];
@@ -26,8 +26,9 @@ const SearchPage: React.FC<SearchPageProps> = ({ poems }) => {
       <Container className="py-8">
         <PageHeader
           title="Search Results"
-          description={`${searchResults.length} ${searchResults.length === 1 ? 'poem' : 'poems'
-            } found${searchTerm ? ` for "${searchTerm}"` : ''}`}
+          description={`${searchResults.length} ${
+            searchResults.length === 1 ? 'poem' : 'poems'
+          } found${searchTerm ? ` for "${searchTerm}"` : ''}`}
         />
 
         {searchResults.length === 0 ? (
@@ -35,9 +36,7 @@ const SearchPage: React.FC<SearchPageProps> = ({ poems }) => {
             <p className="text-gray-600 mb-6">
               No poems found matching your search
             </p>
-            <ActionButton href="/poems">
-              Browse All Poems
-            </ActionButton>
+            <ActionButton href="/poems">Browse All Poems</ActionButton>
           </div>
         ) : (
           <PaginatedPoemList

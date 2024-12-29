@@ -1,7 +1,7 @@
 // components/shared/buttons/action-buttons.tsx
+import { ArrowRight } from 'lucide-react';
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface ActionButtonProps {
@@ -12,28 +12,23 @@ interface ActionButtonProps {
   variant?: 'primary' | 'secondary';
 }
 
-export const ActionButton = ({ 
-  href, 
-  children, 
+export const ActionButton = ({
+  href,
+  children,
   icon: Icon = ArrowRight,
   className,
-  variant = 'primary'
+  variant = 'primary',
 }: ActionButtonProps) => {
-  const baseStyles = "inline-flex items-center transition-colors";
+  const baseStyles = 'inline-flex items-center transition-colors';
   const variants = {
-    primary: "px-5 py-2.5 md:px-6 md:py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700",
-    secondary: "px-6 py-3 bg-white text-gray-800 border rounded-lg hover:bg-gray-50"
+    primary:
+      'px-5 py-2.5 md:px-6 md:py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700',
+    secondary:
+      'px-6 py-3 bg-white text-gray-800 border rounded-lg hover:bg-gray-50',
   };
 
   return (
-    <Link 
-      href={href}
-      className={cn(
-        baseStyles,
-        variants[variant],
-        className
-      )}
-    >
+    <Link href={href} className={cn(baseStyles, variants[variant], className)}>
       {children}
       <Icon className="w-4 h-4 ml-2" />
     </Link>
@@ -55,14 +50,14 @@ export const NavButton = ({
   icon: Icon = ArrowRight,
   iconPosition = 'right',
   className,
-  onClick
+  onClick,
 }: NavButtonProps) => {
   return (
     <Link
       href={href}
       onClick={onClick}
       className={cn(
-        "text-blue-600 hover:text-blue-700 inline-flex items-center gap-2 text-sm",
+        'text-blue-600 hover:text-blue-700 inline-flex items-center gap-2 text-sm',
         className
       )}
     >

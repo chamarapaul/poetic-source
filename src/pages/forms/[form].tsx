@@ -53,7 +53,7 @@ export default function FormPage({ poems, form }: FormPageProps) {
               <CardTitle>Example Structure</CardTitle>
             </CardHeader>
             <CardContent className="p-4 md:space-y-2 pt-0">
-              <pre className="bg-gray-50 p-4 rounded-lg whitespace-pre-wrap text-sm md:text-base overflow-x-auto">
+              <pre className="bg-gray-50 p-2 md:p-4 rounded-lg whitespace-pre-wrap text-xs md:text-base overflow-x-auto">
                 {formInfo.example}
               </pre>
             </CardContent>

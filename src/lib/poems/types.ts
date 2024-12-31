@@ -53,7 +53,7 @@ export const formStructureInfo: Record<PoemForm, PoemFormStructure> = {
       'Refrain can echo core programming concept',
     ],
     example:
-      '# Contains 3 linked couplets with "-old" rhyme/refrain\n\ndef search():\n   return truth.unfold()\nwhile stars.align():\n   paths.behold()\ntry peace.await():\n   dreams.unfold()',
+      '# Contains 3 couplets with "-old" rhyme/refrain\n\ndef search():\n   return truth.unfold()\nwhile stars.align():\n   paths.behold()\ntry peace.await():\n   dreams.unfold()',
     // example is in python
   },
   haiku: {
@@ -68,7 +68,7 @@ export const formStructureInfo: Record<PoemForm, PoemFormStructure> = {
       'Comments can be used to maintain syllable structure',
     ],
     example:
-      '# morning light breaks through    # 5 syllables\nif time.flows_between_the_stars():    # 7 syllables\n# shadows dance and fade    # 5 syllables',
+      '# bugs hide in shadows    # 5\nif debug.illuminates():    # 7\n# solutions are found    # 5',
     // example is in python
   },
   koan: {
@@ -97,7 +97,7 @@ export const formStructureInfo: Record<PoemForm, PoemFormStructure> = {
       'Function definitions, error handling, or async operations work well with this structure',
     ],
     example:
-      'def call() -> Sign:             # A\n    let morning_stars.align():    # A\n        while time.flies_away()    # B\n        return light.design()    # A',
+      'def call() -> Sign:           # A\n    let morning_stars.align():  # A\n        while time.flies_away()  # B\n        return light.design()  # A',
     //example is in python
   },
   tanka: {

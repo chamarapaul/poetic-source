@@ -2,7 +2,7 @@
 id: "ocean-search"
 title: "Ocean Search"
 author: "Poetic Source"
-date: "2024-12-28T12:00:00Z"
+date: "2024-12-29T01:02:17-05:00"
 form: "tanka"
 language: "objectivec"
 tags:
@@ -11,7 +11,7 @@ tags:
   - ocean
   - binary-search
   - tides
-preview: "A binary search through ocean depths becomes a meditation on memory and searching, where each comparison draws us deeper into the waters of recollection."
+preview: "A binary search through ocean depths becomes a meditation on memory and searching, where each comparison draws us deeper into the waters of recollection"
 notes:
   composition: |
     The poem follows the traditional 5-7-5-7-7 syllable pattern of tanka, with each line serving both as valid Objective-C code and poetic imagery. The ocean metaphor connects the technical concept of binary search with the emotional journey of seeking memories in deepening waters. Method names like `searchWaters` and `searchDeeper` extend the oceanic theme. The `Fish` represent precious memories to be caught from the depths, echoing David Lynch's quote: 

@@ -17,36 +17,40 @@ preview: "A meditation on the quantum nature of reality through lazy evaluation,
 notes:
   composition: |
     The poem uses Lisp's lazy evaluation and stream processing to explore quantum mechanical concepts. Each function represents a different aspect of the quantum world:
-        • reality-stream: The infinite flow of possible states
-        • observe: The collapse of quantum superposition
-        • superposition-p: The nature of uncollapsed possibility
-        • collapse-wave-function: The moment of observation creating reality
+
+    • reality-stream: The infinite flow of possible states
+    • observe: The collapse of quantum superposition
+    • superposition-p: The nature of uncollapsed possibility
+    • collapse-wave-function: The moment of observation creating reality
     
     The structure mirrors quantum physics concepts while maintaining valid Lisp syntax, using comments to pose deeper questions about the nature of reality and observation.
   technical: |
     Leverages several key Lisp features:
-        • Cons cells for building lazy streams
-        • Lambda functions for delayed evaluation
-        • Predicates for type checking (superposition-p)
-        • Let bindings for local state
-        • Recursion for infinite streams
-        • Dynamic typing for quantum states
+
+    • Cons cells for building lazy streams
+    • Lambda functions for delayed evaluation
+    • Predicates for type checking (superposition-p)
+    • Let bindings for local state
+    • Recursion for infinite streams
+    • Dynamic typing for quantum states
     
     The code demonstrates genuine lazy evaluation patterns where computation only occurs at the point of observation - mirroring quantum mechanics where reality is only determined when measured.
   philosophical: |
     Explores fundamental questions about reality and consciousness:
-        • Is reality determined before observation?
-        • Does consciousness create reality by observing it?
-        • How can possibilities exist in superposition?
-        • What is the relationship between observer and observed?
-        • How does time flow in a quantum universe?
+
+    • Is reality determined before observation?
+    • Does consciousness create reality by observing it?
+    • How can possibilities exist in superposition?
+    • What is the relationship between observer and observed?
+    • How does time flow in a quantum universe?
     
     Key insights:
-        • Reality as an infinite stream of possibilities
-        • Observation as an act of creation
-        • The paradox of determinism vs free will
-        • The recursive nature of consciousness observing itself
-        • The eternal dance between possibility and actuality
+
+    • Reality as an infinite stream of possibilities
+    • Observation as an act of creation
+    • The paradox of determinism vs free will
+    • The recursive nature of consciousness observing itself
+    • The eternal dance between possibility and actuality
 ---
 ;; Reality flows as an infinite stream
 ;; Until observed, all paths exist at once

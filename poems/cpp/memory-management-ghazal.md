@@ -16,11 +16,12 @@ notes:
   composition: "This ghazal follows the traditional form, with an opening couplet (matla) that sets the stage for the poem's theme and meter. The subsequent couplets (shers) each end with the same refrain 'free', maintaining a consistent rhythm and exploring memory management through the lens of C++ pointers and smart pointers."
   technical: |
     The poem covers key aspects of C++ memory management:
-      • Matla (opening couplet): Introduces the theme of memory management
-      • First couplet: Manual memory management with 'new' and 'delete'
-      • Second couplet: Shared ownership with std::shared_ptr
-      • Third couplet: Exclusive ownership with std::unique_ptr
-      • Final couplet: Breaking cycles with smart pointers
+
+    • Matla (opening couplet): Introduces the theme of memory management
+    • First couplet: Manual memory management with 'new' and 'delete'
+    • Second couplet: Shared ownership with std::shared_ptr
+    • Third couplet: Exclusive ownership with std::unique_ptr
+    • Final couplet: Breaking cycles with smart pointers
         
     The use of C++ syntax and standard library features (std::make_shared, std::make_unique) adds authenticity while maintaining readability.
   philosophical: "The poem explores the interplay between the programmer's responsibility and the language's mechanisms for handling memory. It draws parallels between the cycles of allocation and deallocation and the broader themes of ownership, control, and release. The refrain 'free' emphasizes the importance of letting go and allowing memory to be reclaimed when it is no longer needed."

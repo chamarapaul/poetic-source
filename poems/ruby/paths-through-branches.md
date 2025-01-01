@@ -19,10 +19,11 @@ notes:
   composition: "The poem is structured as four linked haikus, each serving both technical and poetic purposes. The first three develop the core algorithm with natural imagery ('shoots', 'wings', 'garden'), while the fourth introduces a visual demonstration. Botanical emojis (🌱, 🍃) provide a visual metaphor for growth and traversal, transforming from seedlings to leaves as we walk the path."
   technical: |
     Each haiku corresponds to a specific technical component:
-      1. First defines the TreeNode class with left and right children
-      2. Second implements the recursive traversal pattern
-      3. Third handles visit logic with Ruby's block system
-      4. Fourth demonstrates the structure with a visual tree representation
+
+    1. First defines the TreeNode class with left and right children
+    2. Second implements the recursive traversal pattern
+    3. Third handles visit logic with Ruby's block system
+    4. Fourth demonstrates the structure with a visual tree representation
     
     The code is both poetic and functional, using Ruby's natural syntax to implement an in-order tree traversal algorithm.
   philosophical: "Explores the harmony between natural and computational structures through Ruby's expressive syntax. Trees in nature and in code share fundamental patterns of growth, exploration, and recursion. The transformation from seedling (🌱) to leaf (🍃) emoji in the visualization represents both the traversal of the tree and the journey from potential to realization. The poem suggests that programming patterns are discoveries of natural forms rather than purely human constructs."

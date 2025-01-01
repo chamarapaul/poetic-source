@@ -16,19 +16,21 @@ preview: "A meditation on fractals and infinity, where APL's symbols dance throu
 notes:
   composition: |
     The poem is structured in six movements, each exploring different aspects of fractals:
-        1. Genesis - The fundamental seed pattern, representing the basic unit
-        2. Pattern Unfolds - The expansion into four dimensions
-        3. Recursive Dreams - The nature of self-similarity
-        4. The Fractal Dance - Time and iteration creating complexity
-        5. Mandelbrot's Whisper - The emergence of infinite complexity
-        6. The Final Iteration - A philosophical reflection on recursion
+
+    1. Genesis - The fundamental seed pattern, representing the basic unit
+    2. Pattern Unfolds - The expansion into four dimensions
+    3. Recursive Dreams - The nature of self-similarity
+    4. The Fractal Dance - Time and iteration creating complexity
+    5. Mandelbrot's Whisper - The emergence of infinite complexity
+    6. The Final Iteration - A philosophical reflection on recursion
     
     APL's unique symbols are used both functionally and poetically:
-        • ⍴ (shape) represents the forming of dimensions
-        • ∘. (outer product) shows pattern emergence
-        • → (branch) represents decision points
-        • ⍪ (catenate) shows joining of patterns
-        • ∊ (enlist) represents flattening of dimensions
+
+    • ⍴ (shape) represents the forming of dimensions
+    • ∘. (outer product) shows pattern emergence
+    • → (branch) represents decision points
+    • ⍪ (catenate) shows joining of patterns
+    • ∊ (enlist) represents flattening of dimensions
     
     Each function generates actual fractal-like patterns, making the code both poetry and mathematical art.
   technical: |
@@ -76,35 +78,36 @@ notes:
     ---
 
     Technical implementation details:
-        • Uses APL's array operations for efficient pattern generation
-        • Leverages complex number arithmetic for Mandelbrot calculations
-        • Employs recursive function calls for self-similarity
-        • Utilizes control flow (→) for recursive depth control
-        • Demonstrates both iterative and recursive pattern building
+
+    • Uses APL's array operations for efficient pattern generation
+    • Leverages complex number arithmetic for Mandelbrot calculations
+    • Employs recursive function calls for self-similarity
+    • Utilizes control flow (→) for recursive depth control
+    • Demonstrates both iterative and recursive pattern building
 
     Each function is valid APL code that can be executed to generate these patterns.
   philosophical: |
     The poem explores several deep themes through fractal mathematics:
     
     1. Emergence of Complexity:
-       • How simple rules create infinite complexity
-       • The relationship between seed patterns and grown forms
-       • The emergence of consciousness from simple patterns
+    • How simple rules create infinite complexity
+    • The relationship between seed patterns and grown forms
+    • The emergence of consciousness from simple patterns
     
     2. Self-Similarity Across Scales:
-       • Each part contains reflections of the whole
-       • Patterns repeating at different levels
-       • The relationship between micro and macro
+    • Each part contains reflections of the whole
+    • Patterns repeating at different levels
+    • The relationship between micro and macro
     
     3. The Nature of Infinity:
-       • Infinite detail within finite boundaries
-       • The recursive nature of consciousness
-       • The relationship between time and space
+    • Infinite detail within finite boundaries
+    • The recursive nature of consciousness
+    • The relationship between time and space
     
     4. The Bridge Between Mathematics and Mind:
-       • How mathematical patterns reflect consciousness
-       • The role of recursion in self-awareness
-       • The emergence of beauty from logic
+    • How mathematical patterns reflect consciousness
+    • The role of recursion in self-awareness
+    • The emergence of beauty from logic
     
     The poem suggests that fractals might be more than mathematical curiosities - they could be fundamental patterns of thought and existence itself.
 ---

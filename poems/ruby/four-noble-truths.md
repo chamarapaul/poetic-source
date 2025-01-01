@@ -16,40 +16,44 @@ preview: "A contemplative exploration of memory management through Buddhist phil
 notes:
   composition: |
     The poem is structured in five parts, mirroring Buddhist teachings:
-      1. The Four Noble Truths as Ruby classes and modules
-      2. Memory concepts expressed through Ruby's object system
-      3. Comments serve as contemplative verses
-      4. Ruby blocks represent containment and release
-      5. Concludes with a koan about the cyclical nature of existence
+
+    1. The Four Noble Truths as Ruby classes and modules
+    2. Memory concepts expressed through Ruby's object system
+    3. Comments serve as contemplative verses
+    4. Ruby blocks represent containment and release
+    5. Concludes with a koan about the cyclical nature of existence
     
     Ruby's elegant syntax and object-oriented nature allow the metaphors to flow naturally, while its memory management features ground the technical concepts.
   technical: |
     Demonstrates memory management concepts using Ruby's features:
-      • ObjectSpace for memory introspection
-      • Garbage collection through GC module
-      • Object lifecycle management
-      • Reference and cycle handling
-      • Memory compaction and optimization
-      • Block-based resource management
-      • Exception handling for cycle demonstration
+
+    • ObjectSpace for memory introspection
+    • Garbage collection through GC module
+    • Object lifecycle management
+    • Reference and cycle handling
+    • Memory compaction and optimization
+    • Block-based resource management
+    • Exception handling for cycle demonstration
     
     Each concept is expressed using Ruby's actual memory management capabilities while maintaining poetic metaphors.
 
   philosophical: |
     Maps fundamental Buddhist concepts to memory management:
-      1. First Noble Truth: Memory fragmentation and leaks as inherent suffering
-      2. Second Noble Truth: Reference cycles and attachments as the cause
-      3. Third Noble Truth: Garbage collection as a path to liberation
-      4. Fourth Noble Truth: Memory management best practices as the Eightfold Path
+
+    1. First Noble Truth: Memory fragmentation and leaks as inherent suffering
+    2. Second Noble Truth: Reference cycles and attachments as the cause
+    3. Third Noble Truth: Garbage collection as a path to liberation
+    4. Fourth Noble Truth: Memory management best practices as the Eightfold Path
     
     Key parallels:
-      • Object references as forms of attachment
-      • Garbage collection as letting go
-      • Memory optimization as mindful practice
-      • Object lifecycles as samsara
-      • Nil as representation of emptiness
-      • Exception handling as persistence of suffering
-      • Block-given pattern as openness to change
+
+    • Object references as forms of attachment
+    • Garbage collection as letting go
+    • Memory optimization as mindful practice
+    • Object lifecycles as samsara
+    • Nil as representation of emptiness
+    • Exception handling as persistence of suffering
+    • Block-given pattern as openness to change
     
     The final koan questions the nature of program existence through Ruby's object model, suggesting that even in perfect memory management, the fundamental questions of existence persist.
 ---

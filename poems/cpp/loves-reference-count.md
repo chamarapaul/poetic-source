@@ -16,28 +16,31 @@ preview: "A meditation on love through the lens of C++'s reference counting and 
 notes:
   composition: |
     The poem uses C++'s smart pointer system to explore different aspects of love and attachment. Each method represents a different phase or aspect of love:
-        • Construction represents new love's awakening
-        • Shared pointers represent strong bonds
-        • Weak pointers represent memories and past attachments
-        • Reference counting mirrors how we hold onto relationships
-        • Destructors reflect the natural cycle of letting go
+
+    • Construction represents new love's awakening
+    • Shared pointers represent strong bonds
+    • Weak pointers represent memories and past attachments
+    • Reference counting mirrors how we hold onto relationships
+    • Destructors reflect the natural cycle of letting go
   technical: |
     Leverages several C++ memory management features:
-        • std::shared_ptr for shared ownership semantics
-        • std::weak_ptr for non-owning references
-        • RAII for lifecycle management
-        • Templates for generic love types
-        • Move semantics for relationship transitions
-        • Custom allocators for memory patterns
+
+    • std::shared_ptr for shared ownership semantics
+    • std::weak_ptr for non-owning references
+    • RAII for lifecycle management
+    • Templates for generic love types
+    • Move semantics for relationship transitions
+    • Custom allocators for memory patterns
 
     The code is both metaphorical and technically valid C++.
   philosophical: |
     Explores several aspects of love through memory management:
-        • How do we share our hearts while maintaining boundaries?
-        • What happens to past loves - do they truly expire?
-        • How does memory of love persist after letting go?
-        • When multiple hearts share the same love, who owns it?
-        • Is love ever truly destroyed, or just returned to the universe?
+
+    • How do we share our hearts while maintaining boundaries?
+    • What happens to past loves - do they truly expire?
+    • How does memory of love persist after letting go?
+    • When multiple hearts share the same love, who owns it?
+    • Is love ever truly destroyed, or just returned to the universe?
 ---
 #include <memory>
 #include <vector>

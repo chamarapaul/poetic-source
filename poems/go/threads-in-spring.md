@@ -16,10 +16,11 @@ notes:
   composition: "The code poem maintains a cohesive narrative through haiku-structured comments, with each stanza focusing on a single theme. The technical implementation in Go and the poetic expression work together to explore the beauty of concurrent computation."
   technical: |
     The code uses Go's concurrency primitives to implement parallel processing:
-      • Two goroutines, `taskOne` and `taskTwo`, represent concurrent tasks
-      • `sync.WaitGroup` ensures the main goroutine waits for all tasks to complete
-      • Channels facilitate communication between goroutines 
-      • An anonymous goroutine waits for tasks to finish and closes the channel
+
+    • Two goroutines, `taskOne` and `taskTwo`, represent concurrent tasks
+    • `sync.WaitGroup` ensures the main goroutine waits for all tasks to complete
+    • Channels facilitate communication between goroutines 
+    • An anonymous goroutine waits for tasks to finish and closes the channel
   philosophical: "The poem draws parallels between concurrent computation and the natural world. Concurrent thoughts blooming like flowers in a spring code garden suggest the beauty and growth inherent in parallel processing. The merging of insights when threads join together evokes the idea of wisdom blossoming forth from the harmonious synthesis of independent explorations. The poem invites us to see the elegance and interconnectedness of concurrent systems, mirroring the patterns and rhythms of nature."
 ---
 package main

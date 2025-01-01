@@ -1,5 +1,6 @@
 // pages/_app.tsx
 import { GoogleAnalytics } from '@next/third-parties/google';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import '../styles/globals.css';
@@ -28,6 +29,7 @@ export default function App({
         />
       </Head>
       <Component {...pageProps} />
+      <SpeedInsights />
       <GoogleAnalytics gaId="G-4M4EDCKC5F" />
     </>
   );

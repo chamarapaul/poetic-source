@@ -75,8 +75,6 @@ notes:
 
     6. Infinity recursively traverses and flattens nested structures, representing the infinite nature of fractal patterns.
 
-    ---
-
     Technical implementation details:
 
     • Uses APL's array operations for efficient pattern generation

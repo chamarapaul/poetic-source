@@ -9,14 +9,13 @@ tags:
   - divine-feminine
   - infinity
   - consciousness
-  - protection
   - paradox
   - being
   - light
 preview: "A meditation on the omnipresent divine feminine through Objective-C's message passing paradigm, exploring how every attempt to move through existence reveals deeper layers of the eternal mother's embrace"
 notes:
   composition: |
-    The poem uses Objective-C's distinctive features to explore divine immanence:
+    Inspired by the Way of the Rose (wayoftherose.org), this poem uses Objective-C's distinctive features to explore divine immanence:
 
     • Message passing represents communication between a being and the divine
     • Property attributes (strong/weak) reflect relationships with the infinite
@@ -43,9 +42,9 @@ notes:
     • Light as both essence and container
     • The paradox of seeking what already contains us
     • The transformation of essence through apparent movement
-    
+
     Key insights:
-    
+
     • Every attempt to leave deepens the embrace
     • The container (Mother) is also the essence (light)
     • Movement through layers reveals their unity

@@ -1,5 +1,4 @@
 // components/poems/display/PoemDisplay.tsx
-import { Info } from 'lucide-react';
 import React, { useState } from 'react';
 import CodeBlock from '@/components/poems/display/CodeBlock';
 import { NotesSection } from '@/components/poems/display/NotesSection';
@@ -43,7 +42,6 @@ export default function PoemDisplay({
       {!isFeatured && (
         <div className="px-6 pb-6">
           <div className="flex items-center text-sm text-gray-600 justify-end">
-            <Info className="w-4 h-4 mr-2" />
             <span>Created by {poem.author}</span>
           </div>
         </div>

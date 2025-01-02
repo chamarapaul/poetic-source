@@ -189,15 +189,25 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <p className="text-sm text-gray-600">
               © {new Date().getFullYear()} Poetic Source
             </p>
-            <Link
-              href="https://github.com/chamarapaul/poetic-source"
-              className="flex items-center text-gray-600 hover:text-gray-900"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Github className="w-5 h-5 mr-2" />
-              <span>GitHub</span>
-            </Link>
+            <div className="flex items-center gap-4 text-gray-600">
+              <Link
+                href="https://github.com/chamarapaul/poetic-source/issues"
+                className="flex items-center hover:text-gray-900"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>Report Issue</span>
+              </Link>
+              <Link
+                href="https://github.com/chamarapaul/poetic-source"
+                className="flex items-center hover:text-gray-900"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github className="w-5 h-5 mr-2" />
+                <span>GitHub</span>
+              </Link>
+            </div>
           </div>
         </div>
       </footer>

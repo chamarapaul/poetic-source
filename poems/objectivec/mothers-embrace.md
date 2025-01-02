@@ -50,7 +50,7 @@ notes:
     • Movement through layers reveals their unity
     • Protection comes from recognition of containment
     • Doubt itself becomes proof of immanence
-  
+[//]: # (https://wayoftherose.org/2024/10/16/our-lady-speaks-october-16-2024/)  
 ---
 // The Mother encompasses all
 // Layer within infinite layer

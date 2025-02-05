@@ -4,10 +4,16 @@ import { CurationConfig } from './types';
 export const curationConfig: CurationConfig = {
   featuredPoems: [
     {
+      id: 'ocean-search',
+      language: 'objectivec',
+      startDate: '2025-02-04',
+      // Current feature - no endDate
+    },
+    {
       id: 'loves-reference-count',
       language: 'cpp',
       startDate: '2024-12-24',
-      // Current feature - no endDate
+      endDate: '2025-02-04',
     },
     {
       id: 'quantum-tanka',

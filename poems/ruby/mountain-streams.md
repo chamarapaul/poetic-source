@@ -26,7 +26,7 @@ def flow(waters)
   middle = waters.length / 2
   left, right = waters.take(middle), waters.drop(middle)
   
-  # Through valleys they wind deep
+  # Through valleys winding deep
   left_flow = flow(left)
   right_flow = flow(right)
   

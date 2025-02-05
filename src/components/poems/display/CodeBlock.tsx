@@ -8,6 +8,7 @@ import {
   algol68Tokenize,
   aplTokenize,
   befungeTokenize,
+  javaTokenize,
   lispTokenize,
   objectiveCTokenize,
   rubyTokenize,
@@ -36,14 +37,14 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
     algol68: 'plaintext',
     apl: 'apl',
     befunge: 'plaintext',
-    lisp: 'plaintext',
-    objectivec: 'objectivec',
     c: 'c',
     cpp: 'cpp',
     go: 'go',
     java: 'java',
     javascript: 'javascript',
     kotlin: 'kotlin',
+    lisp: 'plaintext',
+    objectivec: 'objectivec',
     python: 'python',
     ruby: 'ruby',
     sql: 'sql',
@@ -57,6 +58,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
       algol68: algol68Tokenize,
       apl: aplTokenize,
       befunge: befungeTokenize,
+      java: javaTokenize,
       lisp: lispTokenize,
       objectivec: objectiveCTokenize,
       ruby: rubyTokenize,
@@ -158,7 +160,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
             <Maximize className="h-4 w-4 text-white" />
           </Button>
         </DialogTrigger>
-        <DialogContent className="p-0 w-full h-[100dvh] bg-[#011627] overflow-hidden">
+        <DialogContent className="p-0 w-full h-[100dvh] bg-[#011627] overflow-hidden [&>button]:hidden">
           <div className="absolute right-4 top-4 z-50">
             <DialogTrigger className="rounded-full p-2 bg-white/10 hover:bg-white/20">
               <X className="h-4 w-4 text-white" />

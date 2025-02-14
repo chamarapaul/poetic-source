@@ -39,7 +39,7 @@ abstract class CosmicDance {
         void unfold() {
             earth.breathe(Light.divine);
             while (seasons.turn()) {
-                stars.alignWith(soul); // Where patterns of light unfold
+                stars.alignWith(soul);  // Where patterns of light unfold
             }
         }
     }

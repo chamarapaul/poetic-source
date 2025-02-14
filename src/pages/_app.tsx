@@ -5,6 +5,8 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import '../styles/globals.css';
 
+const isDev = process.env.NODE_ENV === 'development';
+
 interface CustomPageProps {
   title?: string;
 }
@@ -13,7 +15,7 @@ export default function App({
   Component,
   pageProps,
 }: AppProps<CustomPageProps>) {
-  const defaultTitle = 'Poetic Source';
+  const defaultTitle = `${isDev ? '[DEV] ' : ''}Poetic Source`;
   const pageTitle = pageProps.title
     ? `${pageProps.title} | ${defaultTitle}`
     : defaultTitle;

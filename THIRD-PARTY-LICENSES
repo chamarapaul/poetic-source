@@ -1,0 +1,87 @@
+# THIRD-PARTY SOFTWARE NOTICES AND INFORMATION
+
+This project uses the following third-party software:
+
+## Next.js
+License: MIT License
+Copyright (c) 2024 Vercel, Inc.
+https://github.com/vercel/next.js/blob/canary/license.md
+
+## React
+License: MIT License
+Copyright (c) Meta Platforms, Inc. and affiliates.
+https://github.com/facebook/react/blob/main/LICENSE
+
+## TypeScript
+License: Apache License 2.0
+Copyright (c) Microsoft Corporation
+https://github.com/microsoft/TypeScript/blob/main/LICENSE.txt
+
+## Tailwind CSS
+License: MIT License
+Copyright (c) Tailwind Labs, Inc.
+https://github.com/tailwindlabs/tailwindcss/blob/master/LICENSE
+
+## shadcn/ui
+License: MIT License
+Copyright (c) 2023 shadcn
+https://github.com/shadcn-ui/ui/blob/main/LICENSE.md
+
+## Lucide Icons
+License: ISC License
+Copyright (c) 2024 Lucide Contributors
+https://github.com/lucide-icons/lucide/blob/main/LICENSE
+
+## Prism React Renderer
+License: MIT License
+Copyright (c) 2018 Formidable Labs
+https://github.com/FormidableLabs/prism-react-renderer/blob/master/LICENSE
+
+## Gray Matter
+License: MIT License
+Copyright (c) 2014-present, Jon Schlinkert.
+https://github.com/jonschlinkert/gray-matter/blob/master/LICENSE
+
+## Radix UI
+License: MIT License
+Copyright (c) 2022 WorkOS
+https://github.com/radix-ui/primitives/blob/main/LICENSE
+
+## next-sitemap
+License: MIT License
+Copyright (c) 2020 Ishan Manandhar
+https://github.com/iamvishnusankar/next-sitemap/blob/master/LICENSE
+
+## Vercel Speed Insights
+License: Apache License 2.0
+Copyright (c) 2024 Vercel, Inc.
+https://github.com/vercel/speed-insights/blob/main/LICENSE
+
+## Chalk
+License: MIT License
+Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+https://github.com/chalk/chalk/blob/main/license
+
+The following development dependencies are also used:
+
+## Jest
+License: MIT License
+Copyright (c) Meta Platforms, Inc. and affiliates.
+https://github.com/facebook/jest/blob/main/LICENSE
+
+## ESLint
+License: MIT License
+Copyright OpenJS Foundation and other contributors
+https://github.com/eslint/eslint/blob/main/LICENSE
+
+## Prettier
+License: MIT License
+Copyright (c) James Long and contributors
+https://github.com/prettier/prettier/blob/main/LICENSE
+
+## PostCSS
+License: MIT License
+Copyright 2013 Andrey Sitnik <andrey@sitnik.ru>
+https://github.com/postcss/postcss/blob/main/LICENSE
+
+For full license texts, please visit the respective project websites or GitHub repositories.

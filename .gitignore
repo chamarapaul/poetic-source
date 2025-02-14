@@ -55,3 +55,6 @@ robots.txt
 poems/all_poems.md
 poems/combine_poems.sh
 poems_review/
+
+# private documentation
+DEPLOYMENT.md

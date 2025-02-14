@@ -40,15 +40,11 @@ Your code poem here...
   - Should include meaningful comments that contribute to the poetry
   - Should explore deeper meanings in computer science concepts
 
-5. Validate your poem:
-```bash
-npm run validate-poems
-```
-This will check:
-- Required frontmatter fields
-- Valid field formats (dates, IDs, tags)
-- Directory structure
-- Language and form validity
+5. Validate your poem (`npm run validate-poems`). This will check:
+  - Required frontmatter fields
+  - Valid field formats (dates, IDs, tags)
+  - Directory structure
+  - Language and form validity
 
 6. Commit your changes (`git commit -am 'Add new poem'`)
 7. Push to the branch (`git push origin feature/new-poem`)
@@ -58,13 +54,13 @@ This will check:
 - Run validation before submitting to ensure your poem meets the requirements
 - Consider using language and form constraints to enhance both the code and poetic aspects
 
-Pull requests will be checked for poem validation and poetic form adherence.
-
 ## Terms of Submission
+Pull requests will be checked for poem validation and poetic form adherence. 
+
 By submitting a poem, you:
 - Agree to license it under CC BY-SA 4.0 while maintaining your copyright (see [LICENSE-POEMS](LICENSE-POEMS))
 - Accept the project's terms of use (see [TERMS.md](TERMS.md))
 - Grant the project permission to display and share your work
 
 ## Questions or Need Help?
-Open an issue for general questions or contact me at chamara@poeticsource.com.
+Open an issue for general questions or email me at chamara@poeticsource.com.
